@@ -5,3 +5,12 @@ __copyright__ = "2007-2021, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
 __version__ =   "0.1.0"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
+
+
+from pyTooling.Decorators import export
+from pyTooling.Configuration import Configuration
+
+
+@export
+class Installations:
+	_config: Configuration
