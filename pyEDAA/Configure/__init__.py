@@ -37,6 +37,8 @@ __version__ =   "0.1.0"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 
+from pathlib import Path
+
 from pyTooling.Decorators import export
 from pyTooling.Configuration import Configuration
 
