@@ -40,3 +40,16 @@ class FromYaml(TestCase):
 
 	def test_1(self):
 		installation = Installations(self._yamlFile)
+
+		aldec = installation["Aldec"]
+		self.assertIs(installation, aldec.Installation)
+		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
+
+		activeHDL = aldec["Active-HDL"]
+		self.assertIs(aldec, activeHDL.Vendor)
+
+		# activeHDLVersion = activeHDL["10.3"]
+		# self.assertIs(activeHDL, activeHDLVersion.Tool)
+		# self.assertEqual(r"C:\Aldec\Active-HDL\10.3", activeHDLVersion.InstallationDirectory)
+		# self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", activeHDLVersion.BinaryDirectory)
+		# self.assertEqual(r"10.3", activeHDLVersion.Version)

@@ -144,13 +144,13 @@ Installations:
         BinaryDirectory:       '${InstallationDirectory}\win32aloem'
         Edition:               'ModelSim Altera Starter Edition'
 
-    ModelSimDE:
-
-    ModelSimSE32:
-
-    ModelSimSE64:
-
-    QuestaSim:
+#    ModelSimDE:
+#
+#    ModelSimSE32:
+#
+#    ModelSimSE64:
+#
+#    QuestaSim:
 
   Xilinx:
     InstallationDirectory:     'C:\Xilinx'
@@ -181,9 +181,9 @@ Installations:
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
-    Vivado-SDK:
-
-    Vitis:
+#    Vivado-SDK:
+#
+#    Vitis:
 
   SystemTools:
     InstallationDirectory:     'C:\Program Files'

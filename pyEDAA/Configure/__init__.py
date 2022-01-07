@@ -39,13 +39,44 @@ __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 from pathlib import Path
 
+from pyTooling.Configuration import Dictionary
 from pyTooling.Decorators import export
 from pyTooling.Configuration.YAML import Configuration
+from .DataModel import (
+	Installation as DM_Installation,
+	Vendor as DM_Vendor,
+	Tool as DM_Tool,
+	ToolInstance as DM_ToolInstance
+)
 
 
 @export
-class Installations:
+class Installations(DM_Installation):
 	_config: Configuration
 
 	def __init__(self, yamlFile: Path):
+		super().__init__()
 		self._config = Configuration(yamlFile)
+
+		for configVendor in self._config["Installations"]:
+			vendor = DM_Vendor(configVendor.Key, configVendor["InstallationDirectory"], parent=self)
+			self._vendors[configVendor.Key] = vendor
+
+			for configTool in configVendor:
+				if not isinstance(configTool, Dictionary):
+					continue
+
+				tool = DM_Tool(configTool.Key, parent=vendor)
+				vendor._tools[configTool.Key] = tool
+
+				# for configVariant in configTool:
+				# 	if not isinstance(configVariant, Dictionary):
+				# 		continue
+
+# 					variant = DM_ToolInstance(
+# 						installationDirectory=configVariant["InstallationDirectory"],
+# 						binaryDirectory=configVariant["BinaryDirectory"],
+# #						version=configVariant["Version"]
+# 						parent=tool
+# 					)
+# 					tool._variants[configVariant.Key] = variant
