@@ -36,7 +36,7 @@ from pyEDAA.Configure import Installations
 
 
 class FromYaml(TestCase):
-	_yamlFile = Path(r"../configuration.yml")
+	_yamlFile = Path(r"tests/configuration.yml")
 
 	def test_1(self):
 		installation = Installations(self._yamlFile)
