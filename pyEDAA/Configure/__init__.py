@@ -50,6 +50,56 @@ from .DataModel import (
 )
 
 
+class ConfigurationMixIn:
+	_config: Dictionary
+
+	def __init__(self, config: Dictionary):
+		self._config = config
+
+
+@export
+class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
+	def __init__(self, config: Dictionary, parent: "Vendor"):
+		name = config.Key
+		installationDirectory = config["InstallationDirectory"]
+		binaryDirectory = config["BinaryDirectory"]
+#		version = config["Version"]
+
+		super().__init__(name, installationDirectory, binaryDirectory, parent=parent)
+		ConfigurationMixIn.__init__(self, config)
+
+
+@export
+class Tool(DM_Tool, ConfigurationMixIn):
+	def __init__(self, config: Dictionary, parent: "Vendor"):
+		name = config.Key
+
+		super().__init__(name, parent=parent)
+		ConfigurationMixIn.__init__(self, config)
+
+	def _LoadVariant(self, key: str) -> ToolInstance:
+		instance = ToolInstance(self._config[key], parent=self)
+		self._variants[key] = instance
+
+		return instance
+
+
+@export
+class Vendor(DM_Vendor, ConfigurationMixIn):
+	def __init__(self, config: Dictionary, parent: "Installations"):
+		name = config.Key
+		installationDirectory = config["InstallationDirectory"]
+
+		super().__init__(name, installationDirectory, parent=parent)
+		ConfigurationMixIn.__init__(self, config)
+
+	def _LoadTool(self, key: str) -> Tool:
+		tool = Tool(self._config[key], parent=self)
+		self._tools[key] = tool
+
+		return tool
+
+
 @export
 class Installations(DM_Installation):
 	_config: Configuration
@@ -58,25 +108,8 @@ class Installations(DM_Installation):
 		super().__init__()
 		self._config = Configuration(yamlFile)
 
-		for configVendor in self._config["Installations"]:
-			vendor = DM_Vendor(configVendor.Key, configVendor["InstallationDirectory"], parent=self)
-			self._vendors[configVendor.Key] = vendor
+	def _LoadVendor(self, key: str) -> Vendor:
+		vendor = Vendor(self._config["Installations"][key], parent=self)
+		self._vendors[key] = vendor
 
-			for configTool in configVendor:
-				if not isinstance(configTool, Dictionary):
-					continue
-
-				tool = DM_Tool(configTool.Key, parent=vendor)
-				vendor._tools[configTool.Key] = tool
-
-				# for configVariant in configTool:
-				# 	if not isinstance(configVariant, Dictionary):
-				# 		continue
-
-# 					variant = DM_ToolInstance(
-# 						installationDirectory=configVariant["InstallationDirectory"],
-# 						binaryDirectory=configVariant["BinaryDirectory"],
-# #						version=configVariant["Version"]
-# 						parent=tool
-# 					)
-# 					tool._variants[configVariant.Key] = variant
+		return vendor
