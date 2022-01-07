@@ -6,12 +6,13 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Active-HDL'
 
       Default:
-        Version:               10.3
+        Version:               '10.3'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
       '10.3':
-        InstallationDirectory: '${..:InstallationDirectory}\10.3'
+        Version:               '10.3'
+        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
 
@@ -19,15 +20,17 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Default:
-        Version:               2021.10
+        Version:               '2021.10'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      2021.04:
-        InstallationDirectory: '${..:InstallationDirectory}\2021.04'
+      '2021.04':
+        Version:               '2021.04'
+        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
-      2021.10:
-        InstallationDirectory: '${..:InstallationDirectory}\2021.10'
+      '2021.10':
+        Version:               '2021.10'
+        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
   Altera:
@@ -37,12 +40,13 @@ Installations:
       InstallationDir:         'quartus'
 
       Default:
-        Version: 16.0
+        Version:               '16.0'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      16.0:
-        InstallationDirectory: '${..:..:InstallationDirectory}\16.0\${..:InstallationDir}'
+      '16.0':
+        Version:               '16.0'
+        InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
         BinaryDirectory:       '${InstallationDirectory}\bin64'
 
 
@@ -50,14 +54,14 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Selection:
-        Version:               10.4d
+        Version:               '10.4d'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      10.4d:
+      '10.4d':
         QuartusVersion:        '16.0'
-        InstallationDirectory: '${..:..:InstallationDirectory}\16.0\modelsim_ase'
+        InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
         BinaryDirectory:       '${InstallationDirectory}\win32aloem'
         Edition:               'ModelSim Altera Starter Edition'
 
@@ -68,12 +72,13 @@ Installations:
       InstallationDir:         'quartus'
 
       Default:
-        Version:               16.1
+        Version:               '16.1'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      16.0:
-        InstallationDirectory: '${..:..:InstallationDirectory}\16.1\${..:InstallationDir}'
+      '16.1':
+        Version:               '16.1'
+        InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
         BinaryDirectory:       '${InstallationDirectory}\bin64'
 
 
@@ -81,14 +86,14 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Default:
-        Version:               10.5d
+        Version:               '10.5d'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      10.5d:
+      '10.5d':
         QuartusVersion:        '16.1'
-        InstallationDirectory: '${..:..:InstallationDirectory}\16.1\modelsim_ase'
+        InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
         BinaryDirectory:       '${InstallationDirectory}\win32aloem'
         Edition:               'ModelSim Altera Starter Edition'
 
@@ -99,12 +104,13 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Diamond'
 
       Default:
-        Version:               3.8
+        Version:               '3.8'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      3.8:
-        InstallationDirectory: '${..:InstallationDirectory}\3.8'
+      '3.8':
+        Version:               '3.8'
+        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}/bin/nt64'
         BinaryDirectory2:      '${InstallationDirectory}/ispfpga/bin/nt64'
 
@@ -112,12 +118,12 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Selection:
-        Version:               10.5d
+        Version:               '10.5d'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      10.3:
+      '10.3':
         DiamondVersion:        '3.8'
         InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}\active-hdl'
         BinaryDirectory:       '${InstallationDirectory}\BIN'
@@ -133,16 +139,16 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\ModelSim'
 
       Default:
-        Version:               10.5d
+        Version:               '10.5d'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      10.5d:
-        QuartusVersion:        '16.1'
-        InstallationDirectory: '${..:..:InstallationDirectory}\16.1\modelsim_ase'
-        BinaryDirectory:       '${InstallationDirectory}\win32aloem'
-        Edition:               'ModelSim Altera Starter Edition'
+      '10.5d':
+        Version:               '10.5b'
+        InstallationDirectory: '${..:..:InstallationDirectory}\'
+        BinaryDirectory:       '${InstallationDirectory}\bin'
+        Edition:               'ModelSim PE'
 
 #    ModelSimDE:
 #
@@ -159,11 +165,11 @@ Installations:
       InstallationDir:         'ISE_DS'
 
       Default:
-        Version:               14.7
+        Version:               '14.7'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      14.7:
+      '14.7':
         Version:               '14.7'
         InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
         BinaryDirectory:       '${InstallationDirectory}\ISE\bin\nt64'
@@ -172,7 +178,7 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Vivado'
 
       Default:
-        Version:               2021.2
+        Version:               '2021.2'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
@@ -189,7 +195,7 @@ Installations:
     InstallationDirectory:     'C:\Program Files'
 
     Git:
-      Version:                 2.31
+      Version:                 '2.31'
       InstallationDirectory:   '${..:InstallationDirectory}\Git'
       BinaryDirectory:         '${InstallationDirectory}\bin'
 
@@ -199,8 +205,8 @@ Installations:
     ghdl:
       InstallationDirectory:   '${..:InstallationDirectory}\GHDL'
 
-      2.0.0-dev:
-        Version:               2.0.0-dev
+      '2.0.0-dev':
+        Version:               '2.0.0-dev'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 #        ScriptDirectory:       '${InstallationDirectory}\scripts'
@@ -210,8 +216,8 @@ Installations:
     GTKWave:
       InstallationDirectory:   '${..:InstallationDirectory}\GTKWave'
 
-      3.3.78:
-        Version:               3.3.78
+      '3.3.78':
+        Version:               '3.3.78'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 

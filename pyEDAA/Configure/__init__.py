@@ -101,6 +101,87 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 
 
 @export
+class Aldec(Vendor):
+	@property
+	def ActiveHDL(self) -> Tool:
+		return self.__getitem__("Active-HDL")
+
+	@property
+	def RivieraPRO(self) -> Tool:
+		return self.__getitem__("Riviera-PRO")
+
+
+@export
+class Altera(Vendor):
+	@property
+	def Quartus(self) -> Tool:
+		return self.__getitem__("Quartus")
+
+	@property
+	def ModelSim(self) -> Tool:
+		return self.__getitem__("ModelSim")
+
+
+@export
+class IntelFPGA(Vendor):
+	@property
+	def Quartus(self) -> Tool:
+		return self.__getitem__("Quartus")
+
+	@property
+	def ModelSim(self) -> Tool:
+		return self.__getitem__("ModelSim")
+
+
+@export
+class MentorGraphics(Vendor):
+	@property
+	def ModelSim(self) -> Tool:
+		return self.__getitem__("ModelSim")
+
+	@property
+	def QuestaSim(self) -> Tool:
+		return self.__getitem__("QuestaSim")
+
+
+@export
+class Xilinx(Vendor):
+	@property
+	def ISE(self) -> Tool:
+		return self.__getitem__("ISE")
+
+	@property
+	def Vivado(self) -> Tool:
+		return self.__getitem__("Vivado")
+
+	@property
+	def VivadoSDK(self) -> Tool:
+		return self.__getitem__("Vivado-SDK")
+
+	@property
+	def Vitis(self) -> Tool:
+		return self.__getitem__("Vitis")
+
+
+@export
+class SystemTools(Vendor):
+	@property
+	def Git(self) -> Tool:
+		return self.__getitem__("Git")
+
+
+@export
+class OpenSource(Vendor):
+	@property
+	def GHDL(self) -> Tool:
+		return self.__getitem__("GHDL")
+
+	@property
+	def GTKWave(self) -> Tool:
+		return self.__getitem__("GTKWave")
+
+
+@export
 class Installations(DM_Installation):
 	_config: Configuration
 
@@ -113,3 +194,71 @@ class Installations(DM_Installation):
 		self._vendors[key] = vendor
 
 		return vendor
+
+	@property
+	def Aldec(self) -> Vendor:
+		return self.__getitem__("Aldec")
+
+	@property
+	def Altera(self) -> Vendor:
+		return self.__getitem__("Altera")
+
+	@property
+	def IntelFPGA(self) -> Vendor:
+		return self.__getitem__("IntelFPGA")
+
+	@property
+	def Lattice(self) -> Vendor:
+		return self.__getitem__("Lattice")
+
+	@property
+	def MentorGraphics(self) -> Vendor:
+		return self.__getitem__("MentorGraphics")
+
+	@property
+	def Xilinx(self) -> Vendor:
+		return self.__getitem__("Xilinx")
+
+	@property
+	def SystemTools(self) -> Vendor:
+		return self.__getitem__("SystemTools")
+
+	@property
+	def OpenSource(self) -> Vendor:
+		return self.__getitem__("OpenSource")
+
+	@property
+	def ActiveHDL(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def RivieraPRO(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def Diamond(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def Quartus(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def ModelSim(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def QuestaSim(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def Vivado(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def VivadoSDK(self) -> ToolInstance:
+		raise NotImplementedError()
+
+	@property
+	def Vitis(self) -> ToolInstance:
+		raise NotImplementedError()

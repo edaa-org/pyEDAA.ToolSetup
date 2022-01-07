@@ -35,7 +35,7 @@ from unittest         import TestCase
 from pyEDAA.Configure import Installations
 
 
-class FromYaml(TestCase):
+class Aldec(TestCase):
 	_yamlFile = Path(r"tests/configuration.yml")
 
 	def test_AccessByNameAsIndex(self):
@@ -53,3 +53,10 @@ class FromYaml(TestCase):
 		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", activeHDLVersion.InstallationDirectory)
 		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", activeHDLVersion.BinaryDirectory)
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
+
+	def test_AccessByProperty(self):
+		installation = Installations(self._yamlFile)
+
+		aldec = installation.Aldec
+		self.assertIs(installation, aldec.Installation)
+		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
