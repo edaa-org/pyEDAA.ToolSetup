@@ -65,7 +65,7 @@ class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
 		binaryDirectory = config["BinaryDirectory"]
 #		version = config["Version"]
 
-		super().__init__(name, installationDirectory, binaryDirectory, parent=parent)
+		super().__init__(installationDirectory, binaryDirectory, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
 
 

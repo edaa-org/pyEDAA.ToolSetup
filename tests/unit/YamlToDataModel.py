@@ -50,6 +50,6 @@ class FromYaml(TestCase):
 
 		activeHDLVersion = activeHDL["10.3"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		# self.assertEqual(r"C:\Aldec\Active-HDL\10.3", activeHDLVersion.InstallationDirectory)
-		# self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", activeHDLVersion.BinaryDirectory)
-		# self.assertEqual(r"10.3", activeHDLVersion.Version)
+		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", activeHDLVersion.InstallationDirectory)
+		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", activeHDLVersion.BinaryDirectory)
+#		self.assertEqual(r"10.3", activeHDLVersion.Version)
