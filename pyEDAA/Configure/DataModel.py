@@ -104,12 +104,18 @@ class Tool:
 	def __contains__(self, key: str) -> bool:
 		return key in self._variants
 
-	def __getitem__(self, key: str):
-		return self._variants[key]
+	def __getitem__(self, key: str) -> ToolInstance:
+		try:
+			return self._variants[key]
+		except KeyError:
+			return self._LoadVariant(key)
 
 	@property
 	def Vendor(self) -> "Vendor":
 		return self._vendor
+
+	def _LoadVariant(self, key: str) -> ToolInstance:
+		raise NotImplementedError()
 
 
 @export
@@ -128,7 +134,13 @@ class Vendor(VendorInformation):
 		return key in self._tools
 
 	def __getitem__(self, key: str) -> Tool:
-		return self._tools[key]
+		try:
+			return self._tools[key]
+		except KeyError:
+			return self._LoadTool(key)
+
+	def _LoadTool(self, key: str) -> Tool:
+		raise NotImplementedError()
 
 	@property
 	def Installation(self) -> "Installation":
@@ -146,4 +158,10 @@ class Installation:
 		return key in self._vendor
 
 	def __getitem__(self, key: str) -> Vendor:
-		return self._vendors[key]
+		try:
+			return self._vendors[key]
+		except KeyError:
+			return self._LoadVendor(key)
+
+	def _LoadVendor(self, key: str) -> Vendor:
+		raise NotImplementedError()
