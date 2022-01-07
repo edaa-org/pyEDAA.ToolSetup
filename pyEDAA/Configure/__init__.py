@@ -38,6 +38,7 @@ __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 
 from pathlib import Path
+from typing  import Dict, ClassVar
 
 from pyTooling.Configuration import Dictionary
 from pyTooling.Decorators import export
@@ -85,7 +86,19 @@ class Tool(DM_Tool, ConfigurationMixIn):
 
 
 @export
+class ActiveHDL(Tool):
+	pass
+
+
+@export
+class RivieraPRO(Tool):
+	pass
+
+
+@export
 class Vendor(DM_Vendor, ConfigurationMixIn):
+	_toolClasses: ClassVar[Dict[str, Tool]]
+
 	def __init__(self, config: Dictionary, parent: "Installations"):
 		name = config.Key
 		installationDirectory = config["InstallationDirectory"]
@@ -94,7 +107,8 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 		ConfigurationMixIn.__init__(self, config)
 
 	def _LoadTool(self, key: str) -> Tool:
-		tool = Tool(self._config[key], parent=self)
+		cls = self._toolClasses[key]
+		tool = cls(self._config[key], parent=self)
 		self._tools[key] = tool
 
 		return tool
@@ -102,6 +116,11 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 
 @export
 class Aldec(Vendor):
+	_toolClasses: Dict[str, Tool] = {
+		"Active-HDL": ActiveHDL,
+		"Riviera-PRO": RivieraPRO,
+	}
+
 	@property
 	def ActiveHDL(self) -> Tool:
 		return self.__getitem__("Active-HDL")
@@ -131,6 +150,17 @@ class IntelFPGA(Vendor):
 	@property
 	def ModelSim(self) -> Tool:
 		return self.__getitem__("ModelSim")
+
+
+@export
+class Lattice(Vendor):
+	@property
+	def Diamond(self) -> Tool:
+		return self.__getitem__("Diamond")
+
+	@property
+	def ActiveHDL(self) -> Tool:
+		return self.__getitem__("Active-HDL")
 
 
 @export
@@ -184,13 +214,24 @@ class OpenSource(Vendor):
 @export
 class Installations(DM_Installation):
 	_config: Configuration
+	_vendorClasses: Dict[str, Vendor] = {
+		"Aldec": Aldec,
+		"Altera": Altera,
+		"IntelFPGA": IntelFPGA,
+		"Lattice": Lattice,
+		"MentorGraphics": MentorGraphics,
+		"Xilinx": Xilinx,
+		"SystemTools": SystemTools,
+		"OpenSource": OpenSource
+	}
 
 	def __init__(self, yamlFile: Path):
 		super().__init__()
 		self._config = Configuration(yamlFile)
 
 	def _LoadVendor(self, key: str) -> Vendor:
-		vendor = Vendor(self._config["Installations"][key], parent=self)
+		cls = self._vendorClasses[key]
+		vendor = cls(self._config["Installations"][key], parent=self)
 		self._vendors[key] = vendor
 
 		return vendor
