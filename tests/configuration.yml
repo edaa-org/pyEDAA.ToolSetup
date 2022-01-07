@@ -10,7 +10,7 @@ Installations:
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      10.3:
+      '10.3':
         InstallationDirectory: '${..:InstallationDirectory}\10.3'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
