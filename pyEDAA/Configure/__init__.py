@@ -40,7 +40,7 @@ __keywords__ =  ["configuration", "eda", "installation", "selection"]
 from pathlib import Path
 
 from pyTooling.Decorators import export
-from pyTooling.Configuration import Configuration
+from pyTooling.Configuration.YAML import Configuration
 
 
 @export
