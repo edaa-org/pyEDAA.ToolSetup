@@ -4,7 +4,7 @@ from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub
 
 gitHubNamespace =        "edaa-org"
 packageName =            "pyEDAA.Configure"
-packageDirectory =       packageName
+packageDirectory =       packageName.replace(".", "/")
 packageInformationFile = Path(f"{packageDirectory}/__init__.py")
 
 DescribePythonPackageHostedOnGitHub(
