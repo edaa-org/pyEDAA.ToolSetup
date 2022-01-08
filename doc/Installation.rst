@@ -14,7 +14,7 @@ Installation from PyPI using PIP
 
 .. code-block:: bash
 
-   pip3 install pyTooling.ToolSetup
+   pip3 install pyEDAA.ToolSetup
 
 
 Updating from PyPI using PIP
@@ -22,7 +22,7 @@ Updating from PyPI using PIP
 
 .. code-block:: bash
 
-   pip3 install -U pyTooling.ToolSetup
+   pip3 install -U pyEDAA.ToolSetup
 
 
 Uninstallation using PIP
@@ -30,7 +30,7 @@ Uninstallation using PIP
 
 .. code-block:: bash
 
-   pip3 uninstall pyTooling.ToolSetup
+   pip3 uninstall pyEDAA.ToolSetup
 
 
 Installation from local directory using PIP
