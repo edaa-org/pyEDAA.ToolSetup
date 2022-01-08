@@ -32,7 +32,7 @@
 from pathlib          import Path
 from unittest         import TestCase
 
-from pyEDAA.Configure import Installations
+from pyEDAA.ToolSetup import Installations
 
 
 class Aldec(TestCase):

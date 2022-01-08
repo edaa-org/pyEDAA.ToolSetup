@@ -32,7 +32,7 @@
 from pathlib import Path
 from unittest             import TestCase
 
-from pyEDAA.Configure.DataModel import ToolInformation, VendorInformation, ToolInstance, Tool, Vendor, Installation
+from pyEDAA.ToolSetup.DataModel import ToolInformation, VendorInformation, ToolInstance, Tool, Vendor, Installation
 
 
 class Layer0(TestCase):
