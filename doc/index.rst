@@ -5,9 +5,7 @@
    :align: center
    :target: https://GitHub.com/edaa-org/pyEDAA.ToolSetup
 
-.. raw:: html
-
-    <br>
+|br|
 
 .. raw:: latex
 
@@ -37,9 +35,7 @@ The pyEDAA.ToolSetup Documentation
    :align: center
    :target: https://GitHub.com/edaa-org/pyEDAA.ToolSetup
 
-.. raw:: html
-
-    <br>
+|br|
 
 .. _contributors:
 
