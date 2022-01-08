@@ -13,17 +13,20 @@
 
 .. only:: html
 
-   |  |SHIELD:svg:ToolSetup-github| |SHIELD:svg:ToolSetup-ghp-doc| |SHIELD:svg:ToolSetup-gitter|
-   |  |SHIELD:svg:ToolSetup-gha-test|
+   |  |SHIELD:svg:ToolSetup-github| |SHIELD:svg:ToolSetup-src-license| |SHIELD:svg:ToolSetup-ghp-doc| |SHIELD:svg:ToolSetup-doc-license| |SHIELD:svg:ToolSetup-gitter|
+   |  |SHIELD:svg:ToolSetup-pypi-tag| |SHIELD:svg:ToolSetup-pypi-status| |SHIELD:svg:ToolSetup-pypi-python|
+   |  |SHIELD:svg:ToolSetup-gha-test| |SHIELD:svg:ToolSetup-lib-status| |SHIELD:svg:ToolSetup-codacy-quality| |SHIELD:svg:ToolSetup-codacy-coverage| |SHIELD:svg:ToolSetup-codecov-coverage|
 
-.. Disabled shields: |SHIELD:svg:ToolSetup-src-license| |SHIELD:svg:ToolSetup-doc-license| |SHIELD:svg:ToolSetup-pypi-tag| |SHIELD:svg:ToolSetup-pypi-status| |SHIELD:svg:ToolSetup-pypi-python| |SHIELD:svg:ToolSetup-lib-status| |SHIELD:svg:ToolSetup-codacy-quality| |SHIELD:svg:ToolSetup-codacy-coverage| |SHIELD:svg:ToolSetup-codecov-coverage| |SHIELD:svg:ToolSetup-lib-dep| |SHIELD:svg:ToolSetup-req-status| |SHIELD:svg:ToolSetup-lib-rank|
+.. Disabled shields: |SHIELD:svg:ToolSetup-lib-dep| |SHIELD:svg:ToolSetup-req-status| |SHIELD:svg:ToolSetup-lib-rank|
 
 .. only:: latex
 
-   |SHIELD:png:ToolSetup-github| |SHIELD:png:ToolSetup-ghp-doc| |SHIELD:png:ToolSetup-gitter|
-   |SHIELD:png:ToolSetup-gha-test|
+   |SHIELD:png:ToolSetup-github| |SHIELD:png:ToolSetup-src-license| |SHIELD:png:ToolSetup-ghp-doc| |SHIELD:png:ToolSetup-doc-license| |SHIELD:svg:ToolSetup-gitter|
+   |SHIELD:png:ToolSetup-pypi-tag| |SHIELD:png:ToolSetup-pypi-status| |SHIELD:png:ToolSetup-pypi-python|
+   |SHIELD:png:ToolSetup-gha-test| |SHIELD:png:ToolSetup-lib-status| |SHIELD:png:ToolSetup-codacy-quality| |SHIELD:png:ToolSetup-codacy-coverage| |SHIELD:png:ToolSetup-codecov-coverage|
 
-.. Disabled shields: |SHIELD:png:ToolSetup-src-license| |SHIELD:png:ToolSetup-doc-license| |SHIELD:png:ToolSetup-pypi-tag| |SHIELD:png:ToolSetup-pypi-status| |SHIELD:png:ToolSetup-pypi-python| |SHIELD:png:ToolSetup-lib-status| |SHIELD:png:ToolSetup-codacy-quality| |SHIELD:png:ToolSetup-codacy-coverage| |SHIELD:png:ToolSetup-codecov-coverage| |SHIELD:png:ToolSetup-lib-dep| |SHIELD:png:ToolSetup-req-status| |SHIELD:png:ToolSetup-lib-rank|
+.. Disabled shields: |SHIELD:png:ToolSetup-lib-dep| |SHIELD:png:ToolSetup-req-status| |SHIELD:png:ToolSetup-lib-rank|
+
 
 The pyEDAA.ToolSetup Documentation
 ##################################

@@ -2,21 +2,26 @@
   <a title="edaa-org.github.io/pyEDAA.ToolSetup" href="https://edaa-org.github.io/pyEDAA.ToolSetup"><img height="80px" src="doc/_static/logo.svg"/></a>
 </p>
 
+[![Sourcecode on GitHub](https://img.shields.io/badge/pyEDAA-ToolSetup-ab47bc.svg?longCache=true&style=flat-square&logo=github&longCache=true&logo=GitHub&labelColor=6a1b9a)](https://GitHub.com/edaa-org/pyEDAA.ToolSetup)
 [![Sourcecode License](https://img.shields.io/pypi/l/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=Apache&label=code)](LICENSE.md)
+[![Documentation](https://img.shields.io/website?longCache=true&style=flat-square&label=edaa-org.github.io%2FpyEDAA.ToolSetup&logo=GitHub&logoColor=fff&up_color=blueviolet&up_message=Read%20now%20%E2%9E%9A&url=https%3A%2F%2Fedaa-org.github.io%2FpyEDAA.ToolSetup%2Findex.html)](https://edaa-org.github.io/pyEDAA.ToolSetup/)
 [![Documentation License](https://img.shields.io/badge/doc-CC--BY%204.0-green?longCache=true&style=flat-square&logo=CreativeCommons&logoColor=fff)](LICENSE.md)
-
+[![Gitter](https://img.shields.io/badge/chat-on%20gitter-4db797.svg?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef)](https://gitter.im/hdl/community)  
 [![PyPI](https://img.shields.io/pypi/v/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=PyPI&logoColor=FBE072)](https://pypi.org/project/pyEDAA.ToolSetup/)
 ![PyPI - Status](https://img.shields.io/pypi/status/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=PyPI&logoColor=FBE072)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=PyPI&logoColor=FBE072)
-
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=PyPI&logoColor=FBE072)  
+[![GitHub Workflow - Build and Test Status](https://img.shields.io/github/workflow/status/edaa-org/pyEDAA.ToolSetup/Pipeline/main?longCache=true&style=flat-square&label=Build%20and%20test&logo=GitHub%20Actions&logoColor=FFFFFF)](https://GitHub.com/edaa-org/pyEDAA.ToolSetup/actions/workflows/Pipeline.yml)
 [![Libraries.io status for latest release](https://img.shields.io/librariesio/release/pypi/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=Libraries.io&logoColor=fff)](https://libraries.io/github/edaa-org/pyEDAA.ToolSetup)
-[![Codacy - Quality](https://img.shields.io/codacy/grade/2245747238a94667b25f75970b86a333?longCache=true&style=flat-square&logo=Codacy)](https://app.codacy.com/gh/edaa-org/pyEDAA.ToolSetup)
-[![Codacy - Coverage](https://img.shields.io/codacy/coverage/2245747238a94667b25f75970b86a333?longCache=true&style=flat-square&logo=Codacy)](https://app.codacy.com/gh/edaa-org/pyEDAA.ToolSetup)
+[![Codacy - Quality](https://img.shields.io/codacy/grade/2245747238a94667b25f75970b86a333?longCache=true&style=flat-square&logo=Codacy)](https://www.codacy.com/gh/edaa-org/pyEDAA.ToolSetup)
+[![Codacy - Coverage](https://img.shields.io/codacy/coverage/2245747238a94667b25f75970b86a333?longCache=true&style=flat-square&logo=Codacy)](https://www.codacy.com/gh/edaa-org/pyEDAA.ToolSetup)
 [![Codecov - Branch Coverage](https://img.shields.io/codecov/c/github/edaa-org/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=Codecov)](https://codecov.io/gh/edaa-org/pyEDAA.ToolSetup)
 
-[![Dependent repos (via libraries.io)](https://img.shields.io/librariesio/dependent-repos/pypi/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=GitHub)](https://GitHub.com/edaa-org/pyEDAA.ToolSetup/network/dependents)
-[![Requires.io](https://img.shields.io/requires/github/edaa-org/pyEDAA.ToolSetup?longCache=true&style=flat-square)](https://requires.io/github/EDAA-ORG/pyEDAA.ToolSetup/requirements/?branch=main)
-[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyEDAA.ToolSetup?longCache=true&style=flat-square)](https://libraries.io/github/edaa-org/pyEDAA.ToolSetup/sourcerank)
+<!--
+[![Dependent repos (via libraries.io)](https://img.shields.io/librariesio/dependent-repos/pypi/pyEDAA.ToolSetup?longCache=true&style=flat-square&logo=GitHub)](https://github.com/edaa-org/pyEDAA.ToolSetup/network/dependents)
+[![Requires.io](https://img.shields.io/requires/github/edaa-org/pyEDAA.ToolSetup?longCache=true&style=flat-square)](https://requires.io/github/edaa-org/pyEDAA.ToolSetup/requirements/?branch=main)
+[![Libraries.io SourceRank](https://img.shields.io/librariesio/sourcerank/pypi/pyEDAA.ToolSetup)](https://libraries.io/github/edaa-org/pyEDAA.ToolSetup/sourcerank)  
+-->
+
 
 <p align="center">
   <a title="edaa-org.github.io/pyEDAA.ToolSetup" href="https://edaa-org.github.io/pyEDAA.ToolSetup"><img height="275px" src="doc/_static/work-in-progress.png"/></a>
