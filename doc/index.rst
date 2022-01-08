@@ -28,7 +28,7 @@
 The pyEDAA.ToolSetup Documentation
 ##################################
 
-*TBD*
+EDA tool detection, configuration and selection layer.
 
 .. image:: _static/work-in-progress.png
    :height: 275 px
@@ -36,6 +36,37 @@ The pyEDAA.ToolSetup Documentation
    :target: https://GitHub.com/edaa-org/pyEDAA.ToolSetup
 
 |br|
+
+
+.. _goals:
+
+Main Goals
+**********
+
+* Provide abstract information of where a tool is installed and configured on the local machine.
+* Find local EDA tool installations and gather all necessary information in a configuration file.
+* Support multiple versions and variants of the same tool.
+* In case of multiple tool versions/variants select one default installation.
+* Allow switching the default version/variant.
+* Allow reading and writing such a configuration file via API.
+* Allow reading and writing such a configuration file via CLI.
+
+
+.. _features:
+
+Features
+********
+
+* Find tool installations:
+  * at default installation locations (based on operating system).
+  * in ``PATH``.
+  * via environment variables.
+* Support multiple versions of the same tool.
+  E.g. Vivado 2018.3, 2021.2
+* Support multiple variants of the same tool.
+  E.g. ModelSim Altera Edition vs. ModelSim SE vs. QuestaSim
+* Configuring a default version/variant per tool.
+
 
 .. _contributors:
 
