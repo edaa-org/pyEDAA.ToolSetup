@@ -58,10 +58,10 @@ class Application(LineTerminal, ArgParseMixin):
 		# --------------------------------------------------------------------------
 		textWidth = min(self.Width, 160)
 		description = dedent("""\
-			Test application to test pyEDAA.Configuration capabilities.
+			Test application to test pyEDAA.Configure capabilities.
 			""")
 		epilog = "\n".join(wrap(dedent("""\
-		  pyEDAA.Configuration is a layer in EDA² to find, configure and select installed EDA tools.
+		  pyEDAA.Configure is a layer in EDA² to find, configure and select installed EDA tools.
 		  """), textWidth, replace_whitespace=False))
 
 		class HelpFormatter(RawDescriptionHelpFormatter):
