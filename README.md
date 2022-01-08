@@ -32,18 +32,68 @@
 
 # Main Goals
 
-* *tbd*
+* Provide abstract information of where a tool is installed and configured on the local machine.
+* Find local EDA tool installations and gather all necessary information in a configuration file.
+* Support multiple versions and variants of the same tool.
+* In case of multiple tool versions/variants select one default installation.
+* Allow switching the default version/variant.
+* Allow reading and writing such a configuration file via API.
+* Allow reading and writing such a configuration file via CLI.
 
 
-# Use Cases
+# Features
 
-* *tbd*
+* Find tool installations:
+  * at default installation locations (based on operating system).
+  * in `PATH`.
+  * via environment variables.
+* Support multiple versions of the same tool.  
+  E.g. Vivado 2018.3, 2021.2
+* Support multiple variants of the same tool.  
+  E.g. ModelSim Altera Edition vs. ModelSim SE vs. QuestaSim
+* Configuring a default version/variant per tool.
+
+
+# Condensed View on `ToolInformation` Class
+
+```python
+from pathlib import Path
+from pyTooling.Decorators import export
+
+@export
+class ToolInformation:
+  def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: str = None, edition: str = None): ...
+
+  @property
+  def InstallationDirectory(self) -> Path:
+    return self._installationDirectory
+
+  @property
+  def BinaryDirectory(self) -> Path:
+    return self._binaryDirectory
+
+  @property
+  def Version(self) -> str:
+    return self._version
+
+  @property
+  def Edition(self) -> str:
+    return self._edition
+```
 
 
 # Examples
 
 ```python
-print(some.python.code.here())
+from pathlib import Path
+from pyEDAA.Configure import Installations
+
+yamlFile = Path("configuration.yml")
+
+installation = Installations(yamlFile)
+activeHDL = installation.Aldec.ActiveHDL
+activeHDLVersion = activeHDL["10.3"]
+print(activeHDLVersion.BinaryDirectory)
 ```
 
 
