@@ -33,7 +33,7 @@ from pathlib             import Path
 from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub
 
 gitHubNamespace =        "edaa-org"
-packageName =            "pyEDAA.Configure"
+packageName =            "pyEDAA.ToolSetup"
 packageDirectory =       packageName.replace(".", "/")
 packageInformationFile = Path(f"{packageDirectory}/__init__.py")
 

@@ -39,11 +39,11 @@ from pyTooling.MetaClasses import Singleton
 from pyTooling.TerminalUI import LineTerminal, Severity
 from pyAttributes.ArgParseAttributes import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
 
-from pyEDAA.Configure import __author__, __copyright__, __license__, __version__
+from pyEDAA.ToolSetup import __author__, __copyright__, __license__, __version__
 
 @export
 class Application(LineTerminal, ArgParseMixin):
-	HeadLine =    "pyEDAA.Configure - Test Application"
+	HeadLine =    "pyEDAA.ToolSetup - Test Application"
 
 	# load platform information (Windows, Linux, Darwin, ...)
 	__PLATFORM =  platform_system()
@@ -58,10 +58,10 @@ class Application(LineTerminal, ArgParseMixin):
 		# --------------------------------------------------------------------------
 		textWidth = min(self.Width, 160)
 		description = dedent("""\
-			Test application to test pyEDAA.Configuration capabilities.
+			Test application to test pyEDAA.ToolSetup capabilities.
 			""")
 		epilog = "\n".join(wrap(dedent("""\
-		  pyEDAA.Configuration is a layer in EDA² to find, configure and select installed EDA tools.
+		  pyEDAA.ToolSetup is a layer in EDA² to find, configure and select installed EDA tools.
 		  """), textWidth, replace_whitespace=False))
 
 		class HelpFormatter(RawDescriptionHelpFormatter):

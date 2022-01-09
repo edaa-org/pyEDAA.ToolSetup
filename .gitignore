@@ -17,8 +17,8 @@ coverage.xml
 
 # Sphinx
 doc/_build/
-doc/pyEDAA.Configure/**/*.*
-!doc/pyEDAA.Configure/index.rst
+doc/pyEDAA.ToolSetup/**/*.*
+!doc/pyEDAA.ToolSetup/index.rst
 
 # BuildTheDocs
 doc/_theme/**/*.*
