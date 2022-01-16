@@ -12,7 +12,6 @@ jobs:
     uses: pyTooling/Actions/.github/workflows/Parameters.yml@r0
     with:
       name: pyEDAA.ToolSetup
-      system_list: 'ubuntu windows macos'
       python_version_list: "3.6 3.7 3.8 3.9 3.10"
 
   UnitTesting:
