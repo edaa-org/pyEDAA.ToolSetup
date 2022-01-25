@@ -141,8 +141,8 @@ License
    :caption: Appendix
    :hidden:
 
-   Coverage Report ➚ <https://edaa-org.GitHub.io/pyEDAA.ToolSetup/coverage/>
-   Static Type Check Report ➚ <https://edaa-org.GitHub.io/pyEDAA.ToolSetup/typing/>
+   Coverage Report ➚ <coverage/index>
+   Static Type Check Report ➚ <typing/index>
    License
    Doc-License
    Glossary
