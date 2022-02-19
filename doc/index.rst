@@ -61,13 +61,19 @@ Features
 ********
 
 * Find tool installations:
+
   * at default installation locations (based on operating system).
+
   * in ``PATH``.
+  
   * via environment variables.
+
 * Support multiple versions of the same tool.
   E.g. Vivado 2018.3, 2021.2
+
 * Support multiple variants of the same tool.
   E.g. ModelSim Altera Edition vs. ModelSim SE vs. QuestaSim
+
 * Configuring a default version/variant per tool.
 
 
