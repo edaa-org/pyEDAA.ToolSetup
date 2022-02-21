@@ -86,16 +86,6 @@ class Tool(DM_Tool, ConfigurationMixIn):
 
 
 @export
-class ActiveHDL(Tool):
-	pass
-
-
-@export
-class RivieraPRO(Tool):
-	pass
-
-
-@export
 class Vendor(DM_Vendor, ConfigurationMixIn):
 	_toolClasses: ClassVar[Dict[str, Tool]]
 
@@ -115,104 +105,17 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 
 
 @export
-class Aldec(Vendor):
-	_toolClasses: Dict[str, Tool] = {
-		"Active-HDL": ActiveHDL,
-		"Riviera-PRO": RivieraPRO,
-	}
-
-	@property
-	def ActiveHDL(self) -> Tool:
-		return self.__getitem__("Active-HDL")
-
-	@property
-	def RivieraPRO(self) -> Tool:
-		return self.__getitem__("Riviera-PRO")
-
-
-@export
-class Altera(Vendor):
-	@property
-	def Quartus(self) -> Tool:
-		return self.__getitem__("Quartus")
-
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-
-@export
-class IntelFPGA(Vendor):
-	@property
-	def Quartus(self) -> Tool:
-		return self.__getitem__("Quartus")
-
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-
-@export
-class Lattice(Vendor):
-	@property
-	def Diamond(self) -> Tool:
-		return self.__getitem__("Diamond")
-
-	@property
-	def ActiveHDL(self) -> Tool:
-		return self.__getitem__("Active-HDL")
-
-
-@export
-class MentorGraphics(Vendor):
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-	@property
-	def QuestaSim(self) -> Tool:
-		return self.__getitem__("QuestaSim")
-
-
-@export
-class Xilinx(Vendor):
-	@property
-	def ISE(self) -> Tool:
-		return self.__getitem__("ISE")
-
-	@property
-	def Vivado(self) -> Tool:
-		return self.__getitem__("Vivado")
-
-	@property
-	def VivadoSDK(self) -> Tool:
-		return self.__getitem__("Vivado-SDK")
-
-	@property
-	def Vitis(self) -> Tool:
-		return self.__getitem__("Vitis")
-
-
-@export
-class SystemTools(Vendor):
-	@property
-	def Git(self) -> Tool:
-		return self.__getitem__("Git")
-
-
-@export
-class OpenSource(Vendor):
-	@property
-	def GHDL(self) -> Tool:
-		return self.__getitem__("GHDL")
-
-	@property
-	def GTKWave(self) -> Tool:
-		return self.__getitem__("GTKWave")
-
-
-@export
 class Installations(DM_Installation):
+	from .Aldec import ActiveHDL, RivieraPRO, Aldec
+	from .OpenSource.GHDL import GHDL
+	from .IntelFPGA import Quartus, Altera, IntelFPGA
+	from .Lattice import Diamond, Lattice
+	from .OpenSource import OpenSource
+	from .OpenSource.GTKWave import GTKWave
+	from .SiemensEDA import ModelSim, QuestaSim, MentorGraphics
+	from .SystemTools import Git, SystemTools
+	from .Xilinx import ISE, Vivado, VivadoSDK, Vitis, Xilinx
+
 	_config: Configuration
 	_vendorClasses: Dict[str, Vendor] = {
 		"Aldec": Aldec,
@@ -237,69 +140,73 @@ class Installations(DM_Installation):
 		return vendor
 
 	@property
-	def Aldec(self) -> Vendor:
+	def Aldec(self) -> Aldec:
 		return self.__getitem__("Aldec")
 
 	@property
-	def Altera(self) -> Vendor:
+	def Altera(self) -> Altera:
 		return self.__getitem__("Altera")
 
 	@property
-	def IntelFPGA(self) -> Vendor:
+	def IntelFPGA(self) -> IntelFPGA:
 		return self.__getitem__("IntelFPGA")
 
 	@property
-	def Lattice(self) -> Vendor:
+	def Lattice(self) -> Lattice:
 		return self.__getitem__("Lattice")
 
 	@property
-	def MentorGraphics(self) -> Vendor:
+	def MentorGraphics(self) -> MentorGraphics:
 		return self.__getitem__("MentorGraphics")
 
 	@property
-	def Xilinx(self) -> Vendor:
-		return self.__getitem__("Xilinx")
-
-	@property
-	def SystemTools(self) -> Vendor:
-		return self.__getitem__("SystemTools")
-
-	@property
-	def OpenSource(self) -> Vendor:
+	def OpenSource(self) -> OpenSource:
 		return self.__getitem__("OpenSource")
 
 	@property
-	def ActiveHDL(self) -> ToolInstance:
+	def SiemensEDA(self) -> SiemensEDA:
+		return self.__getitem__("SiemensEDA")
+
+	@property
+	def SystemTools(self) -> SystemTools:
+		return self.__getitem__("SystemTools")
+
+	@property
+	def Xilinx(self) -> Xilinx:
+		return self.__getitem__("Xilinx")
+
+	@property
+	def ActiveHDL(self) -> ActiveHDL:
 		raise NotImplementedError()
 
 	@property
-	def RivieraPRO(self) -> ToolInstance:
+	def RivieraPRO(self) -> RivieraPRO:
 		raise NotImplementedError()
 
 	@property
-	def Diamond(self) -> ToolInstance:
+	def Diamond(self) -> Diamond:
 		raise NotImplementedError()
 
 	@property
-	def Quartus(self) -> ToolInstance:
+	def Quartus(self) -> Quartus:
 		raise NotImplementedError()
 
 	@property
-	def ModelSim(self) -> ToolInstance:
+	def ModelSim(self) -> ModelSim:
 		raise NotImplementedError()
 
 	@property
-	def QuestaSim(self) -> ToolInstance:
+	def QuestaSim(self) -> QuestaSim:
 		raise NotImplementedError()
 
 	@property
-	def Vivado(self) -> ToolInstance:
+	def Vivado(self) -> Vivado:
 		raise NotImplementedError()
 
 	@property
-	def VivadoSDK(self) -> ToolInstance:
+	def VivadoSDK(self) -> VivadoSDK:
 		raise NotImplementedError()
 
 	@property
-	def Vitis(self) -> ToolInstance:
+	def Vitis(self) -> Vitis:
 		raise NotImplementedError()
