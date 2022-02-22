@@ -38,11 +38,12 @@ __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 
 from pathlib import Path
-from typing  import Dict, ClassVar
+from typing  import Dict, ClassVar, cast
 
 from pyTooling.Configuration import Dictionary
 from pyTooling.Decorators import export
 from pyTooling.Configuration.YAML import Configuration
+
 from .DataModel import (
 	Installation as DM_Installation,
 	Vendor as DM_Vendor,
@@ -60,13 +61,13 @@ class ConfigurationMixIn:
 
 @export
 class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
-	def __init__(self, config: Dictionary, parent: "Vendor"):
+	def __init__(self, config: Dictionary, parent: "Tool"):
 		name = config.Key
-		installationDirectory = config["InstallationDirectory"]
-		binaryDirectory = config["BinaryDirectory"]
-#		version = config["Version"]
+		installationDirectory = Path(config["InstallationDirectory"])
+		binaryDirectory = Path(config["BinaryDirectory"])
+		version = config["Version"]
 
-		super().__init__(installationDirectory, binaryDirectory, parent=parent)
+		super().__init__(installationDirectory, binaryDirectory, version, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
 
 
@@ -78,11 +79,28 @@ class Tool(DM_Tool, ConfigurationMixIn):
 		super().__init__(name, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
 
+	@property
+	def Default(self) -> ToolInstance:
+		return self._LoadVariant("Default")
+
 	def _LoadVariant(self, key: str) -> ToolInstance:
-		instance = ToolInstance(self._config[key], parent=self)
-		self._variants[key] = instance
+		if key not in self._variants:
+			instance = self._instanceClass(self._config[key], parent=self)
+			self._variants[key] = instance
+		else:
+			instance = self._variants[key]
 
 		return instance
+
+	def _LoadAllVariants(self) -> None:
+		if self._allLoaded:
+			return
+
+		for key in self._config:
+			if key not in self._variants:
+				self._variants[key] = ToolInstance(self._config[key], parent=self)
+
+		self._allLoaded = True
 
 
 @export
@@ -97,11 +115,25 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 		ConfigurationMixIn.__init__(self, config)
 
 	def _LoadTool(self, key: str) -> Tool:
-		cls = self._toolClasses[key]
-		tool = cls(self._config[key], parent=self)
-		self._tools[key] = tool
+		if key not in self._tools:
+			cls = self._toolClasses[key]
+			tool = cls(self._config[key], parent=self)
+			self._tools[key] = tool
+		else:
+			tool = self._tools[key]
 
 		return tool
+
+	def _LoadAllTools(self) -> None:
+		if self._allLoaded:
+			return
+
+		for key in self._config:
+			if key not in self._tools:
+				cls = self._toolClasses[key]
+				self._tools[key] = cls(self._config[key], parent=self)
+
+		self._allLoaded = True
 
 
 @export
@@ -139,41 +171,61 @@ class Installations(DM_Installation):
 
 		return vendor
 
+	def _LoadAllVendors(self) -> None:
+		if self._allLoaded:
+			return
+
+		for key in self._config["Installations"]:
+			if key not in self._vendors:
+				cls = self._vendorClasses[key]
+				self._vendors[key] = cls(self._config["Installations"][key], parent=self)
+
+		self._allLoaded = True
+
 	@property
 	def Aldec(self) -> Aldec:
-		return self.__getitem__("Aldec")
+		from .Aldec import Aldec
+		return cast(Aldec, self.__getitem__("Aldec"))
 
 	@property
 	def Altera(self) -> Altera:
-		return self.__getitem__("Altera")
+		from .IntelFPGA import Altera
+		return cast(Altera, self.__getitem__("Altera"))
 
 	@property
 	def IntelFPGA(self) -> IntelFPGA:
-		return self.__getitem__("IntelFPGA")
+		from .IntelFPGA import IntelFPGA
+		return cast(IntelFPGA, self.__getitem__("IntelFPGA"))
 
 	@property
 	def Lattice(self) -> Lattice:
-		return self.__getitem__("Lattice")
+		from .Lattice import Lattice
+		return cast(Lattice, self.__getitem__("Lattice"))
 
 	@property
 	def MentorGraphics(self) -> MentorGraphics:
-		return self.__getitem__("MentorGraphics")
+		from .SiemensEDA import MentorGraphics
+		return cast(MentorGraphics, self.__getitem__("MentorGraphics"))
 
 	@property
 	def OpenSource(self) -> OpenSource:
-		return self.__getitem__("OpenSource")
+		from .OpenSource import OpenSource
+		return cast(OpenSource, self.__getitem__("OpenSource"))
 
 	@property
 	def SiemensEDA(self) -> SiemensEDA:
-		return self.__getitem__("SiemensEDA")
+		from .SiemensEDA import SiemensEDA
+		return cast(SiemensEDA, self.__getitem__("SiemensEDA"))
 
 	@property
 	def SystemTools(self) -> SystemTools:
-		return self.__getitem__("SystemTools")
+		from .SystemTools import SystemTools
+		return cast(SystemTools, self.__getitem__("SystemTools"))
 
 	@property
 	def Xilinx(self) -> Xilinx:
-		return self.__getitem__("Xilinx")
+		from .Xilinx import Xilinx
+		return cast(Xilinx, self.__getitem__("Xilinx"))
 
 	@property
 	def ActiveHDL(self) -> ActiveHDL:
