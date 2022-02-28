@@ -28,6 +28,7 @@ Installations:
         Version:               '2021.04'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
+
       '2021.10':
         Version:               '2021.10'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
