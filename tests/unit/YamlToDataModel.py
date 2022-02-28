@@ -50,8 +50,8 @@ class Aldec(TestCase):
 
 		activeHDLVersion = activeHDL["10.3"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", activeHDLVersion.InstallationDirectory)
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", activeHDLVersion.BinaryDirectory)
+		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", str(activeHDLVersion.InstallationDirectory))
+		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", str(activeHDLVersion.BinaryDirectory))
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
 
 	def test_AccessByProperty(self):

@@ -2,17 +2,27 @@ from typing import Dict
 
 from pyTooling.Decorators import export
 
-from .. import Tool, Vendor
+from .. import Vendor, Tool, ToolInstance
+
+
+@export
+class ActiveHDLInstance(ToolInstance):
+	pass
+
+
+@export
+class RivieraPROInstance(ToolInstance):
+	pass
 
 
 @export
 class ActiveHDL(Tool):
-	pass
+	_instanceClass = ActiveHDLInstance
 
 
 @export
 class RivieraPRO(Tool):
-	pass
+	_instanceClass = RivieraPROInstance
 
 
 @export
