@@ -30,7 +30,7 @@
 #
 """Package installer for 'EDA tool detection, configuration and selection layer'."""
 from pathlib             import Path
-from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub
+from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub, DEFAULT_CLASSIFIERS
 
 gitHubNamespace =        "edaa-org"
 packageName =            "pyEDAA.ToolSetup"
@@ -42,4 +42,8 @@ DescribePythonPackageHostedOnGitHub(
 	description="EDA tool detection, configuration and selection layer.",
 	gitHubNamespace=gitHubNamespace,
 	sourceFileWithVersion=packageInformationFile,
+	developmentStatus="alpha",
+	classifiers=list(DEFAULT_CLASSIFIERS) + [
+		"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
+	],
 )
