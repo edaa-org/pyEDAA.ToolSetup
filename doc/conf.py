@@ -14,7 +14,6 @@ ROOT = Path(__file__).resolve().parent
 sys_path.insert(0, abspath('.'))
 sys_path.insert(0, abspath('..'))
 sys_path.insert(0, abspath('../pyEDAA/ToolSetup'))
-#sys_path.insert(0, abspath('_extensions'))
 
 
 # ==============================================================================
@@ -95,11 +94,11 @@ else:
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_logo = str(Path(html_static_path[0]) / "logo.svg")
+html_logo = str(Path(html_static_path[0]) / "logo_on_dark.svg")
 html_favicon = str(Path(html_static_path[0]) / "favicon.svg")
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'pyEDAACLIToolDoc'
+htmlhelp_basename = 'pyEDAAToolSetupDoc'
 
 # If not None, a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.
@@ -146,8 +145,8 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
 	( master_doc,
-		'pyEDAA.CLITool.tex',
-		'The pyEDAA.CLITool Documentation',
+		'pyEDAA.ToolSetup.tex',
+		'The pyEDAA.ToolSetup Documentation',
 		'Patrick Lehmann',
 		'manual'
 	),
@@ -158,8 +157,22 @@ latex_documents = [
 # Extensions
 # ==============================================================================
 extensions = [
+# Standard Sphinx extensions
+	"sphinx.ext.autodoc",
 	'sphinx.ext.extlinks',
 	'sphinx.ext.intersphinx',
+	'sphinx.ext.inheritance_diagram',
+	'sphinx.ext.todo',
+	'sphinx.ext.graphviz',
+	'sphinx.ext.mathjax',
+	'sphinx.ext.ifconfig',
+	'sphinx.ext.viewcode',
+# SphinxContrib extensions
+	'sphinxcontrib.mermaid',
+# Other extensions
+	'sphinx_fontawesome',
+	'sphinx_autodoc_typehints',
+	'autoapi.sphinx',
 ]
 
 
@@ -172,10 +185,48 @@ intersphinx_mapping = {
 
 
 # ==============================================================================
+# Sphinx.Ext.AutoDoc
+# ==============================================================================
+# see: https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#configuration
+autodoc_default_options = {
+	"private-members": True,
+	"special-members": True,
+	"inherited-members": True,
+	"exclude-members": "__weakref__"
+}
+#autodoc_class_signature = "separated"
+autodoc_member_order = "bysource"       # alphabetical, groupwise, bysource
+autodoc_typehints = "both"
+#autoclass_content = "both"
+
+
+# ==============================================================================
 # Sphinx.Ext.ExtLinks
 # ==============================================================================
 extlinks = {
-	'ghissue': ('https://GitHub.com/edaa-org/pyEDAA.CLITool/issues/%s', 'issue #'),
-	'ghpull':  ('https://GitHub.com/edaa-org/pyEDAA.CLITool/pull/%s', 'pull request #'),
-	'ghsrc':   ('https://GitHub.com/edaa-org/pyEDAA.CLITool/blob/main/%s', ''),
+	"ghissue": ("https://GitHub.com/edaa-org/pyEDAA.ToolSetup/issues/%s", "issue #"),
+	"ghpull":  ("https://GitHub.com/edaa-org/pyEDAA.ToolSetup/pull/%s", "pull request #"),
+	"ghsrc":   ("https://GitHub.com/edaa-org/pyEDAA.ToolSetup/blob/main/%s", ""),
+}
+
+
+# ==============================================================================
+# Sphinx.Ext.Graphviz
+# ==============================================================================
+graphviz_output_format = "svg"
+
+
+# ==============================================================================
+# Sphinx.Ext.ToDo
+# ==============================================================================
+# If true, `todo` and `todoList` produce output, else they produce nothing.
+todo_include_todos = True
+todo_link_only = True
+
+
+# ==============================================================================
+# AutoAPI.Sphinx
+# ==============================================================================
+autoapi_modules = {
+  'pyEDAA.ToolSetup':  {'output': "pyEDAA.ToolSetup", "override": True}
 }
