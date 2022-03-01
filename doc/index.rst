@@ -65,7 +65,7 @@ Features
   * at default installation locations (based on operating system).
 
   * in ``PATH``.
-  
+
   * via environment variables.
 
 * Support multiple versions of the same tool.
@@ -116,7 +116,6 @@ License
    Installation
    Dependency
 
-
 .. raw:: latex
 
    \part{Main Documentation}
@@ -127,7 +126,6 @@ License
 
    DataModel
    YAML
-
 
 .. raw:: latex
 
