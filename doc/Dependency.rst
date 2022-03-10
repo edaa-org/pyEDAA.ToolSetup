@@ -36,6 +36,8 @@ pyEDAA.ToolSetup Package
 |                                                                               |             |                                                                                                      | * `argcomplete <https://GitHub.com/kislyuk/argcomplete>`__ (`Apache License, 2.0 <https://GitHub.com/kislyuk/argcomplete/blob/develop/LICENSE.rst>`__) |
 +-------------------------------------------------------------------------------+-------------+------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+.. todo:: Document pyTooling.CLIAbstraction and pyEDAA.CLITool
+
 
 .. _dependency-testing:
 
