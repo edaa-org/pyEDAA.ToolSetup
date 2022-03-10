@@ -61,13 +61,19 @@ Features
 ********
 
 * Find tool installations:
+
   * at default installation locations (based on operating system).
+
   * in ``PATH``.
+
   * via environment variables.
+
 * Support multiple versions of the same tool.
   E.g. Vivado 2018.3, 2021.2
+
 * Support multiple variants of the same tool.
   E.g. ModelSim Altera Edition vs. ModelSim SE vs. QuestaSim
+
 * Configuring a default version/variant per tool.
 
 
@@ -110,7 +116,6 @@ License
    Installation
    Dependency
 
-
 .. raw:: latex
 
    \part{Main Documentation}
@@ -121,7 +126,6 @@ License
 
    DataModel
    YAML
-
 
 .. raw:: latex
 
@@ -141,8 +145,8 @@ License
    :caption: Appendix
    :hidden:
 
-   Coverage Report ➚ <https://edaa-org.GitHub.io/pyEDAA.ToolSetup/coverage/>
-   Static Type Check Report ➚ <https://edaa-org.GitHub.io/pyEDAA.ToolSetup/typing/>
+   Coverage Report ➚ <coverage/index>
+   Static Type Check Report ➚ <typing/index>
    License
    Doc-License
    Glossary

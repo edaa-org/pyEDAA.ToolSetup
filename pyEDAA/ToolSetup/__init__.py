@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2021 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2014-2022 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -31,18 +31,19 @@
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
 __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
-__copyright__ = "2014-2021, Patrick Lehmann"
+__copyright__ = "2014-2022, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
-__version__ =   "0.2.0"
+__version__ =   "0.3.0"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 
 from pathlib import Path
-from typing  import Dict, ClassVar
+from typing  import Dict, ClassVar, cast
 
 from pyTooling.Configuration import Dictionary
 from pyTooling.Decorators import export
 from pyTooling.Configuration.YAML import Configuration
+
 from .DataModel import (
 	Installation as DM_Installation,
 	Vendor as DM_Vendor,
@@ -60,13 +61,13 @@ class ConfigurationMixIn:
 
 @export
 class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
-	def __init__(self, config: Dictionary, parent: "Vendor"):
+	def __init__(self, config: Dictionary, parent: "Tool"):
 		name = config.Key
-		installationDirectory = config["InstallationDirectory"]
-		binaryDirectory = config["BinaryDirectory"]
-#		version = config["Version"]
+		installationDirectory = Path(config["InstallationDirectory"])
+		binaryDirectory = Path(config["BinaryDirectory"])
+		version = config["Version"]
 
-		super().__init__(installationDirectory, binaryDirectory, parent=parent)
+		super().__init__(installationDirectory, binaryDirectory, version, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
 
 
@@ -78,21 +79,28 @@ class Tool(DM_Tool, ConfigurationMixIn):
 		super().__init__(name, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
 
+	@property
+	def Default(self) -> ToolInstance:
+		return self._LoadVariant("Default")
+
 	def _LoadVariant(self, key: str) -> ToolInstance:
-		instance = ToolInstance(self._config[key], parent=self)
-		self._variants[key] = instance
+		if key not in self._variants:
+			instance = self._instanceClass(self._config[key], parent=self)
+			self._variants[key] = instance
+		else:
+			instance = self._variants[key]
 
 		return instance
 
+	def _LoadAllVariants(self) -> None:
+		if self._allLoaded:
+			return
 
-@export
-class ActiveHDL(Tool):
-	pass
+		for key in self._config:
+			if key not in self._variants:
+				self._variants[key] = ToolInstance(self._config[key], parent=self)
 
-
-@export
-class RivieraPRO(Tool):
-	pass
+		self._allLoaded = True
 
 
 @export
@@ -107,112 +115,39 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 		ConfigurationMixIn.__init__(self, config)
 
 	def _LoadTool(self, key: str) -> Tool:
-		cls = self._toolClasses[key]
-		tool = cls(self._config[key], parent=self)
-		self._tools[key] = tool
+		if key not in self._tools:
+			cls = self._toolClasses[key]
+			tool = cls(self._config[key], parent=self)
+			self._tools[key] = tool
+		else:
+			tool = self._tools[key]
 
 		return tool
 
+	def _LoadAllTools(self) -> None:
+		if self._allLoaded:
+			return
 
-@export
-class Aldec(Vendor):
-	_toolClasses: Dict[str, Tool] = {
-		"Active-HDL": ActiveHDL,
-		"Riviera-PRO": RivieraPRO,
-	}
+		for key in self._config:
+			if key not in self._tools:
+				cls = self._toolClasses[key]
+				self._tools[key] = cls(self._config[key], parent=self)
 
-	@property
-	def ActiveHDL(self) -> Tool:
-		return self.__getitem__("Active-HDL")
-
-	@property
-	def RivieraPRO(self) -> Tool:
-		return self.__getitem__("Riviera-PRO")
-
-
-@export
-class Altera(Vendor):
-	@property
-	def Quartus(self) -> Tool:
-		return self.__getitem__("Quartus")
-
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-
-@export
-class IntelFPGA(Vendor):
-	@property
-	def Quartus(self) -> Tool:
-		return self.__getitem__("Quartus")
-
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-
-@export
-class Lattice(Vendor):
-	@property
-	def Diamond(self) -> Tool:
-		return self.__getitem__("Diamond")
-
-	@property
-	def ActiveHDL(self) -> Tool:
-		return self.__getitem__("Active-HDL")
-
-
-@export
-class MentorGraphics(Vendor):
-	@property
-	def ModelSim(self) -> Tool:
-		return self.__getitem__("ModelSim")
-
-	@property
-	def QuestaSim(self) -> Tool:
-		return self.__getitem__("QuestaSim")
-
-
-@export
-class Xilinx(Vendor):
-	@property
-	def ISE(self) -> Tool:
-		return self.__getitem__("ISE")
-
-	@property
-	def Vivado(self) -> Tool:
-		return self.__getitem__("Vivado")
-
-	@property
-	def VivadoSDK(self) -> Tool:
-		return self.__getitem__("Vivado-SDK")
-
-	@property
-	def Vitis(self) -> Tool:
-		return self.__getitem__("Vitis")
-
-
-@export
-class SystemTools(Vendor):
-	@property
-	def Git(self) -> Tool:
-		return self.__getitem__("Git")
-
-
-@export
-class OpenSource(Vendor):
-	@property
-	def GHDL(self) -> Tool:
-		return self.__getitem__("GHDL")
-
-	@property
-	def GTKWave(self) -> Tool:
-		return self.__getitem__("GTKWave")
+		self._allLoaded = True
 
 
 @export
 class Installations(DM_Installation):
+	from .Aldec import ActiveHDL, RivieraPRO, Aldec
+	from .OpenSource.GHDL import GHDL
+	from .IntelFPGA import Quartus, Altera, IntelFPGA
+	from .Lattice import Diamond, Lattice
+	from .OpenSource import OpenSource
+	from .OpenSource.GTKWave import GTKWave
+	from .SiemensEDA import ModelSim, QuestaSim, MentorGraphics
+	from .SystemTools import Git, SystemTools
+	from .Xilinx import ISE, Vivado, VivadoSDK, Vitis, Xilinx
+
 	_config: Configuration
 	_vendorClasses: Dict[str, Vendor] = {
 		"Aldec": Aldec,
@@ -236,70 +171,94 @@ class Installations(DM_Installation):
 
 		return vendor
 
-	@property
-	def Aldec(self) -> Vendor:
-		return self.__getitem__("Aldec")
+	def _LoadAllVendors(self) -> None:
+		if self._allLoaded:
+			return
+
+		for key in self._config["Installations"]:
+			if key not in self._vendors:
+				cls = self._vendorClasses[key]
+				self._vendors[key] = cls(self._config["Installations"][key], parent=self)
+
+		self._allLoaded = True
 
 	@property
-	def Altera(self) -> Vendor:
-		return self.__getitem__("Altera")
+	def Aldec(self) -> Aldec:
+		from .Aldec import Aldec
+		return cast(Aldec, self.__getitem__("Aldec"))
 
 	@property
-	def IntelFPGA(self) -> Vendor:
-		return self.__getitem__("IntelFPGA")
+	def Altera(self) -> Altera:
+		from .IntelFPGA import Altera
+		return cast(Altera, self.__getitem__("Altera"))
 
 	@property
-	def Lattice(self) -> Vendor:
-		return self.__getitem__("Lattice")
+	def IntelFPGA(self) -> IntelFPGA:
+		from .IntelFPGA import IntelFPGA
+		return cast(IntelFPGA, self.__getitem__("IntelFPGA"))
 
 	@property
-	def MentorGraphics(self) -> Vendor:
-		return self.__getitem__("MentorGraphics")
+	def Lattice(self) -> Lattice:
+		from .Lattice import Lattice
+		return cast(Lattice, self.__getitem__("Lattice"))
 
 	@property
-	def Xilinx(self) -> Vendor:
-		return self.__getitem__("Xilinx")
+	def MentorGraphics(self) -> MentorGraphics:
+		from .SiemensEDA import MentorGraphics
+		return cast(MentorGraphics, self.__getitem__("MentorGraphics"))
 
 	@property
-	def SystemTools(self) -> Vendor:
-		return self.__getitem__("SystemTools")
+	def OpenSource(self) -> OpenSource:
+		from .OpenSource import OpenSource
+		return cast(OpenSource, self.__getitem__("OpenSource"))
 
 	@property
-	def OpenSource(self) -> Vendor:
-		return self.__getitem__("OpenSource")
+	def SiemensEDA(self) -> SiemensEDA:
+		from .SiemensEDA import SiemensEDA
+		return cast(SiemensEDA, self.__getitem__("SiemensEDA"))
 
 	@property
-	def ActiveHDL(self) -> ToolInstance:
+	def SystemTools(self) -> SystemTools:
+		from .SystemTools import SystemTools
+		return cast(SystemTools, self.__getitem__("SystemTools"))
+
+	@property
+	def Xilinx(self) -> Xilinx:
+		from .Xilinx import Xilinx
+		return cast(Xilinx, self.__getitem__("Xilinx"))
+
+	@property
+	def ActiveHDL(self) -> ActiveHDL:
 		raise NotImplementedError()
 
 	@property
-	def RivieraPRO(self) -> ToolInstance:
+	def RivieraPRO(self) -> RivieraPRO:
 		raise NotImplementedError()
 
 	@property
-	def Diamond(self) -> ToolInstance:
+	def Diamond(self) -> Diamond:
 		raise NotImplementedError()
 
 	@property
-	def Quartus(self) -> ToolInstance:
+	def Quartus(self) -> Quartus:
 		raise NotImplementedError()
 
 	@property
-	def ModelSim(self) -> ToolInstance:
+	def ModelSim(self) -> ModelSim:
 		raise NotImplementedError()
 
 	@property
-	def QuestaSim(self) -> ToolInstance:
+	def QuestaSim(self) -> QuestaSim:
 		raise NotImplementedError()
 
 	@property
-	def Vivado(self) -> ToolInstance:
+	def Vivado(self) -> Vivado:
 		raise NotImplementedError()
 
 	@property
-	def VivadoSDK(self) -> ToolInstance:
+	def VivadoSDK(self) -> VivadoSDK:
 		raise NotImplementedError()
 
 	@property
-	def Vitis(self) -> ToolInstance:
+	def Vitis(self) -> Vitis:
 		raise NotImplementedError()

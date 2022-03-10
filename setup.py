@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2021 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2022 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -30,7 +30,7 @@
 #
 """Package installer for 'EDA tool detection, configuration and selection layer'."""
 from pathlib             import Path
-from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub
+from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub, DEFAULT_CLASSIFIERS
 
 gitHubNamespace =        "edaa-org"
 packageName =            "pyEDAA.ToolSetup"
@@ -42,4 +42,8 @@ DescribePythonPackageHostedOnGitHub(
 	description="EDA tool detection, configuration and selection layer.",
 	gitHubNamespace=gitHubNamespace,
 	sourceFileWithVersion=packageInformationFile,
+	developmentStatus="alpha",
+	classifiers=list(DEFAULT_CLASSIFIERS) + [
+		"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
+	],
 )

@@ -12,7 +12,7 @@ jobs:
     uses: pyTooling/Actions/.github/workflows/Parameters.yml@r0
     with:
       name: pyEDAA.ToolSetup
-      system_list: 'ubuntu windows macos'
+      system_list: 'ubuntu windows macos'  # disabled: "msys2"
 
   UnitTesting:
     uses: pyTooling/Actions/.github/workflows/UnitTesting.yml@r0
@@ -21,6 +21,13 @@ jobs:
     with:
       jobs: ${{ needs.Params.outputs.python_jobs }}
       artifact: ${{ fromJson(needs.Params.outputs.params).artifacts.unittesting }}
+      pacboy: >-
+        python-pip:p
+        python-wheel:p
+        python-coverage:p
+        python-lxml:p
+        python-ruamel-yaml:p
+        python-ruamel.yaml.clib:p
 
   Coverage:
     uses: pyTooling/Actions/.github/workflows/CoverageCollection.yml@r0

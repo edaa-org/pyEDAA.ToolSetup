@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2021 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2021-2022 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -30,7 +30,7 @@
 #
 """Abstract data model for tool configurations."""
 from pathlib import Path
-from typing import Optional as Nullable, Dict
+from typing  import Optional as Nullable, Dict, ClassVar, Type
 
 from pyTooling.Decorators import export
 
@@ -94,14 +94,18 @@ class ToolInstance(ToolInformation):
 class Tool:
 	_vendor: Nullable["Vendor"]
 	_name: str
+	_allLoaded: bool
 	_variants: Dict[str, ToolInstance]
+	_instanceClass: ClassVar[Type[ToolInstance]]
 
 	def __init__(self, name: str, parent: "Vendor" = None):
 		self._vendor = parent
 		self._name = name
+		self._allLoaded = False
 		self._variants = {}
 
 	def __contains__(self, key: str) -> bool:
+		self._LoadAllVariants()
 		return key in self._variants
 
 	def __getitem__(self, key: str) -> ToolInstance:
@@ -114,7 +118,19 @@ class Tool:
 	def Vendor(self) -> "Vendor":
 		return self._vendor
 
+	@property
+	def Variants(self) -> Dict[str, ToolInstance]:
+		self._LoadAllVariants()
+		return self._variants
+
+	@property
+	def Default(self) -> ToolInstance:
+		raise NotImplementedError()
+
 	def _LoadVariant(self, key: str) -> ToolInstance:
+		raise NotImplementedError()
+
+	def _LoadAllVariants(self) -> None:
 		raise NotImplementedError()
 
 
@@ -122,15 +138,18 @@ class Tool:
 class Vendor(VendorInformation):
 	_installation: Nullable["Installation"]
 	_name: str
+	_allLoaded: bool
 	_tools: Dict[str, Tool]
 
 	def __init__(self, name: str, installationDirectory: Path, parent: "Installation" = None):
 		super().__init__(installationDirectory)
 		self._installation = parent
 		self._name = name
+		self._allLoaded = False
 		self._tools = {}
 
 	def __contains__(self, key: str) -> bool:
+		self._LoadAllTools()
 		return key in self._tools
 
 	def __getitem__(self, key: str) -> Tool:
@@ -142,19 +161,30 @@ class Vendor(VendorInformation):
 	def _LoadTool(self, key: str) -> Tool:
 		raise NotImplementedError()
 
+	def _LoadAllTools(self) -> None:
+		raise NotImplementedError()
+
 	@property
 	def Installation(self) -> "Installation":
 		return self._installation
 
+	@property
+	def Tools(self) -> Dict[str, Tool]:
+		self._LoadAllTools()
+		return self._tools
+
 
 @export
 class Installation:
+	_allLoaded: bool
 	_vendors: Dict[str, Vendor]
 
 	def __init__(self):
+		self._allLoaded = False
 		self._vendors = {}
 
 	def __contains__(self, key: str) -> bool:
+		self._LoadAllVendors()
 		return key in self._vendor
 
 	def __getitem__(self, key: str) -> Vendor:
@@ -164,4 +194,7 @@ class Installation:
 			return self._LoadVendor(key)
 
 	def _LoadVendor(self, key: str) -> Vendor:
+		raise NotImplementedError()
+
+	def _LoadAllVendors(self) -> None:
 		raise NotImplementedError()

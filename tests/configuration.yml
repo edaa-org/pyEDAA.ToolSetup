@@ -28,6 +28,7 @@ Installations:
         Version:               '2021.04'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
+
       '2021.10':
         Version:               '2021.10'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
@@ -118,13 +119,13 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Selection:
-        Version:               '10.5d'
+        Version:               '10.3'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
       '10.3':
-        DiamondVersion:        '3.8'
+        DiamondVersion:        '10.3'
         InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}\active-hdl'
         BinaryDirectory:       '${InstallationDirectory}\BIN'
         Edition:               'Active-HDL Lattice Edition'
@@ -205,19 +206,33 @@ Installations:
     ghdl:
       InstallationDirectory:   '${..:InstallationDirectory}\GHDL'
 
-      '2.0.0-dev':
-        Version:               '2.0.0-dev'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
+      Default:
+        Version:               '2.0.0.dev0'
+        Platform:              'win32'
+        Runtime:               'mingw32'
+        Backend:               'mcode'
+        InstallationDirectory: '${..:${Version}-${Runtime}-${Backend}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}-${Runtime}-${Backend}:BinaryDirectory}'
+
+      '2.0.0.dev0-mingw32-mcode':
+        Version:               '2.0.0.dev0'
+        Platform:              'win32'
+        Runtime:               'mingw32'
+        Backend:               'mcode'
+        InstallationDirectory: '${..:InstallationDirectory}\${Version}-${Runtime}-${Backend}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 #        ScriptDirectory:       '${InstallationDirectory}\scripts'
-#        Backend:              mcode
-#        Runtime:
 
     GTKWave:
       InstallationDirectory:   '${..:InstallationDirectory}\GTKWave'
 
-      '3.3.78':
-        Version:               '3.3.78'
+      Default:
+        Version:               '3.3.111'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '3.3.111':
+        Version:               '3.3.111'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 

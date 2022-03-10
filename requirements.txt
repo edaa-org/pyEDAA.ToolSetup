@@ -1,3 +1,5 @@
-pyTooling[yaml]>=1.9.2
-pyTooling.TerminalUI>=1.5.6
-pyAttributes>=2.5.0
+pyAttributes>=2.5.1
+pyTooling[yaml]>=1.9.5
+pyTooling.CLIAbstraction>=0.4.0
+pyTooling.TerminalUI>=1.5.7
+pyEDAA.CLITool>=0.2.0
