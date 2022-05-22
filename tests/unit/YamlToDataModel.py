@@ -36,7 +36,7 @@ from pyEDAA.ToolSetup import Installations
 
 
 class Aldec(TestCase):
-	_yamlFile = Path(r"tests/configuration.yml")
+	_yamlFile = Path(r"configuration.yml")
 
 	def test_AccessByNameAsIndex(self):
 		installation = Installations(self._yamlFile)

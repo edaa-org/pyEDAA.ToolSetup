@@ -137,7 +137,7 @@ class Application(LineTerminal, ArgParseMixin):
 			try:
 				self.SubParsers[args.Command].print_help()
 			except KeyError:
-				self.WriteError("Command {0} is unknown.".format(args.Command))
+				self.WriteError(f"Command {args.Command} is unknown.")
 
 		self.WriteNormal("")
 		self.exit()
@@ -150,15 +150,15 @@ class Application(LineTerminal, ArgParseMixin):
 		self.PrintHeadline()
 
 		copyrights = __copyright__.split("\n", 1)
-		self.WriteNormal("Copyright:  {0}".format(copyrights[0]))
+		self.WriteNormal(f"Copyright:  {copyrights[0]}")
 		for copyright in copyrights[1:]:
-			self.WriteNormal("            {0}".format(copyright))
-		self.WriteNormal("License:    {0}".format(__license__))
+			self.WriteNormal(f"            {copyright}")
+		self.WriteNormal(f"License:    {__license__}")
 		authors = __author__.split(", ")
-		self.WriteNormal("Authors:    {0}".format(authors[0]))
+		self.WriteNormal(f"Authors:    {authors[0]}")
 		for author in authors[1:]:
-			self.WriteNormal("            {0}".format(author))
-		self.WriteNormal("Version:    {0}".format(__version__))
+			self.WriteNormal(f"            {author}")
+		self.WriteNormal(f"Version:    {__version__}")
 		self.exit()
 
 
