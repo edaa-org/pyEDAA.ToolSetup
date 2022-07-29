@@ -1,0 +1,34 @@
+.. # Template modified  by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+================================
+``pyEDAA.ToolSetup.SystemTools``
+================================
+
+
+.. currentmodule:: pyEDAA.ToolSetup.SystemTools
+
+
+**Classes**
+
+- :py:class:`Git`:
+  Undocumented.
+
+- :py:class:`SystemTools`:
+  Undocumented.
+
+
+.. autoclass:: Git
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Git
+      :parts: 1
+
+.. autoclass:: SystemTools
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SystemTools
+      :parts: 1

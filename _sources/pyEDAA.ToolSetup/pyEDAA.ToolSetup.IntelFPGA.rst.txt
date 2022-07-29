@@ -1,0 +1,34 @@
+.. # Template modified  by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+==============================
+``pyEDAA.ToolSetup.IntelFPGA``
+==============================
+
+
+.. currentmodule:: pyEDAA.ToolSetup.IntelFPGA
+
+
+**Classes**
+
+- :py:class:`Quartus`:
+  Undocumented.
+
+- :py:class:`IntelFPGA`:
+  Undocumented.
+
+
+.. autoclass:: Quartus
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Quartus
+      :parts: 1
+
+.. autoclass:: IntelFPGA
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: IntelFPGA
+      :parts: 1

@@ -1,0 +1,74 @@
+.. # Template modified  by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+==============================
+``pyEDAA.ToolSetup.DataModel``
+==============================
+
+
+.. currentmodule:: pyEDAA.ToolSetup.DataModel
+
+
+**Classes**
+
+- :py:class:`ToolInformation`:
+  Undocumented.
+
+- :py:class:`VendorInformation`:
+  Undocumented.
+
+- :py:class:`ToolInstance`:
+  Undocumented.
+
+- :py:class:`Tool`:
+  Undocumented.
+
+- :py:class:`Vendor`:
+  Undocumented.
+
+- :py:class:`Installation`:
+  Undocumented.
+
+
+.. autoclass:: ToolInformation
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ToolInformation
+      :parts: 1
+
+.. autoclass:: VendorInformation
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VendorInformation
+      :parts: 1
+
+.. autoclass:: ToolInstance
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ToolInstance
+      :parts: 1
+
+.. autoclass:: Tool
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Tool
+      :parts: 1
+
+.. autoclass:: Vendor
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vendor
+      :parts: 1
+
+.. autoclass:: Installation
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Installation
+      :parts: 1

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyEDAA.ToolSetup &mdash; pyEDAA.ToolSetup 0.3.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="https://edaa-org.github.io/">Used as a layer of EDA² ➚</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation/Updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Dependency.html">Dependency</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Main Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../DataModel.html">Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../YAML.html">YAML based Database</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../pyEDAA.ToolSetup/index.html">Python Class Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coverage/index.html">Coverage Report ➚</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../typing/index.html">Static Type Check Report ➚</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../License.html">Apache License 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Doc-License.html">Creative Commons Attribution 4.0 International</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyEDAA.ToolSetup</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+        
+          
+            <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>pyEDAA.ToolSetup</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyEDAA.ToolSetup</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==================================================================================================================== #</span>
+<span class="c1">#              _____ ____    _        _      ____             __ _                                                     #</span>
+<span class="c1">#  _ __  _   _| ____|  _ \  / \      / \    / ___|___  _ __  / _(_) __ _ _   _ _ __ ___                                #</span>
+<span class="c1"># | &#39;_ \| | | |  _| | | | |/ _ \    / _ \  | |   / _ \| &#39;_ \| |_| |/ _` | | | | &#39;__/ _ \                               #</span>
+<span class="c1"># | |_) | |_| | |___| |_| / ___ \  / ___ \ | |__| (_) | | | |  _| | (_| | |_| | | |  __/                               #</span>
+<span class="c1"># | .__/ \__, |_____|____/_/   \_\/_/   \_(_)____\___/|_| |_|_| |_|\__, |\__,_|_|  \___|                               #</span>
+<span class="c1"># |_|    |___/                                                     |___/                                               #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1"># Authors:                                                                                                             #</span>
+<span class="c1">#   Patrick Lehmann                                                                                                    #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># License:                                                                                                             #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1"># Copyright 2014-2022 Patrick Lehmann - Boetzingen, Germany                                                            #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);                                                      #</span>
+<span class="c1"># you may not use this file except in compliance with the License.                                                     #</span>
+<span class="c1"># You may obtain a copy of the License at                                                                              #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0                                                                         #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software                                                  #</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,                                                    #</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                             #</span>
+<span class="c1"># See the License for the specific language governing permissions and                                                  #</span>
+<span class="c1"># limitations under the License.                                                                                       #</span>
+<span class="c1">#                                                                                                                      #</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0                                                                                  #</span>
+<span class="c1"># ==================================================================================================================== #</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;Package to support configuring EDA tools for usage with pyEDAA.CLITool.&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span>    <span class="s2">&quot;Patrick Lehmann&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span>     <span class="s2">&quot;Paebbels@gmail.com&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;2014-2022, Patrick Lehmann&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span>   <span class="s2">&quot;Apache License, Version 2.0&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span>   <span class="s2">&quot;0.3.0&quot;</span>
+<span class="n">__keywords__</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;configuration&quot;</span><span class="p">,</span> <span class="s2">&quot;eda&quot;</span><span class="p">,</span> <span class="s2">&quot;installation&quot;</span><span class="p">,</span> <span class="s2">&quot;selection&quot;</span><span class="p">]</span>
+
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span>  <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">cast</span>
+
+<span class="kn">from</span> <span class="nn">pyTooling.Configuration</span> <span class="kn">import</span> <span class="n">Dictionary</span>
+<span class="kn">from</span> <span class="nn">pyTooling.Decorators</span> <span class="kn">import</span> <span class="n">export</span>
+<span class="kn">from</span> <span class="nn">pyTooling.Configuration.YAML</span> <span class="kn">import</span> <span class="n">Configuration</span>
+
+<span class="kn">from</span> <span class="nn">.DataModel</span> <span class="kn">import</span> <span class="p">(</span>
+	<span class="n">Installation</span> <span class="k">as</span> <span class="n">DM_Installation</span><span class="p">,</span>
+	<span class="n">Vendor</span> <span class="k">as</span> <span class="n">DM_Vendor</span><span class="p">,</span>
+	<span class="n">Tool</span> <span class="k">as</span> <span class="n">DM_Tool</span><span class="p">,</span>
+	<span class="n">ToolInstance</span> <span class="k">as</span> <span class="n">DM_ToolInstance</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ConfigurationMixIn</span><span class="p">:</span>
+	<span class="n">_config</span><span class="p">:</span> <span class="n">Dictionary</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dictionary</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">config</span>
+
+
+<div class="viewcode-block" id="ToolInstance"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.ToolInstance">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">ToolInstance</span><span class="p">(</span><span class="n">DM_ToolInstance</span><span class="p">,</span> <span class="n">ConfigurationMixIn</span><span class="p">):</span>
+<div class="viewcode-block" id="ToolInstance.__init__"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.ToolInstance.__init__">[docs]</a>	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dictionary</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="s2">&quot;Tool&quot;</span><span class="p">):</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">Key</span>
+		<span class="n">installationDirectory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;InstallationDirectory&quot;</span><span class="p">])</span>
+		<span class="n">binaryDirectory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;BinaryDirectory&quot;</span><span class="p">])</span>
+		<span class="n">version</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;Version&quot;</span><span class="p">]</span>
+
+		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">installationDirectory</span><span class="p">,</span> <span class="n">binaryDirectory</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+		<span class="n">ConfigurationMixIn</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Tool</span><span class="p">(</span><span class="n">DM_Tool</span><span class="p">,</span> <span class="n">ConfigurationMixIn</span><span class="p">):</span>
+<div class="viewcode-block" id="Tool.__init__"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool.__init__">[docs]</a>	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dictionary</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="s2">&quot;Vendor&quot;</span><span class="p">):</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">Key</span>
+
+		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+		<span class="n">ConfigurationMixIn</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span></div>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Default</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ToolInstance</span><span class="p">:</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LoadVariant</span><span class="p">(</span><span class="s2">&quot;Default&quot;</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">_LoadVariant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ToolInstance</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variants</span><span class="p">:</span>
+			<span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instanceClass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_variants</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variants</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+		<span class="k">return</span> <span class="n">instance</span>
+
+	<span class="k">def</span> <span class="nf">_LoadAllVariants</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span><span class="p">:</span>
+			<span class="k">return</span>
+
+		<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variants</span><span class="p">:</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">_variants</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ToolInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Vendor"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Vendor">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Vendor</span><span class="p">(</span><span class="n">DM_Vendor</span><span class="p">,</span> <span class="n">ConfigurationMixIn</span><span class="p">):</span>
+	<span class="n">_toolClasses</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tool</span><span class="p">]]</span>
+
+<div class="viewcode-block" id="Vendor.__init__"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Vendor.__init__">[docs]</a>	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dictionary</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="s2">&quot;Installations&quot;</span><span class="p">):</span>
+		<span class="n">name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">Key</span>
+		<span class="n">installationDirectory</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;InstallationDirectory&quot;</span><span class="p">]</span>
+
+		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">installationDirectory</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span>
+		<span class="n">ConfigurationMixIn</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span></div>
+
+	<span class="k">def</span> <span class="nf">_LoadTool</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tool</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tools</span><span class="p">:</span>
+			<span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_toolClasses</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+			<span class="n">tool</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">_tools</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tool</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">tool</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tools</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+		<span class="k">return</span> <span class="n">tool</span>
+
+	<span class="k">def</span> <span class="nf">_LoadAllTools</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span><span class="p">:</span>
+			<span class="k">return</span>
+
+		<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tools</span><span class="p">:</span>
+				<span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_toolClasses</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">_tools</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Installations"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Installations">[docs]</a><span class="nd">@export</span>
+<span class="k">class</span> <span class="nc">Installations</span><span class="p">(</span><span class="n">DM_Installation</span><span class="p">):</span>
+	<span class="kn">from</span> <span class="nn">.Aldec</span> <span class="kn">import</span> <span class="n">ActiveHDL</span><span class="p">,</span> <span class="n">RivieraPRO</span><span class="p">,</span> <span class="n">Aldec</span>
+	<span class="kn">from</span> <span class="nn">.OpenSource.GHDL</span> <span class="kn">import</span> <span class="n">GHDL</span>
+	<span class="kn">from</span> <span class="nn">.IntelFPGA</span> <span class="kn">import</span> <span class="n">Quartus</span><span class="p">,</span> <span class="n">Altera</span><span class="p">,</span> <span class="n">IntelFPGA</span>
+	<span class="kn">from</span> <span class="nn">.Lattice</span> <span class="kn">import</span> <span class="n">Diamond</span><span class="p">,</span> <span class="n">Lattice</span>
+	<span class="kn">from</span> <span class="nn">.OpenSource</span> <span class="kn">import</span> <span class="n">OpenSource</span>
+	<span class="kn">from</span> <span class="nn">.OpenSource.GTKWave</span> <span class="kn">import</span> <span class="n">GTKWave</span>
+	<span class="kn">from</span> <span class="nn">.SiemensEDA</span> <span class="kn">import</span> <span class="n">ModelSim</span><span class="p">,</span> <span class="n">QuestaSim</span><span class="p">,</span> <span class="n">MentorGraphics</span>
+	<span class="kn">from</span> <span class="nn">.SystemTools</span> <span class="kn">import</span> <span class="n">Git</span><span class="p">,</span> <span class="n">SystemTools</span>
+	<span class="kn">from</span> <span class="nn">.Xilinx</span> <span class="kn">import</span> <span class="n">ISE</span><span class="p">,</span> <span class="n">Vivado</span><span class="p">,</span> <span class="n">VivadoSDK</span><span class="p">,</span> <span class="n">Vitis</span><span class="p">,</span> <span class="n">Xilinx</span>
+
+	<span class="n">_config</span><span class="p">:</span> <span class="n">Configuration</span>
+	<span class="n">_vendorClasses</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Vendor</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="s2">&quot;Aldec&quot;</span><span class="p">:</span> <span class="n">Aldec</span><span class="p">,</span>
+		<span class="s2">&quot;Altera&quot;</span><span class="p">:</span> <span class="n">Altera</span><span class="p">,</span>
+		<span class="s2">&quot;IntelFPGA&quot;</span><span class="p">:</span> <span class="n">IntelFPGA</span><span class="p">,</span>
+		<span class="s2">&quot;Lattice&quot;</span><span class="p">:</span> <span class="n">Lattice</span><span class="p">,</span>
+		<span class="s2">&quot;MentorGraphics&quot;</span><span class="p">:</span> <span class="n">MentorGraphics</span><span class="p">,</span>
+		<span class="s2">&quot;Xilinx&quot;</span><span class="p">:</span> <span class="n">Xilinx</span><span class="p">,</span>
+		<span class="s2">&quot;SystemTools&quot;</span><span class="p">:</span> <span class="n">SystemTools</span><span class="p">,</span>
+		<span class="s2">&quot;OpenSource&quot;</span><span class="p">:</span> <span class="n">OpenSource</span>
+	<span class="p">}</span>
+
+<div class="viewcode-block" id="Installations.__init__"><a class="viewcode-back" href="../../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Installations.__init__">[docs]</a>	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yamlFile</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">Configuration</span><span class="p">(</span><span class="n">yamlFile</span><span class="p">)</span></div>
+
+	<span class="k">def</span> <span class="nf">_LoadVendor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vendor</span><span class="p">:</span>
+		<span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vendorClasses</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+		<span class="n">vendor</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;Installations&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">_vendors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">vendor</span>
+
+		<span class="k">return</span> <span class="n">vendor</span>
+
+	<span class="k">def</span> <span class="nf">_LoadAllVendors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span><span class="p">:</span>
+			<span class="k">return</span>
+
+		<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;Installations&quot;</span><span class="p">]:</span>
+			<span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vendors</span><span class="p">:</span>
+				<span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vendorClasses</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+				<span class="bp">self</span><span class="o">.</span><span class="n">_vendors</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s2">&quot;Installations&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">],</span> <span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+		<span class="bp">self</span><span class="o">.</span><span class="n">_allLoaded</span> <span class="o">=</span> <span class="kc">True</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Aldec</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Aldec</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.Aldec</span> <span class="kn">import</span> <span class="n">Aldec</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">Aldec</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;Aldec&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Altera</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Altera</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.IntelFPGA</span> <span class="kn">import</span> <span class="n">Altera</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">Altera</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;Altera&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">IntelFPGA</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IntelFPGA</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.IntelFPGA</span> <span class="kn">import</span> <span class="n">IntelFPGA</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">IntelFPGA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;IntelFPGA&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Lattice</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Lattice</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.Lattice</span> <span class="kn">import</span> <span class="n">Lattice</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">Lattice</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;Lattice&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">MentorGraphics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MentorGraphics</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.SiemensEDA</span> <span class="kn">import</span> <span class="n">MentorGraphics</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">MentorGraphics</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;MentorGraphics&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">OpenSource</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OpenSource</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.OpenSource</span> <span class="kn">import</span> <span class="n">OpenSource</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">OpenSource</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;OpenSource&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">SiemensEDA</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SiemensEDA</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.SiemensEDA</span> <span class="kn">import</span> <span class="n">SiemensEDA</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">SiemensEDA</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;SiemensEDA&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">SystemTools</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SystemTools</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.SystemTools</span> <span class="kn">import</span> <span class="n">SystemTools</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">SystemTools</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;SystemTools&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Xilinx</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Xilinx</span><span class="p">:</span>
+		<span class="kn">from</span> <span class="nn">.Xilinx</span> <span class="kn">import</span> <span class="n">Xilinx</span>
+		<span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="n">Xilinx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="s2">&quot;Xilinx&quot;</span><span class="p">))</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">ActiveHDL</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActiveHDL</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">RivieraPRO</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RivieraPRO</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Diamond</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Diamond</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Quartus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Quartus</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">ModelSim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ModelSim</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">QuestaSim</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QuestaSim</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Vivado</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vivado</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">VivadoSDK</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VivadoSDK</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+	<span class="nd">@property</span>
+	<span class="k">def</span> <span class="nf">Vitis</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vitis</span><span class="p">:</span>
+		<span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2014-2022, Patrick Lehmann.
+      <span class="lastupdated">Last updated on 29.07.2022.
+      </span></p>
+  </div>Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/buildthedocs/sphinx.theme">theme</a>
+    provided by <a href="https://buildthedocs.github.io">Build the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
