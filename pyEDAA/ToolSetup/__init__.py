@@ -109,7 +109,7 @@ class Vendor(DM_Vendor, ConfigurationMixIn):
 
 	def __init__(self, config: Dictionary, parent: "Installations"):
 		name = config.Key
-		installationDirectory = config["InstallationDirectory"]
+		installationDirectory = Path(config["InstallationDirectory"])
 
 		super().__init__(name, installationDirectory, parent=parent)
 		ConfigurationMixIn.__init__(self, config)
