@@ -43,15 +43,15 @@ class Aldec(TestCase):
 
 		aldec = installation["Aldec"]
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
+		self.assertEqual(r"C:/Aldec", aldec.InstallationDirectory.as_posix())
 
 		activeHDL = aldec["Active-HDL"]
 		self.assertIs(aldec, activeHDL.Vendor)
 
 		activeHDLVersion = activeHDL["10.3"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", str(activeHDLVersion.InstallationDirectory))
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", str(activeHDLVersion.BinaryDirectory))
+		self.assertEqual(r"C:/Aldec/Active-HDL/10.3", activeHDLVersion.InstallationDirectory.as_posix())
+		self.assertEqual(r"C:/Aldec/Active-HDL/10.3/bin", activeHDLVersion.BinaryDirectory.as_posix())
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
 
 	def test_AccessByProperty(self):
@@ -59,4 +59,4 @@ class Aldec(TestCase):
 
 		aldec = installation.Aldec
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
+		self.assertEqual(r"C:/Aldec", aldec.InstallationDirectory.as_posix())
