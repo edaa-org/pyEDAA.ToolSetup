@@ -32,31 +32,41 @@
 from pathlib          import Path
 from unittest         import TestCase
 
+from pyTooling.Common import CurrentPlatform
+
 from pyEDAA.ToolSetup import Installations
 
 
 class Aldec(TestCase):
-	_yamlFile = Path(r"configuration.yml")
+	_variant = "posix" if CurrentPlatform.IsPOSIX else "windows"
+	_prefix = "/opt/" if CurrentPlatform.IsPOSIX else "C:\\"
+	_yamlFile = Path(f"configuration.{_variant}.yml")
 
 	def test_AccessByNameAsIndex(self):
+		aldecPath = Path(self._prefix) / "Aldec"
+		activePath = aldecPath / "Active-HDL"
+		active103Path = activePath / "10.3"
+
 		installation = Installations(self._yamlFile)
 
 		aldec = installation["Aldec"]
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:/Aldec", aldec.InstallationDirectory.as_posix())
+		self.assertEqual(aldecPath, aldec.InstallationDirectory)
 
 		activeHDL = aldec["Active-HDL"]
 		self.assertIs(aldec, activeHDL.Vendor)
 
 		activeHDLVersion = activeHDL["10.3"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		self.assertEqual(r"C:/Aldec/Active-HDL/10.3", activeHDLVersion.InstallationDirectory.as_posix())
-		self.assertEqual(r"C:/Aldec/Active-HDL/10.3/bin", activeHDLVersion.BinaryDirectory.as_posix())
+		self.assertEqual(active103Path, activeHDLVersion.InstallationDirectory)
+		self.assertEqual(active103Path / "bin", activeHDLVersion.BinaryDirectory)
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
 
 	def test_AccessByProperty(self):
+		aldecPath = Path(self._prefix + "Aldec")
+
 		installation = Installations(self._yamlFile)
 
 		aldec = installation.Aldec
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:/Aldec", aldec.InstallationDirectory.as_posix())
+		self.assertEqual(aldecPath, aldec.InstallationDirectory)
