@@ -129,9 +129,9 @@ class Application(LineTerminal, ArgParseMixin):
 	def HandleHelp(self, args):
 		self.PrintHeadline()
 
-		if (args.Command is None):
+		if args.Command is None:
 			self.MainParser.print_help()
-		elif (args.Command == "help"):
+		elif args.Command == "help":
 			self.WriteError("This is a recursion ...")
 		else:
 			try:
@@ -193,10 +193,10 @@ def main(): # mccabe:disable=MC0001
 	# 	elif isinstance(cause, ParserException):
 	# 		print("{YELLOW}  ParserException:{NOCOLOR} {cause}".format(cause=str(cause), **Init.Foreground))
 	# 		cause = cause.__cause__
-	# 		if (cause is not None):
+	# 		if cause is not None:
 	# 			print("{YELLOW}    {name}:{NOCOLOR} {cause}".format(name=cause.__class__.__name__, cause= str(cause), **Init.Foreground))
 	#
-	# 	if (not (verbose or debug)):
+	# 	if not (verbose or debug):
 	# 		print()
 	# 		print("{CYAN}  Use '-v' for verbose or '-d' for debug to print out extended messages.{NOCOLOR}".format(**Init.Foreground))
 	# 	LineTerminal.exit(1)
