@@ -1,241 +1,3 @@
-Installations:
-  Aldec:
-    InstallationDirectory:     'C:\Aldec'
-
-    Active-HDL:
-      InstallationDirectory:   '${..:InstallationDirectory}\Active-HDL'
-
-      Default:
-        Version:               '10.3'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '10.3':
-        Version:               '10.3'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-
-
-    Riviera-PRO:
-      InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
-
-      Default:
-        Version:               '2021.10'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '2021.04':
-        Version:               '2021.04'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-
-      '2021.10':
-        Version:               '2021.10'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-
-  Altera:
-    InstallationDirectory:     'C:\Altera'
-
-    Quartus:
-      InstallationDir:         'quartus'
-
-      Default:
-        Version:               '16.0'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '16.0':
-        Version:               '16.0'
-        InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
-        BinaryDirectory:       '${InstallationDirectory}\bin64'
-
-
-    ModelSim:
-      InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
-
-      Selection:
-        Version:               '10.4d'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-        Edition:               '${..:${Version}:Edition}'
-
-      '10.4d':
-        QuartusVersion:        '16.0'
-        InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
-        BinaryDirectory:       '${InstallationDirectory}\win32aloem'
-        Edition:               'ModelSim Altera Starter Edition'
-
-  IntelFPGA:
-    InstallationDirectory:     'C:\IntelFPGA'
-
-    Quartus:
-      InstallationDir:         'quartus'
-
-      Default:
-        Version:               '16.1'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '16.1':
-        Version:               '16.1'
-        InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
-        BinaryDirectory:       '${InstallationDirectory}\bin64'
-
-
-    ModelSim:
-      InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
-
-      Default:
-        Version:               '10.5d'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-        Edition:               '${..:${Version}:Edition}'
-
-      '10.5d':
-        QuartusVersion:        '16.1'
-        InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
-        BinaryDirectory:       '${InstallationDirectory}\win32aloem'
-        Edition:               'ModelSim Altera Starter Edition'
-
-  Lattice:
-    InstallationDirectory:     'C:\Lattice'
-
-    Diamond:
-      InstallationDirectory:   '${..:InstallationDirectory}\Diamond'
-
-      Default:
-        Version:               '3.8'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '3.8':
-        Version:               '3.8'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}/bin/nt64'
-        BinaryDirectory2:      '${InstallationDirectory}/ispfpga/bin/nt64'
-
-    Active-HDL:
-      InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
-
-      Selection:
-        Version:               '10.3'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-        Edition:               '${..:${Version}:Edition}'
-
-      '10.3':
-        DiamondVersion:        '10.3'
-        InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}\active-hdl'
-        BinaryDirectory:       '${InstallationDirectory}\BIN'
-        Edition:               'Active-HDL Lattice Edition'
-
-  MentorGraphics:
-    InstallationDirectory:     'C:\MentorGraphics'
-
-  SiemensEDA:
-    InstallationDirectory:     'C:\MentorGraphics'
-
-    ModelSimPE:
-      InstallationDirectory:   '${..:InstallationDirectory}\ModelSim'
-
-      Default:
-        Version:               '10.5d'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-        Edition:               '${..:${Version}:Edition}'
-
-      '10.5d':
-        Version:               '10.5b'
-        InstallationDirectory: '${..:..:InstallationDirectory}\'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-        Edition:               'ModelSim PE'
-
-#    ModelSimDE:
-#
-#    ModelSimSE32:
-#
-#    ModelSimSE64:
-#
-#    QuestaSim:
-
-  Xilinx:
-    InstallationDirectory:     'C:\Xilinx'
-
-    ISE:
-      InstallationDir:         'ISE_DS'
-
-      Default:
-        Version:               '14.7'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '14.7':
-        Version:               '14.7'
-        InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
-        BinaryDirectory:       '${InstallationDirectory}\ISE\bin\nt64'
-
-    Vivado:
-      InstallationDirectory:   '${..:InstallationDirectory}\Vivado'
-
-      Default:
-        Version:               '2021.2'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      2021.2:
-        Version:               '2021.2'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-
-#    Vivado-SDK:
-#
-#    Vitis:
-
-  SystemTools:
-    InstallationDirectory:     'C:\Program Files'
-
-    Git:
-      Version:                 '2.31'
-      InstallationDirectory:   '${..:InstallationDirectory}\Git'
-      BinaryDirectory:         '${InstallationDirectory}\bin'
-
-  OpenSource:
-    InstallationDirectory:     'C:\Tools'
-
-    ghdl:
-      InstallationDirectory:   '${..:InstallationDirectory}\GHDL'
-
-      Default:
-        Version:               '2.0.0.dev0'
-        Platform:              'win32'
-        Runtime:               'mingw32'
-        Backend:               'mcode'
-        InstallationDirectory: '${..:${Version}-${Runtime}-${Backend}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}-${Runtime}-${Backend}:BinaryDirectory}'
-
-      '2.0.0.dev0-mingw32-mcode':
-        Version:               '2.0.0.dev0'
-        Platform:              'win32'
-        Runtime:               'mingw32'
-        Backend:               'mcode'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}-${Runtime}-${Backend}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-#        ScriptDirectory:       '${InstallationDirectory}\scripts'
-
-    GTKWave:
-      InstallationDirectory:   '${..:InstallationDirectory}\GTKWave'
-
-      Default:
-        Version:               '3.3.111'
-        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
-        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
-
-      '3.3.111':
-        Version:               '3.3.111'
-        InstallationDirectory: '${..:InstallationDirectory}\${Version}'
-        BinaryDirectory:       '${InstallationDirectory}\bin'
-
 Defaults:
   Active-HDL:
     PathExpression:        'Aldec:Active-HDL:10.5'
@@ -256,3 +18,241 @@ Defaults:
     PathExpression:        'IntelFPGA:Quartus:16.1'
     InstallationDirectory: '${..:..:${PathExpression}:InstallationDirectory}'
     BinaryDirectory:       '${..:..:${PathExpression}:BinaryDirectory}'
+
+Installations:
+  Aldec:
+    InstallationDirectory:     '/opt/Aldec'
+
+    Active-HDL:
+      InstallationDirectory:   '${..:InstallationDirectory}/Active-HDL'
+
+      Default:
+        Version:               '10.3'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '10.3':
+        Version:               '10.3'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+
+
+    Riviera-PRO:
+      InstallationDirectory:   '${..:InstallationDirectory}/Riviera-PRO'
+
+      Default:
+        Version:               '2021.10'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '2021.04':
+        Version:               '2021.04'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+
+      '2021.10':
+        Version:               '2021.10'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+
+  Altera:
+    InstallationDirectory:     '/opt/Altera'
+
+    Quartus:
+      InstallationDir:         'quartus'
+
+      Default:
+        Version:               '16.0'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '16.0':
+        Version:               '16.0'
+        InstallationDirectory: '${..:..:InstallationDirectory}/${Version}/${..:InstallationDir}'
+        BinaryDirectory:       '${InstallationDirectory}/bin64'
+
+
+    ModelSim:
+      InstallationDirectory:   '${..:InstallationDirectory}/Riviera-PRO'
+
+      Selection:
+        Version:               '10.4d'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+        Edition:               '${..:${Version}:Edition}'
+
+      '10.4d':
+        QuartusVersion:        '16.0'
+        InstallationDirectory: '${..:..:InstallationDirectory}/${QuartusVersion}/modelsim_ase'
+        BinaryDirectory:       '${InstallationDirectory}/win32aloem'
+        Edition:               'ModelSim Altera Starter Edition'
+
+  IntelFPGA:
+    InstallationDirectory:     '/opt/IntelFPGA'
+
+    Quartus:
+      InstallationDir:         'quartus'
+
+      Default:
+        Version:               '16.1'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '16.1':
+        Version:               '16.1'
+        InstallationDirectory: '${..:..:InstallationDirectory}/${Version}/${..:InstallationDir}'
+        BinaryDirectory:       '${InstallationDirectory}/bin64'
+
+
+    ModelSim:
+      InstallationDirectory:   '${..:InstallationDirectory}/Riviera-PRO'
+
+      Default:
+        Version:               '10.5d'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+        Edition:               '${..:${Version}:Edition}'
+
+      '10.5d':
+        QuartusVersion:        '16.1'
+        InstallationDirectory: '${..:..:InstallationDirectory}/${QuartusVersion}/modelsim_ase'
+        BinaryDirectory:       '${InstallationDirectory}/win32aloem'
+        Edition:               'ModelSim Altera Starter Edition'
+
+  Lattice:
+    InstallationDirectory:     '/opt/Lattice'
+
+    Diamond:
+      InstallationDirectory:   '${..:InstallationDirectory}/Diamond'
+
+      Default:
+        Version:               '3.8'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '3.8':
+        Version:               '3.8'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin/nt64'
+        BinaryDirectory2:      '${InstallationDirectory}/ispfpga/bin/nt64'
+
+    Active-HDL:
+      InstallationDirectory:   '${..:InstallationDirectory}/Riviera-PRO'
+
+      Selection:
+        Version:               '10.3'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+        Edition:               '${..:${Version}:Edition}'
+
+      '10.3':
+        DiamondVersion:        '10.3'
+        InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}/active-hdl'
+        BinaryDirectory:       '${InstallationDirectory}/BIN'
+        Edition:               'Active-HDL Lattice Edition'
+
+  MentorGraphics:
+    InstallationDirectory:     '/opt/MentorGraphics'
+
+  SiemensEDA:
+    InstallationDirectory:     '/opt/MentorGraphics'
+
+    ModelSimPE:
+      InstallationDirectory:   '${..:InstallationDirectory}/ModelSim'
+
+      Default:
+        Version:               '10.5d'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+        Edition:               '${..:${Version}:Edition}'
+
+      '10.5d':
+        Version:               '10.5b'
+        InstallationDirectory: '${..:..:InstallationDirectory}/'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+        Edition:               'ModelSim PE'
+
+#    ModelSimDE:
+#
+#    ModelSimSE32:
+#
+#    ModelSimSE64:
+#
+#    QuestaSim:
+
+  Xilinx:
+    InstallationDirectory:     '/opt/Xilinx'
+
+    ISE:
+      InstallationDir:         'ISE_DS'
+
+      Default:
+        Version:               '14.7'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '14.7':
+        Version:               '14.7'
+        InstallationDirectory: '${..:..:InstallationDirectory}/${Version}/${..:InstallationDir}'
+        BinaryDirectory:       '${InstallationDirectory}/ISE/bin/nt64'
+
+    Vivado:
+      InstallationDirectory:   '${..:InstallationDirectory}/Vivado'
+
+      Default:
+        Version:               '2021.2'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      2021.2:
+        Version:               '2021.2'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+
+#    Vivado-SDK:
+#
+#    Vitis:
+
+  SystemTools:
+    InstallationDirectory:     '/usr'
+
+    Git:
+      Version:                 '2.31'
+      InstallationDirectory:   '${..:InstallationDirectory}/local'
+      BinaryDirectory:         '${InstallationDirectory}/bin'
+
+  OpenSource:
+    InstallationDirectory:     '/opt'
+
+    ghdl:
+      InstallationDirectory:   '${..:InstallationDirectory}/GHDL'
+
+      Default:
+        Version:               '2.0.0.dev0'
+        Platform:              'win32'
+        Runtime:               'mingw32'
+        Backend:               'mcode'
+        InstallationDirectory: '${..:${Version}-${Runtime}-${Backend}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}-${Runtime}-${Backend}:BinaryDirectory}'
+
+      '2.0.0.dev0-mingw32-mcode':
+        Version:               '2.0.0.dev0'
+        Platform:              'win32'
+        Runtime:               'mingw32'
+        Backend:               'mcode'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}-${Runtime}-${Backend}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+#        ScriptDirectory:       '${InstallationDirectory}/scripts'
+
+    GTKWave:
+      InstallationDirectory:   '${..:InstallationDirectory}/GTKWave'
+
+      Default:
+        Version:               '3.3.111'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '3.3.111':
+        Version:               '3.3.111'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
