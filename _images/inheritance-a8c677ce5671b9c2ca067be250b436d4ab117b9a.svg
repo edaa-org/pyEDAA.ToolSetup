@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.22 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.000612265 0.000612265) rotate(0) translate(4 1411150.77)">
+<ns0:title>inheritance1b9f6bec01</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-1411140.32 0,-1411140.32 0,-6.45 151,-6.45 151,-1411140.32" />
+<ns0:text text-anchor="middle" x="75.5" y="-1411126.82" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241,-705582.63 187,-705582.63 187,-705564.13 241,-705564.13 241,-705582.63" />
+<ns0:text text-anchor="middle" x="214" y="-705569.13" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.14,-705573.38C161.56,-705573.38 171.77,-705573.38 180.8,-705573.38" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-705575.13 186.56,-705573.38 181.56,-705571.63 181.56,-705575.13" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>GTKWave</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.OpenSource.GTKWave.html#pyEDAA.ToolSetup.OpenSource.GTKWave.GTKWave" ns1:title="GTKWave" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="345.5,-1411146.77 277,-1411146.77 277,0 345.5,0 345.5,-1411146.77" />
+<ns0:text text-anchor="middle" x="311.25" y="-1411133.27" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">GTKWave</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;GTKWave</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.28,-705573.38C250.39,-705573.38 260.82,-705573.38 270.76,-705573.38" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="271.55,-705575.13 276.55,-705573.38 271.55,-705571.63 271.55,-705575.13" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M199.01,-705582.88C191.72,-705591.45 196.72,-705600.63 214,-705600.63 227.77,-705600.63 233.74,-705594.8 231.91,-705588.1" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="232.96,-705586.39 228.99,-705582.88 229.91,-705588.1 232.96,-705586.39" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

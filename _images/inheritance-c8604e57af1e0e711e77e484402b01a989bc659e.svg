@@ -1,0 +1,29 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.37 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.00132251 0.00132251) rotate(0) translate(4 653297.79)">
+<ns0:title>inheritancecf01efb267</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ToolInformation</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.DataModel.html#pyEDAA.ToolSetup.DataModel.ToolInformation" ns1:title="ToolInformation" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="128.5,-326656.14 0,-326656.14 0,-326637.64 128.5,-326637.64 128.5,-326656.14" />
+<ns0:text text-anchor="middle" x="64.25" y="-326642.64" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ToolInformation</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ToolInstance</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.DataModel.html#pyEDAA.ToolSetup.DataModel.ToolInstance" ns1:title="ToolInstance" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="270.5,-653293.79 164.5,-653293.79 164.5,0 270.5,0 270.5,-653293.79" />
+<ns0:text text-anchor="middle" x="217.5" y="-653280.29" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ToolInstance</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ToolInformation-&gt;ToolInstance</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M128.96,-326646.89C138.72,-326646.89 148.75,-326646.89 158.38,-326646.89" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="159.32,-326648.64 164.32,-326646.89 159.32,-326645.14 159.32,-326648.64" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

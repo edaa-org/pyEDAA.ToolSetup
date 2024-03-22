@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.49 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.00132796 0.00132796) rotate(0) translate(4 650619.5)">
+<ns0:title>inheritance7134bbcdcc</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-650615.5 0,-650615.5 0,0 151,0 151,-650615.5" />
+<ns0:text text-anchor="middle" x="75.5" y="-650602" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241,-325317 187,-325317 187,-325298.5 241,-325298.5 241,-325317" />
+<ns0:text text-anchor="middle" x="214" y="-325303.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.14,-325307.75C161.56,-325307.75 171.77,-325307.75 180.8,-325307.75" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-325309.5 186.56,-325307.75 181.56,-325306 181.56,-325309.5" />
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M197.85,-325317.25C190,-325325.82 195.38,-325335 214,-325335 229.13,-325335 235.52,-325328.94 233.17,-325322.07" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="234.28,-325320.55 230.15,-325317.25 231.32,-325322.41 234.28,-325320.55" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>VivadoSDK</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.Xilinx.html#pyEDAA.ToolSetup.Xilinx.VivadoSDK" ns1:title="VivadoSDK" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="360.5,-325317 277,-325317 277,-325298.5 360.5,-325298.5 360.5,-325317" />
+<ns0:text text-anchor="middle" x="318.75" y="-325303.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">VivadoSDK</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Tool-&gt;VivadoSDK</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.46,-325307.75C250.41,-325307.75 260.68,-325307.75 270.74,-325307.75" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="271.62,-325309.5 276.62,-325307.75 271.62,-325306 271.62,-325309.5" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

@@ -1,0 +1,44 @@
+.. # Template modified  by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+===============================
+``pyEDAA.ToolSetup.SiemensEDA``
+===============================
+
+
+.. currentmodule:: pyEDAA.ToolSetup.SiemensEDA
+
+
+**Classes**
+
+- :py:class:`ModelSim`:
+  Undocumented.
+
+- :py:class:`QuestaSim`:
+  Undocumented.
+
+- :py:class:`SiemensEDA`:
+  Undocumented.
+
+
+.. autoclass:: ModelSim
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ModelSim
+      :parts: 1
+
+.. autoclass:: QuestaSim
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: QuestaSim
+      :parts: 1
+
+.. autoclass:: SiemensEDA
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: SiemensEDA
+      :parts: 1

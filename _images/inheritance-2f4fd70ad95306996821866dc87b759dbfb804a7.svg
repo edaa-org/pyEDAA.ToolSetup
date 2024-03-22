@@ -1,0 +1,62 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="391pt" height="88pt" viewBox="0.00 0.00 391.00 88.25">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 84.25)">
+<ns0:title>inheritanceb670c1d2e2</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-62.25 0,-62.25 0,-43.75 151,-43.75 151,-62.25" />
+<ns0:text text-anchor="middle" x="75.5" y="-48.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="267,-62.25 213,-62.25 213,-43.75 267,-43.75 267,-62.25" />
+<ns0:text text-anchor="middle" x="240" y="-48.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.09,-53C170.71,-53 190.85,-53 206.89,-53" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="207.61,-54.75 212.61,-53 207.61,-51.25 207.61,-54.75" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>GHDL</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.OpenSource.GHDL.html#pyEDAA.ToolSetup.OpenSource.GHDL.GHDL" ns1:title="GHDL" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="383,-42.25 329,-42.25 329,-23.75 383,-23.75 383,-42.25" />
+<ns0:text text-anchor="middle" x="356" y="-28.75" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">GHDL</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;GHDL</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M267.44,-48.36C283.99,-45.46 305.41,-41.7 322.93,-38.63" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="324.08,-40.2 328.7,-37.61 323.48,-36.75 324.08,-40.2" />
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M222.12,-62.5C213.42,-71.07 219.38,-80.25 240,-80.25 256.75,-80.25 263.83,-74.19 261.23,-67.32" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="262.17,-65.61 257.88,-62.5 259.29,-67.6 262.17,-65.61" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>HDLSimulator</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.Interface.html#pyEDAA.ToolSetup.Interface.HDLSimulator" ns1:title="HDLSimulator" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="293,-26 187,-26 187,0 293,0 293,-26" />
+<ns0:text text-anchor="middle" x="240" y="-12.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">HDLSimulator</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>HDLSimulator-&gt;GHDL</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M293.33,-22.18C303.41,-23.95 313.69,-25.75 322.89,-27.37" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="323.55,-29.26 328.77,-28.4 324.15,-25.81 323.55,-29.26" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

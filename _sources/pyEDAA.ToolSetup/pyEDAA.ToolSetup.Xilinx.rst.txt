@@ -1,0 +1,64 @@
+.. # Template modified  by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+===========================
+``pyEDAA.ToolSetup.Xilinx``
+===========================
+
+
+.. currentmodule:: pyEDAA.ToolSetup.Xilinx
+
+
+**Classes**
+
+- :py:class:`ISE`:
+  Undocumented.
+
+- :py:class:`Vivado`:
+  Undocumented.
+
+- :py:class:`VivadoSDK`:
+  Undocumented.
+
+- :py:class:`Vitis`:
+  Undocumented.
+
+- :py:class:`Xilinx`:
+  Undocumented.
+
+
+.. autoclass:: ISE
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ISE
+      :parts: 1
+
+.. autoclass:: Vivado
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vivado
+      :parts: 1
+
+.. autoclass:: VivadoSDK
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VivadoSDK
+      :parts: 1
+
+.. autoclass:: Vitis
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vitis
+      :parts: 1
+
+.. autoclass:: Xilinx
+   :members:
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Xilinx
+      :parts: 1

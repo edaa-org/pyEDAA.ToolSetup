@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="256pt" height="64pt" viewBox="0.00 0.00 256.00 63.50">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 59.5)">
+<ns0:title>inheritancecd7e0a043d</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-55.5 0,-55.5 0,-37 151,-37 151,-55.5" />
+<ns0:text text-anchor="middle" x="75.5" y="-42" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Vendor</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Vendor" ns1:title="Vendor" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="248,-36.5 187,-36.5 187,-18 248,-18 248,-36.5" />
+<ns0:text text-anchor="middle" x="217.5" y="-23" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Vendor</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M148.14,-36.53C159.5,-34.99 170.8,-33.45 180.85,-32.09" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.89,-33.71 186.61,-31.31 181.42,-30.25 181.89,-33.71" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Vendor-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M195.61,-36.75C184.97,-45.32 192.26,-54.5 217.5,-54.5 238.4,-54.5 247,-48.2 243.29,-41.17" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="244.01,-39.34 239.39,-36.75 241.38,-41.65 244.01,-39.34" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>VendorInformation</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.DataModel.html#pyEDAA.ToolSetup.DataModel.VendorInformation" ns1:title="VendorInformation" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="147.25,-18.5 3.75,-18.5 3.75,0 147.25,0 147.25,-18.5" />
+<ns0:text text-anchor="middle" x="75.5" y="-5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">VendorInformation</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>VendorInformation-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M147.73,-18.41C159.25,-19.89 170.72,-21.36 180.91,-22.67" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-24.52 186.74,-23.42 182.01,-21.05 181.56,-24.52" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

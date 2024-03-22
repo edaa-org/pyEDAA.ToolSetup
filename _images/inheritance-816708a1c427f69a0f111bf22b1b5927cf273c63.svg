@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.26 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.000726967 0.000726967) rotate(0) translate(4 1188495.62)">
+<ns0:title>inheritance673beba845</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-1188491.62 0,-1188491.62 0,0 151,0 151,-1188491.62" />
+<ns0:text text-anchor="middle" x="75.5" y="-1188478.12" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241,-594255.06 187,-594255.06 187,-594236.56 241,-594236.56 241,-594255.06" />
+<ns0:text text-anchor="middle" x="214" y="-594241.56" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.14,-594245.81C161.56,-594245.81 171.77,-594245.81 180.8,-594245.81" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-594247.56 186.56,-594245.81 181.56,-594244.06 181.56,-594247.56" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Quartus</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.IntelFPGA.html#pyEDAA.ToolSetup.IntelFPGA.Quartus" ns1:title="Quartus" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="345.5,-1188485.18 277,-1188485.18 277,-6.45 345.5,-6.45 345.5,-1188485.18" />
+<ns0:text text-anchor="middle" x="311.25" y="-1188471.68" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Quartus</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;Quartus</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.28,-594245.81C250.39,-594245.81 260.82,-594245.81 270.76,-594245.81" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="271.55,-594247.56 276.55,-594245.81 271.55,-594244.06 271.55,-594247.56" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M199.01,-594255.31C191.72,-594263.88 196.72,-594273.06 214,-594273.06 227.77,-594273.06 233.74,-594267.23 231.91,-594260.52" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="232.96,-594258.81 228.99,-594255.31 229.91,-594260.52 232.96,-594258.81" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

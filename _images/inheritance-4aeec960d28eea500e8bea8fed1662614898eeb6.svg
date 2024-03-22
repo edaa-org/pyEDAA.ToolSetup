@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.44 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.00121148 0.00121148) rotate(0) translate(4 713175.5)">
+<ns0:title>inheritanced2a21a9a71</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-713171.5 0,-713171.5 0,0 151,0 151,-713171.5" />
+<ns0:text text-anchor="middle" x="75.5" y="-713158" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241,-356595 187,-356595 187,-356576.5 241,-356576.5 241,-356595" />
+<ns0:text text-anchor="middle" x="214" y="-356581.5" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.14,-356585.75C161.56,-356585.75 171.77,-356585.75 180.8,-356585.75" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-356587.5 186.56,-356585.75 181.56,-356584 181.56,-356587.5" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ModelSim</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.SiemensEDA.html#pyEDAA.ToolSetup.SiemensEDA.ModelSim" ns1:title="ModelSim" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="353,-713162.12 277,-713162.12 277,-9.39 353,-9.39 353,-713162.12" />
+<ns0:text text-anchor="middle" x="315" y="-713148.62" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ModelSim</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;ModelSim</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.27,-356585.75C250.37,-356585.75 260.82,-356585.75 270.91,-356585.75" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="271.8,-356587.5 276.8,-356585.75 271.8,-356584 271.8,-356587.5" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M198.43,-356595.25C190.86,-356603.82 196.05,-356613 214,-356613 228.59,-356613 234.75,-356606.94 232.48,-356600.07" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="233.65,-356598.62 229.57,-356595.25 230.66,-356600.43 233.65,-356598.62" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

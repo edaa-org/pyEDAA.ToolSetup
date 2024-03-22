@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="0pt" height="864pt" viewBox="0.00 0.00 0.24 864.00">
+<ns0:g id="graph0" class="graph" transform="scale(0.000655093 0.000655093) rotate(0) translate(4 1318891.88)">
+<ns0:title>inheritance17e5afa8a9</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ActiveHDL</ns0:title>
+<ns0:g id="a_node1"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.Aldec.html#pyEDAA.ToolSetup.Aldec.ActiveHDL" ns1:title="ActiveHDL" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="360.5,-1318887.88 277,-1318887.88 277,0 360.5,0 360.5,-1318887.88" />
+<ns0:text text-anchor="middle" x="318.75" y="-1318874.38" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ActiveHDL</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="241,-659453.19 187,-659453.19 187,-659434.69 241,-659434.69 241,-659453.19" />
+<ns0:text text-anchor="middle" x="214" y="-659439.69" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;ActiveHDL</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M241.46,-659443.94C250.41,-659443.94 260.68,-659443.94 270.74,-659443.94" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="271.62,-659445.69 276.62,-659443.94 271.62,-659442.19 271.62,-659445.69" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M197.85,-659453.43C190,-659462.01 195.38,-659471.19 214,-659471.19 229.13,-659471.19 235.52,-659465.13 233.17,-659458.26" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="234.28,-659456.74 230.15,-659453.43 231.32,-659458.6 234.28,-659456.74" />
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="black" stroke-width="0.5" points="151,-659453.19 0,-659453.19 0,-659434.69 151,-659434.69 151,-659453.19" />
+<ns0:text text-anchor="middle" x="75.5" y="-659439.69" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M151.14,-659443.94C161.56,-659443.94 171.77,-659443.94 180.8,-659443.94" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="181.56,-659445.69 186.56,-659443.94 181.56,-659442.19 181.56,-659445.69" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>
