@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2023 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2024 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -46,4 +46,7 @@ DescribePythonPackageHostedOnGitHub(
 	classifiers=list(DEFAULT_CLASSIFIERS) + [
 		"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
 	],
+	consoleScripts={
+		"pyedaa-toolsetup": "pyEDAA.ToolSetup.CLI:main"
+	}
 )

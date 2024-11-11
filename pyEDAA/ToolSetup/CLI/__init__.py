@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2023 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2024 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -42,7 +42,7 @@ from pyAttributes.ArgParseAttributes import ArgParseMixin, CommonSwitchArgumentA
 from pyEDAA.ToolSetup import __author__, __copyright__, __license__, __version__
 
 @export
-class Application(LineTerminal, ArgParseMixin):
+class Application(TerminalApplication, ArgParseMixin):
 	HeadLine =    "pyEDAA.ToolSetup - Test Application"
 
 	# load platform information (Windows, Linux, Darwin, ...)
@@ -53,7 +53,7 @@ class Application(LineTerminal, ArgParseMixin):
 
 		# Initialize the Terminal class
 		# --------------------------------------------------------------------------
-		Singleton.Register(LineTerminal, self)
+
 		# Call the constructor of the ArgParseMixin
 		# --------------------------------------------------------------------------
 		textWidth = min(self.Width, 160)
@@ -96,7 +96,7 @@ class Application(LineTerminal, ArgParseMixin):
 	def Platform(self):
 		return self.__PLATFORM
 
-	def PrintHeadline(self):
+	def PrintHeadline(self) -> None:
 		self.WriteNormal(dedent("""\
 			{HEADLINE}{line}
 			{headline: ^80s}

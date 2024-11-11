@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2023 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2014-2024 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -31,7 +31,7 @@
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
 __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
-__copyright__ = "2014-2023, Patrick Lehmann"
+__copyright__ = "2014-2024, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
 __version__ =   "0.4.0"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
@@ -42,6 +42,7 @@ from typing  import Dict, ClassVar, cast
 
 from pyTooling.Configuration import Dictionary
 from pyTooling.Decorators import export
+from pyTooling.Exceptions import ExceptionBase
 from pyTooling.Configuration.YAML import Configuration
 
 from .DataModel import (
@@ -51,6 +52,19 @@ from .DataModel import (
 	ToolInstance as DM_ToolInstance
 )
 
+
+class ToolChainException(ExceptionBase):
+	"""Base-class for all tool specific exceptions"""
+
+class ConfigurationException(ExceptionBase):
+	"""``ConfigurationException`` is raise while running configuration or database
+	tasks in pyIPCMI
+	"""
+
+class SkipConfigurationException(ExceptionBase):
+	"""``SkipConfigurationException`` is a :py:exc:`ConfigurationException`,
+	which can be skipped.
+	"""
 
 class ConfigurationMixIn:
 	_config: Dictionary

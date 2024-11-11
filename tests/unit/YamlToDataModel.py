@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2023 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2021-2024 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -42,7 +42,7 @@ class Aldec(TestCase):
 	_prefix = "/opt/" if CurrentPlatform.IsPOSIX else "C:\\"
 	_yamlFile = Path(f"configuration.{_variant}.yml")
 
-	def test_AccessByNameAsIndex(self):
+	def test_AccessByNameAsIndex(self) -> None:
 		aldecPath = Path(self._prefix) / "Aldec"
 		activePath = aldecPath / "Active-HDL"
 		active103Path = activePath / "10.3"
@@ -62,7 +62,7 @@ class Aldec(TestCase):
 		self.assertEqual(active103Path / "bin", activeHDLVersion.BinaryDirectory)
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
 
-	def test_AccessByProperty(self):
+	def test_AccessByProperty(self) -> None:
 		aldecPath = Path(self._prefix + "Aldec")
 
 		installation = Installations(self._yamlFile)

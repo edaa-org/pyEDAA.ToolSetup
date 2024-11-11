@@ -77,7 +77,7 @@ Features
 * Configuring a default version/variant per tool.
 
 
-.. _contributors:
+.. _CONTRIBUTORS:
 
 Contributors
 ************
@@ -88,7 +88,7 @@ Contributors
 * `and more... <https://GitHub.com/edaa-org/pyEDAA.ToolSetup/graphs/contributors>`__
 
 
-.. _license:
+.. _LICENSE:
 
 License
 *******
