@@ -41,7 +41,7 @@ EDA tool detection, configuration and selection layer.
 |br|
 
 
-.. _goals:
+.. _GOALS:
 
 Main Goals
 **********
@@ -82,9 +82,9 @@ Features
 Contributors
 ************
 
-* `Patrick Lehmann <https://GitHub.com/Paebbels>`__ (Maintainer)
+* :gh:`Patrick Lehmann <Paebbels>` (Maintainer)
 * `Martin Zabel <https://GitHub.com/https://github.com/mzabeltud>`__
-* `Unai Martinez-Corral <https://GitHub.com/umarcor>`__
+* :gh:`Unai Martinez-Corral <umarcor>`
 * `and more... <https://GitHub.com/edaa-org/pyEDAA.ToolSetup/graphs/contributors>`__
 
 
@@ -129,13 +129,20 @@ License
 
 .. raw:: latex
 
-   \part{References}
+   \part{References and Reports}
 
 .. toctree::
-   :caption: References
+   :caption: References and Reports
    :hidden:
 
-   pyEDAA.ToolSetup/index
+   Python Class Reference <pyEDAA.ToolSetup/pyEDAA.ToolSetup>
+   unittests/index
+   coverage/index
+   CodeCoverage
+   Doc. Coverage Report <DocCoverage>
+   Static Type Check Report ➚ <typing/index>
+
+.. Coverage Report ➚ <coverage/index>
 
 .. raw:: latex
 
@@ -145,11 +152,9 @@ License
    :caption: Appendix
    :hidden:
 
-   Coverage Report ➚ <coverage/index>
-   Static Type Check Report ➚ <typing/index>
    License
    Doc-License
    Glossary
    genindex
-.. #
-   py-modindex
+   Python Module Index <modindex>
+   TODO

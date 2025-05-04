@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2024 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2021-2025 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -29,18 +29,18 @@
 # ==================================================================================================================== #
 #
 """Unit tests for a YAML based configuration file."""
-from pathlib          import Path
-from unittest         import TestCase
+from pathlib            import Path
+from unittest           import TestCase
 
-from pyTooling.Common import CurrentPlatform
+from pyTooling.Platform import CurrentPlatform
 
-from pyEDAA.ToolSetup import Installations
+from pyEDAA.ToolSetup   import Installations
 
 
 class Aldec(TestCase):
 	_variant = "posix" if CurrentPlatform.IsPOSIX else "windows"
 	_prefix = "/opt/" if CurrentPlatform.IsPOSIX else "C:\\"
-	_yamlFile = Path(f"configuration.{_variant}.yml")
+	_yamlFile = Path(f"tests/configuration.{_variant}.yml")
 
 	def test_AccessByNameAsIndex(self) -> None:
 		aldecPath = Path(self._prefix) / "Aldec"

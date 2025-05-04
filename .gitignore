@@ -6,6 +6,13 @@ __pycache__/
 .coverage
 .cov
 coverage.xml
+/report/coverage
+
+# mypy
+/report/typing
+
+# pytest
+/report/unit
 
 # setuptools
 /build/**/*.*
@@ -15,15 +22,13 @@ coverage.xml
 # Dependencies
 !requirements.txt
 
-# Sphinx
-doc/_build/
-doc/pyEDAA.ToolSetup/**/*.*
-!doc/pyEDAA.ToolSetup/index.rst
+# Sphinx documentation
+/doc/_build/
+/doc/_theme/
+/doc/pyEDAA.ToolSetup/**/*.*
+!/doc/pyEDAA.ToolSetup/index.rst
 
-# BuildTheDocs
-doc/_theme/**/*.*
-
-# IntelliJ project files
+# PyCharm project files
 /.idea/workspace.xml
 
 # Git files

@@ -1,2 +1,2 @@
-pyTooling[yaml] ~= 6.1
-pyEDAA.CLITool>=0.2.0
+pyTooling[yaml] ~= 8.4
+pyEDAA.CLITool ~= 0.3
