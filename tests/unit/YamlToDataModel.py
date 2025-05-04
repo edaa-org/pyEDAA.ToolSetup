@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2022 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2021-2025 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -29,34 +29,44 @@
 # ==================================================================================================================== #
 #
 """Unit tests for a YAML based configuration file."""
-from pathlib          import Path
-from unittest         import TestCase
+from pathlib            import Path
+from unittest           import TestCase
 
-from pyEDAA.ToolSetup import Installations
+from pyTooling.Platform import CurrentPlatform
+
+from pyEDAA.ToolSetup   import Installations
 
 
 class Aldec(TestCase):
-	_yamlFile = Path(r"tests/configuration.yml")
+	_variant = "posix" if CurrentPlatform.IsPOSIX else "windows"
+	_prefix = "/opt/" if CurrentPlatform.IsPOSIX else "C:\\"
+	_yamlFile = Path(f"tests/configuration.{_variant}.yml")
 
-	def test_AccessByNameAsIndex(self):
+	def test_AccessByNameAsIndex(self) -> None:
+		aldecPath = Path(self._prefix) / "Aldec"
+		activePath = aldecPath / "Active-HDL"
+		active103Path = activePath / "10.3"
+
 		installation = Installations(self._yamlFile)
 
 		aldec = installation["Aldec"]
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
+		self.assertEqual(aldecPath, aldec.InstallationDirectory)
 
 		activeHDL = aldec["Active-HDL"]
 		self.assertIs(aldec, activeHDL.Vendor)
 
 		activeHDLVersion = activeHDL["10.3"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3", str(activeHDLVersion.InstallationDirectory))
-		self.assertEqual(r"C:\Aldec\Active-HDL\10.3\bin", str(activeHDLVersion.BinaryDirectory))
+		self.assertEqual(active103Path, activeHDLVersion.InstallationDirectory)
+		self.assertEqual(active103Path / "bin", activeHDLVersion.BinaryDirectory)
 #		self.assertEqual(r"10.3", activeHDLVersion.Version)
 
-	def test_AccessByProperty(self):
+	def test_AccessByProperty(self) -> None:
+		aldecPath = Path(self._prefix + "Aldec")
+
 		installation = Installations(self._yamlFile)
 
 		aldec = installation.Aldec
 		self.assertIs(installation, aldec.Installation)
-		self.assertEqual(r"C:\Aldec", aldec.InstallationDirectory)
+		self.assertEqual(aldecPath, aldec.InstallationDirectory)

@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2022 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2025 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -29,6 +29,8 @@
 # ==================================================================================================================== #
 #
 """Package installer for 'EDA tool detection, configuration and selection layer'."""
+from setuptools          import setup
+
 from pathlib             import Path
 from pyTooling.Packaging import DescribePythonPackageHostedOnGitHub, DEFAULT_CLASSIFIERS
 
@@ -37,7 +39,7 @@ packageName =            "pyEDAA.ToolSetup"
 packageDirectory =       packageName.replace(".", "/")
 packageInformationFile = Path(f"{packageDirectory}/__init__.py")
 
-DescribePythonPackageHostedOnGitHub(
+setup(**DescribePythonPackageHostedOnGitHub(
 	packageName=packageName,
 	description="EDA tool detection, configuration and selection layer.",
 	gitHubNamespace=gitHubNamespace,
@@ -46,4 +48,10 @@ DescribePythonPackageHostedOnGitHub(
 	classifiers=list(DEFAULT_CLASSIFIERS) + [
 		"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
 	],
-)
+	dataFiles={
+		packageName: ["py.typed"]
+	},
+	consoleScripts={
+		"pyedaa-toolsetup": "pyEDAA.ToolSetup.CLI:main"
+	}
+))

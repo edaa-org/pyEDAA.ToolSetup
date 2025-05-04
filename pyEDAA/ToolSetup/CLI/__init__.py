@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2022 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2025 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -42,7 +42,7 @@ from pyAttributes.ArgParseAttributes import ArgParseMixin, CommonSwitchArgumentA
 from pyEDAA.ToolSetup import __author__, __copyright__, __license__, __version__
 
 @export
-class Application(LineTerminal, ArgParseMixin):
+class Application(TerminalApplication, ArgParseMixin):
 	HeadLine =    "pyEDAA.ToolSetup - Test Application"
 
 	# load platform information (Windows, Linux, Darwin, ...)
@@ -53,7 +53,7 @@ class Application(LineTerminal, ArgParseMixin):
 
 		# Initialize the Terminal class
 		# --------------------------------------------------------------------------
-		Singleton.Register(LineTerminal, self)
+
 		# Call the constructor of the ArgParseMixin
 		# --------------------------------------------------------------------------
 		textWidth = min(self.Width, 160)
@@ -96,7 +96,7 @@ class Application(LineTerminal, ArgParseMixin):
 	def Platform(self):
 		return self.__PLATFORM
 
-	def PrintHeadline(self):
+	def PrintHeadline(self) -> None:
 		self.WriteNormal(dedent("""\
 			{HEADLINE}{line}
 			{headline: ^80s}
@@ -129,15 +129,15 @@ class Application(LineTerminal, ArgParseMixin):
 	def HandleHelp(self, args):
 		self.PrintHeadline()
 
-		if (args.Command is None):
+		if args.Command is None:
 			self.MainParser.print_help()
-		elif (args.Command == "help"):
+		elif args.Command == "help":
 			self.WriteError("This is a recursion ...")
 		else:
 			try:
 				self.SubParsers[args.Command].print_help()
 			except KeyError:
-				self.WriteError("Command {0} is unknown.".format(args.Command))
+				self.WriteError(f"Command {args.Command} is unknown.")
 
 		self.WriteNormal("")
 		self.exit()
@@ -150,15 +150,15 @@ class Application(LineTerminal, ArgParseMixin):
 		self.PrintHeadline()
 
 		copyrights = __copyright__.split("\n", 1)
-		self.WriteNormal("Copyright:  {0}".format(copyrights[0]))
+		self.WriteNormal(f"Copyright:  {copyrights[0]}")
 		for copyright in copyrights[1:]:
-			self.WriteNormal("            {0}".format(copyright))
-		self.WriteNormal("License:    {0}".format(__license__))
+			self.WriteNormal(f"            {copyright}")
+		self.WriteNormal(f"License:    {__license__}")
 		authors = __author__.split(", ")
-		self.WriteNormal("Authors:    {0}".format(authors[0]))
+		self.WriteNormal(f"Authors:    {authors[0]}")
 		for author in authors[1:]:
-			self.WriteNormal("            {0}".format(author))
-		self.WriteNormal("Version:    {0}".format(__version__))
+			self.WriteNormal(f"            {author}")
+		self.WriteNormal(f"Version:    {__version__}")
 		self.exit()
 
 
@@ -193,10 +193,10 @@ def main(): # mccabe:disable=MC0001
 	# 	elif isinstance(cause, ParserException):
 	# 		print("{YELLOW}  ParserException:{NOCOLOR} {cause}".format(cause=str(cause), **Init.Foreground))
 	# 		cause = cause.__cause__
-	# 		if (cause is not None):
+	# 		if cause is not None:
 	# 			print("{YELLOW}    {name}:{NOCOLOR} {cause}".format(name=cause.__class__.__name__, cause= str(cause), **Init.Foreground))
 	#
-	# 	if (not (verbose or debug)):
+	# 	if not (verbose or debug):
 	# 		print()
 	# 		print("{CYAN}  Use '-v' for verbose or '-d' for debug to print out extended messages.{NOCOLOR}".format(**Init.Foreground))
 	# 	LineTerminal.exit(1)

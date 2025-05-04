@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2022 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2021-2025 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -36,7 +36,7 @@ from pyEDAA.ToolSetup.DataModel import ToolInformation, VendorInformation, ToolI
 
 
 class Layer0(TestCase):
-	def test_ToolInformation(self):
+	def test_ToolInformation(self) -> None:
 		installationPath = Path(r"C:\Tools\GHDL")
 		binaryPath = installationPath / "bin"
 		version = "2.0.0-dev"
@@ -48,7 +48,7 @@ class Layer0(TestCase):
 		self.assertEqual(version, info.Version)
 		self.assertIsNone(info.Edition)
 
-	def test_VendorInformation(self):
+	def test_VendorInformation(self) -> None:
 		installationPath = Path(r"C:\Tools\GHDL")
 
 		info = VendorInformation(installationPath)
@@ -62,19 +62,19 @@ class Layer1(TestCase):
 	_binaryPath = _installationPath / "bin"
 	_version = "2.0.0-dev"
 
-	def test_ToolInstance(self):
+	def test_ToolInstance(self) -> None:
 		instance = ToolInstance(self._installationPath, self._binaryPath, self._version)
 
-	def test_Tool(self):
+	def test_Tool(self) -> None:
 		tool = Tool("ghdl")
 		instance = ToolInstance(self._installationPath, self._binaryPath, self._version, parent=tool)
 
-	def test_Vendor(self):
+	def test_Vendor(self) -> None:
 		vendor = Vendor("GHDL", self._vendorPath)
 		tool = Tool("ghdl", parent=vendor)
 		instance = ToolInstance(self._installationPath, self._binaryPath, self._version, parent=tool)
 
-	def test_Installation(self):
+	def test_Installation(self) -> None:
 		installation = Installation()
 		vendor = Vendor("GHDL", self._vendorPath, parent=installation)
 		tool = Tool("ghdl", parent=vendor)

@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2022 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2021-2025 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -42,7 +42,7 @@ class ToolInformation:
 	_version: Nullable[str]
 	_edition: Nullable[str]
 
-	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: str = None, edition: str = None):
+	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None):
 		self._installationDirectory = installationDirectory
 		self._binaryDirectory = binaryDirectory
 		self._version = version
@@ -81,7 +81,7 @@ class VendorInformation:
 class ToolInstance(ToolInformation):
 	_tool: Nullable["Tool"]
 
-	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: str = None, edition: str = None, parent: "Tool" = None):
+	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None, parent: "Tool" = None):
 		super().__init__(installationDirectory, binaryDirectory, version, edition)
 		self._tool = parent
 
@@ -179,7 +179,7 @@ class Installation:
 	_allLoaded: bool
 	_vendors: Dict[str, Vendor]
 
-	def __init__(self):
+	def __init__(self) -> None:
 		self._allLoaded = False
 		self._vendors = {}
 
