@@ -1,0 +1,96 @@
+.. # Template modified by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+================
+pyEDAA.ToolSetup
+================
+
+.. automodule:: pyEDAA.ToolSetup
+
+
+
+**Submodules**
+
+.. toctree::
+   :maxdepth: 1
+
+   pyEDAA.ToolSetup.Aldec
+   pyEDAA.ToolSetup.DataModel
+   pyEDAA.ToolSetup.IntelFPGA
+   pyEDAA.ToolSetup.Interface
+   pyEDAA.ToolSetup.Lattice
+   pyEDAA.ToolSetup.OpenSource
+   pyEDAA.ToolSetup.SiemensEDA
+   pyEDAA.ToolSetup.SystemTools
+   pyEDAA.ToolSetup.Xilinx
+
+.. currentmodule:: pyEDAA.ToolSetup
+
+
+**Classes**
+
+- :py:class:`ToolInstance`:
+  Undocumented.
+
+- :py:class:`Tool`:
+  Undocumented.
+
+- :py:class:`Vendor`:
+  Undocumented.
+
+- :py:class:`Installations`:
+  Undocumented.
+
+
+
+---------------------
+
+**Classes**
+
+
+
+
+.. autoclass:: ToolInstance
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ToolInstance
+      :parts: 1
+
+.. autoclass:: Tool
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Tool
+      :parts: 1
+
+.. autoclass:: Vendor
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vendor
+      :parts: 1
+
+.. autoclass:: Installations
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Installations
+      :parts: 1

@@ -1,0 +1,94 @@
+.. # Template modified by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+=======================
+pyEDAA.ToolSetup.Xilinx
+=======================
+
+.. automodule:: pyEDAA.ToolSetup.Xilinx
+
+
+.. currentmodule:: pyEDAA.ToolSetup.Xilinx
+
+
+**Classes**
+
+- :py:class:`ISE`:
+  Undocumented.
+
+- :py:class:`Vivado`:
+  Undocumented.
+
+- :py:class:`VivadoSDK`:
+  Undocumented.
+
+- :py:class:`Vitis`:
+  Undocumented.
+
+- :py:class:`Xilinx`:
+  Undocumented.
+
+
+
+---------------------
+
+**Classes**
+
+
+
+
+.. autoclass:: ISE
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ISE
+      :parts: 1
+
+.. autoclass:: Vivado
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vivado
+      :parts: 1
+
+.. autoclass:: VivadoSDK
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: VivadoSDK
+      :parts: 1
+
+.. autoclass:: Vitis
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Vitis
+      :parts: 1
+
+.. autoclass:: Xilinx
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Xilinx
+      :parts: 1

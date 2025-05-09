@@ -1,0 +1,52 @@
+.. # Template modified by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+========================
+pyEDAA.ToolSetup.Lattice
+========================
+
+.. automodule:: pyEDAA.ToolSetup.Lattice
+
+
+.. currentmodule:: pyEDAA.ToolSetup.Lattice
+
+
+**Classes**
+
+- :py:class:`Diamond`:
+  Undocumented.
+
+- :py:class:`Lattice`:
+  Undocumented.
+
+
+
+---------------------
+
+**Classes**
+
+
+
+
+.. autoclass:: Diamond
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Diamond
+      :parts: 1
+
+.. autoclass:: Lattice
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Lattice
+      :parts: 1

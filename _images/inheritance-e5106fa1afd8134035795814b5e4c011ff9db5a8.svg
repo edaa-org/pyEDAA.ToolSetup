@@ -1,0 +1,62 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="297pt" height="64pt" viewBox="0.00 0.00 297.00 64.00">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 60)">
+<ns0:title>inheritance08d36616e7</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="#1e90ff" points="109,-56 0,-56 0,-37 109,-37 109,-56" />
+<ns0:text text-anchor="middle" x="54.5" y="-44" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Vendor</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Vendor" ns1:title="Vendor" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="199,-37 145,-37 145,-18 199,-18 199,-37" />
+<ns0:text text-anchor="middle" x="172" y="-25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Vendor</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge4" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M109.19,-37.67C119.63,-35.95 130.25,-34.2 139.67,-32.65" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="140.12,-34.35 144.77,-31.82 139.55,-30.9 140.12,-34.35" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>Lattice</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.Lattice.html#pyEDAA.ToolSetup.Lattice.Lattice" ns1:title="Lattice" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="289,-37 235,-37 235,-18 289,-18 289,-37" />
+<ns0:text text-anchor="middle" x="262" y="-25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Lattice</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Vendor-&gt;Lattice</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M199.4,-27.5C208.97,-27.5 219.87,-27.5 229.82,-27.5" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="229.92,-29.25 234.92,-27.5 229.92,-25.75 229.92,-29.25" />
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>Vendor-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M158.13,-37.08C151.38,-45.73 156,-55 172,-55 185.25,-55 190.69,-48.65 188.34,-41.55" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="189.82,-40.61 185.87,-37.08 186.76,-42.3 189.82,-40.61" />
+</ns0:g>
+
+<ns0:g id="node4" class="node">
+<ns0:title>VendorInformation</ns0:title>
+<ns0:g id="a_node4"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.DataModel.html#pyEDAA.ToolSetup.DataModel.VendorInformation" ns1:title="VendorInformation" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="108,-19 1,-19 1,0 108,0 108,-19" />
+<ns0:text text-anchor="middle" x="54.5" y="-7" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">VendorInformation</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>VendorInformation-&gt;Vendor</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M108.18,-17.71C119.02,-19.4 130.1,-21.13 139.88,-22.65" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="139.66,-24.39 144.87,-23.43 140.2,-20.93 139.66,-24.39" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

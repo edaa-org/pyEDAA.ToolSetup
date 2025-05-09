@@ -1,0 +1,94 @@
+.. # Template modified by Patrick Lehmann
+     * removed automodule on top, because private members are activated for autodoc (no doubled documentation).
+     * Made sections like 'submodules' bold text, but no headlines to reduce number of ToC levels.
+
+======================
+pyEDAA.ToolSetup.Aldec
+======================
+
+.. automodule:: pyEDAA.ToolSetup.Aldec
+
+
+.. currentmodule:: pyEDAA.ToolSetup.Aldec
+
+
+**Classes**
+
+- :py:class:`ActiveHDLInstance`:
+  Undocumented.
+
+- :py:class:`RivieraPROInstance`:
+  Undocumented.
+
+- :py:class:`ActiveHDL`:
+  Undocumented.
+
+- :py:class:`RivieraPRO`:
+  Undocumented.
+
+- :py:class:`Aldec`:
+  Undocumented.
+
+
+
+---------------------
+
+**Classes**
+
+
+
+
+.. autoclass:: ActiveHDLInstance
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ActiveHDLInstance
+      :parts: 1
+
+.. autoclass:: RivieraPROInstance
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: RivieraPROInstance
+      :parts: 1
+
+.. autoclass:: ActiveHDL
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: ActiveHDL
+      :parts: 1
+
+.. autoclass:: RivieraPRO
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: RivieraPRO
+      :parts: 1
+
+.. autoclass:: Aldec
+   :members:
+   :private-members:
+   :special-members:
+   :inherited-members:
+   :exclude-members: __weakref__
+
+   .. rubric:: Inheritance
+   .. inheritance-diagram:: Aldec
+      :parts: 1

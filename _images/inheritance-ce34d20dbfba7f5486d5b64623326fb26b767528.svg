@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="230pt" height="64pt" viewBox="0.00 0.00 230.00 64.00">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 60)">
+<ns0:title>inheritancecf01efb267</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="#1e90ff" points="109,-56 0,-56 0,-37 109,-37 109,-56" />
+<ns0:text text-anchor="middle" x="54.5" y="-44" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>ToolInstance</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.ToolInstance" ns1:title="ToolInstance" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="222,-37 145,-37 145,-18 222,-18 222,-37" />
+<ns0:text text-anchor="middle" x="183.5" y="-25" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ToolInstance</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;ToolInstance</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M109.36,-38.44C119.49,-36.93 129.96,-35.36 139.7,-33.9" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="140.03,-35.62 144.72,-33.15 139.51,-32.16 140.03,-35.62" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>ToolInformation</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.DataModel.html#pyEDAA.ToolSetup.DataModel.ToolInformation" ns1:title="ToolInformation" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="101,-19 8,-19 8,0 101,0 101,-19" />
+<ns0:text text-anchor="middle" x="54.5" y="-7" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ToolInformation</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>ToolInformation-&gt;ToolInstance</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M101.35,-16C113.78,-17.76 127.2,-19.66 139.47,-21.4" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="139.46,-23.17 144.65,-22.14 139.95,-19.7 139.46,-23.17" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>ToolInstance-&gt;ToolInstance</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M163.77,-37.08C154.17,-45.73 160.75,-55 183.5,-55 202.7,-55 210.38,-48.4 206.54,-41.15" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="207.75,-39.85 203.23,-37.08 205.03,-42.06 207.75,-39.85" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>

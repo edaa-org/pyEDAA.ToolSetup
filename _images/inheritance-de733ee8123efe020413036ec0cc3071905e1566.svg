@@ -1,0 +1,47 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://www.w3.org/1999/xlink" width="313pt" height="45pt" viewBox="0.00 0.00 313.00 45.00">
+<ns0:g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 41)">
+<ns0:title>inheritance92cf480219</ns0:title>
+
+<ns0:g id="node1" class="node">
+<ns0:title>ConfigurationMixIn</ns0:title>
+<ns0:polygon fill="white" stroke="#1e90ff" points="109,-19 0,-19 0,0 109,0 109,-19" />
+<ns0:text text-anchor="middle" x="54.5" y="-7" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">ConfigurationMixIn</ns0:text>
+</ns0:g>
+
+<ns0:g id="node3" class="node">
+<ns0:title>Tool</ns0:title>
+<ns0:g id="a_node3"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.html#pyEDAA.ToolSetup.Tool" ns1:title="Tool" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="199,-19 145,-19 145,0 199,0 199,-19" />
+<ns0:text text-anchor="middle" x="172" y="-7" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">Tool</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge3" class="edge">
+<ns0:title>ConfigurationMixIn-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M109.19,-9.5C119.63,-9.5 130.25,-9.5 139.67,-9.5" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="139.77,-11.25 144.77,-9.5 139.77,-7.75 139.77,-11.25" />
+</ns0:g>
+
+<ns0:g id="node2" class="node">
+<ns0:title>QuestaSim</ns0:title>
+<ns0:g id="a_node2"><ns0:a ns1:href="../pyEDAA.ToolSetup/pyEDAA.ToolSetup.SiemensEDA.html#pyEDAA.ToolSetup.SiemensEDA.QuestaSim" ns1:title="QuestaSim" target="_top">
+<ns0:polygon fill="white" stroke="#1e90ff" points="305,-19 235,-19 235,0 305,0 305,-19" />
+<ns0:text text-anchor="middle" x="270" y="-7" font-family="Vera Sans, DejaVu Sans, Liberation Sans, Arial, Helvetica, sans" font-size="10.00">QuestaSim</ns0:text>
+</ns0:a>
+</ns0:g>
+</ns0:g>
+
+<ns0:g id="edge1" class="edge">
+<ns0:title>Tool-&gt;QuestaSim</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M199.23,-9.5C208.68,-9.5 219.55,-9.5 229.86,-9.5" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="229.87,-11.25 234.87,-9.5 229.87,-7.75 229.87,-11.25" />
+</ns0:g>
+
+<ns0:g id="edge2" class="edge">
+<ns0:title>Tool-&gt;Tool</ns0:title>
+<ns0:path fill="none" stroke="black" stroke-width="0.5" d="M156.9,-19.08C149.55,-27.73 154.58,-37 172,-37 186.42,-37 192.36,-30.65 189.8,-23.55" />
+<ns0:polygon fill="black" stroke="black" stroke-width="0.5" points="191.18,-22.46 187.1,-19.08 188.19,-24.27 191.18,-22.46" />
+</ns0:g>
+</ns0:g>
+</ns0:svg>
