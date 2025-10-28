@@ -29,3 +29,14 @@
 # ==================================================================================================================== #
 #
 """``configure`` commands for the CLI application for standalone usage of pyEDAA.Configure."""
+
+
+# check if config exists
+#   check via given parameter (if so)
+#   check in home (/home/..., c:\Users/**/)
+#   check global config directory (/etc/
+# load config
+# create empty config
+
+
+
