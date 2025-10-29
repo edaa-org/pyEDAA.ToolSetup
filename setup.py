@@ -39,19 +39,22 @@ packageName =            "pyEDAA.ToolSetup"
 packageDirectory =       packageName.replace(".", "/")
 packageInformationFile = Path(f"{packageDirectory}/__init__.py")
 
-setup(**DescribePythonPackageHostedOnGitHub(
-	packageName=packageName,
-	description="EDA tool detection, configuration and selection layer.",
-	gitHubNamespace=gitHubNamespace,
-	sourceFileWithVersion=packageInformationFile,
-	developmentStatus="alpha",
-	classifiers=list(DEFAULT_CLASSIFIERS) + [
-		"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
-	],
-	dataFiles={
-		packageName: ["py.typed"]
-	},
-	consoleScripts={
-		"pyedaa-toolsetup": "pyEDAA.ToolSetup.CLI:main"
-	}
-))
+setup(
+	**DescribePythonPackageHostedOnGitHub(
+		packageName=packageName,
+		description="EDA tool detection, configuration and selection layer.",
+		gitHubNamespace=gitHubNamespace,
+		sourceFileWithVersion=packageInformationFile,
+		classifiers=list(DEFAULT_CLASSIFIERS) + [
+			"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)"
+		],
+		developmentStatus="alpha",
+		pythonVersions=("3.11", "3.12", "3.13", "3.14"),
+		consoleScripts={
+			"pyedaa-toolsetup": "pyEDAA.ToolSetup.CLI:main"
+		},
+		dataFiles={
+			packageName: ["py.typed"]
+		}
+	)
+)
