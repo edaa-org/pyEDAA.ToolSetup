@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2025 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2021-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -42,7 +42,7 @@ class ToolInformation:
 	_version: Nullable[str]
 	_edition: Nullable[str]
 
-	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None):
+	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None) -> None:
 		self._installationDirectory = installationDirectory
 		self._binaryDirectory = binaryDirectory
 		self._version = version
@@ -69,7 +69,7 @@ class ToolInformation:
 class VendorInformation:
 	_installationDirectory: Path
 
-	def __init__(self, installationDirectory: Path):
+	def __init__(self, installationDirectory: Path) -> None:
 		self._installationDirectory = installationDirectory
 
 	@property
@@ -81,7 +81,7 @@ class VendorInformation:
 class ToolInstance(ToolInformation):
 	_tool: Nullable["Tool"]
 
-	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None, parent: "Tool" = None):
+	def __init__(self, installationDirectory: Path, binaryDirectory: Path, version: Nullable[str] = None, edition: Nullable[str] = None, parent: "Tool" = None) -> None:
 		super().__init__(installationDirectory, binaryDirectory, version, edition)
 		self._tool = parent
 
@@ -98,7 +98,7 @@ class Tool:
 	_variants: Dict[str, ToolInstance]
 	_instanceClass: ClassVar[Type[ToolInstance]]
 
-	def __init__(self, name: str, parent: "Vendor" = None):
+	def __init__(self, name: str, parent: "Vendor" = None) -> None:
 		self._vendor = parent
 		self._name = name
 		self._allLoaded = False
@@ -141,7 +141,7 @@ class Vendor(VendorInformation):
 	_allLoaded: bool
 	_tools: Dict[str, Tool]
 
-	def __init__(self, name: str, installationDirectory: Path, parent: "Installation" = None):
+	def __init__(self, name: str, installationDirectory: Path, parent: "Installation" = None) -> None:
 		super().__init__(installationDirectory)
 		self._installation = parent
 		self._name = name

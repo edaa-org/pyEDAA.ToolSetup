@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2025 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2014-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -48,7 +48,7 @@ class Application(TerminalApplication, ArgParseMixin):
 	# load platform information (Windows, Linux, Darwin, ...)
 	__PLATFORM =  platform_system()
 
-	def __init__(self, debug=False, verbose=False, quiet=False, sphinx=False):
+	def __init__(self, debug=False, verbose=False, quiet=False, sphinx=False) -> None:
 		super().__init__(verbose, debug, quiet)
 
 		# Initialize the Terminal class
@@ -110,7 +110,7 @@ class Application(TerminalApplication, ArgParseMixin):
 	@CommonSwitchArgumentAttribute("-d", "--debug",   dest="debug",   help="Enable debug mode.")
 	@CommonSwitchArgumentAttribute("-v", "--verbose", dest="verbose", help="Print out detailed messages.")
 	@CommonSwitchArgumentAttribute("-q", "--quiet",   dest="quiet",   help="Reduce messages to a minimum.")
-	def Run(self):
+	def Run(self) -> NoReturn:
 		ArgParseMixin.Run(self)
 
 	@DefaultAttribute()
