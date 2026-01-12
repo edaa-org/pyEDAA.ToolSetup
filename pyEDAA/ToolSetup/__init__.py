@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2014-2025 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2014-2026 Patrick Lehmann - Boetzingen, Germany                                                            #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -31,7 +31,7 @@
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
 __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
-__copyright__ = "2014-2025, Patrick Lehmann"
+__copyright__ = "2014-2026, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
 __version__ =   "0.4.0"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
