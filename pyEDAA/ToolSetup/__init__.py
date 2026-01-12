@@ -33,7 +33,7 @@ __author__ =    "Patrick Lehmann"
 __email__ =     "Paebbels@gmail.com"
 __copyright__ = "2014-2026, Patrick Lehmann"
 __license__ =   "Apache License, Version 2.0"
-__version__ =   "0.4.0"
+__version__ =   "0.4.2"
 __keywords__ =  ["configuration", "eda", "installation", "selection"]
 
 
