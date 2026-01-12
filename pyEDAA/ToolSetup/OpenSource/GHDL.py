@@ -15,7 +15,7 @@ class GHDLInstance(ToolInstance, HDLSimulator):
 	_backend: str
 	_ghdl: CLI_GHDL
 
-	def __init__(self, config: Dictionary, parent: 'GHDL'):
+	def __init__(self, config: Dictionary, parent: 'GHDL') -> None:
 		super().__init__(config, parent)
 
 		self._ghdl = None

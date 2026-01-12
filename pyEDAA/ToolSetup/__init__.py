@@ -69,13 +69,13 @@ class SkipConfigurationException(ExceptionBase):
 class ConfigurationMixIn:
 	_config: Dictionary
 
-	def __init__(self, config: Dictionary):
+	def __init__(self, config: Dictionary) -> None:
 		self._config = config
 
 
 @export
 class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
-	def __init__(self, config: Dictionary, parent: "Tool"):
+	def __init__(self, config: Dictionary, parent: "Tool") -> None:
 		name = config.Key
 		installationDirectory = Path(config["InstallationDirectory"])
 		binaryDirectory = Path(config["BinaryDirectory"])
@@ -87,7 +87,7 @@ class ToolInstance(DM_ToolInstance, ConfigurationMixIn):
 
 @export
 class Tool(DM_Tool, ConfigurationMixIn):
-	def __init__(self, config: Dictionary, parent: "Vendor"):
+	def __init__(self, config: Dictionary, parent: "Vendor") -> None:
 		name = config.Key
 
 		super().__init__(name, parent=parent)
@@ -121,7 +121,7 @@ class Tool(DM_Tool, ConfigurationMixIn):
 class Vendor(DM_Vendor, ConfigurationMixIn):
 	_toolClasses: ClassVar[Dict[str, Tool]]
 
-	def __init__(self, config: Dictionary, parent: "Installations"):
+	def __init__(self, config: Dictionary, parent: "Installations") -> None:
 		name = config.Key
 		installationDirectory = Path(config["InstallationDirectory"])
 
@@ -174,7 +174,7 @@ class Installations(DM_Installation):
 		"OpenSource": OpenSource
 	}
 
-	def __init__(self, yamlFile: Path):
+	def __init__(self, yamlFile: Path) -> None:
 		super().__init__()
 		self._config = Configuration(yamlFile)
 
