@@ -35,9 +35,9 @@ from textwrap import dedent, wrap
 
 from pyTooling.Decorators import export
 from pyTooling.Exceptions import ExceptionBase
-from pyTooling.MetaClasses import Singleton
-from pyTooling.TerminalUI import LineTerminal, Severity
-from pyAttributes.ArgParseAttributes import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
+from pyTooling.TerminalUI import TerminalApplication, Severity
+from pyTooling.Attributes.ArgParse import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
+from pyTooling.Attributes.ArgParse.Attributes import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
 
 from pyEDAA.ToolSetup import __author__, __copyright__, __license__, __version__
 
