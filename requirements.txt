@@ -1,2 +1,2 @@
-pyTooling[yaml] ~= 8.11
+pyTooling[yaml] ~= 8.15
 pyEDAA.CLITool ~= 0.4.1
