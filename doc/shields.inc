@@ -4,11 +4,11 @@
    # percent encoding so that the URL is properly parsed.
 
 .. # Sourcecode link to GitHub
-.. |SHIELD:svg:ToolSetup-github| image:: https://img.shields.io/badge/pyEDAA-ToolSetup-ffca28.svg?longCache=true&style=flat-square&logo=GitHub&labelColor=ff8f00
+.. |SHIELD:svg:ToolSetup-github| image:: https://img.shields.io/badge/pyEDAA-ToolSetup-ffca28?longCache=true&style=flat-square&logo=GitHub&labelColor=ff8f00
    :alt: Sourcecode on GitHub
    :height: 22
    :target: https://GitHub.com/edaa-org/pyEDAA.ToolSetup
-.. |SHIELD:png:ToolSetup-github| image:: https://raster.shields.io/badge/pyEDAA-ToolSetup-ffca28.svg?longCache=true&style=flat-square&logo=GitHub&labelColor=ff8f00
+.. |SHIELD:png:ToolSetup-github| image:: https://raster.shields.io/badge/pyEDAA-ToolSetup-ffca28?longCache=true&style=flat-square&logo=GitHub&labelColor=ff8f00
    :alt: Sourcecode on GitHub
    :height: 22
    :target: https://GitHub.com/edaa-org/pyEDAA.ToolSetup
@@ -180,11 +180,11 @@
    :target: https://edaa-org.github.io/pyEDAA.ToolSetup/
 
 .. # Gitter
-.. |SHIELD:svg:ToolSetup-gitter| image:: https://img.shields.io/badge/chat-on%20gitter-4db797.svg?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef
+.. |SHIELD:svg:ToolSetup-gitter| image:: https://img.shields.io/badge/chat-on%20gitter-4db797?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef
    :alt: Documentation License
    :height: 22
    :target: https://gitter.im/hdl/community
-.. |SHIELD:png:ToolSetup-gitter| image:: https://raster.shields.io/badge/chat-on%20gitter-4db797.svg?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef
+.. |SHIELD:png:ToolSetup-gitter| image:: https://raster.shields.io/badge/chat-on%20gitter-4db797?longCache=true&style=flat-square&logo=gitter&logoColor=e8ecef
    :alt: Documentation License
    :height: 22
    :target: https://gitter.im/hdl/community

@@ -33,7 +33,7 @@ Param(
 )
 
 $PackageName = "pyEDAA.ToolSetup"
-$PackageVersion = "0.4.2"
+$PackageVersion = "0.4.4"
 
 # set default values
 $EnableDebug =        [bool]$PSCmdlet.MyInvocation.BoundParameters["Debug"]
