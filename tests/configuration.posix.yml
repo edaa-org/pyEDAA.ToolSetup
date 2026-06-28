@@ -235,6 +235,15 @@ Installations:
         InstallationDirectory: '${..:${Version}-${Runtime}-${Backend}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}-${Runtime}-${Backend}:BinaryDirectory}'
 
+      '7.0.0.dev0-ucrt64-llvm':
+        Version:               '7.0.0.dev0'
+        Platform:              'win64'
+        Runtime:               'ucrt64'
+        Backend:               'llvm'
+        InstallationDirectory: '${..:InstallationDirectory}/${Version}-${Runtime}-${Backend}'
+        BinaryDirectory:       '${InstallationDirectory}/bin'
+#        ScriptDirectory:       '${InstallationDirectory}/scripts'
+
       '7.0.0.dev0-mingw64-mcode':
         Version:               '7.0.0.dev0'
         Platform:              'win64'
@@ -243,6 +252,21 @@ Installations:
         InstallationDirectory: '${..:InstallationDirectory}/${Version}-${Runtime}-${Backend}'
         BinaryDirectory:       '${InstallationDirectory}/bin'
 #        ScriptDirectory:       '${InstallationDirectory}/scripts'
+
+    nvc:
+      InstallationDirectory:   '${..:InstallationDirectory}/NVC'
+
+      Default:
+        Version:               '1.21.1'
+        Platform:              'win64'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
+
+      '1.21.1':
+        Version:               '1.21.1'
+        Platform:              'win64'
+        InstallationDirectory: '${..:${Version}:InstallationDirectory}'
+        BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
     GTKWave:
       InstallationDirectory:   '${..:InstallationDirectory}/GTKWave'
