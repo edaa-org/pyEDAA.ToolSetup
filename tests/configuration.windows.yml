@@ -1,11 +1,11 @@
 Defaults:
   Active-HDL:
-    PathExpression:        'Aldec:Active-HDL:10.5'
+    PathExpression:        'Aldec:Active-HDL:17.0'
     InstallationDirectory: '${..:..:${PathExpression}:InstallationDirectory}'
     BinaryDirectory:       '${..:..:${PathExpression}:BinaryDirectory}'
 
   Riviera-PRO:
-    PathExpression:        'Aldec:Riviera-PRO:2021.10'
+    PathExpression:        'Aldec:Riviera-PRO:2026.04'
     InstallationDirectory: '${..:..:${PathExpression}:InstallationDirectory}'
     BinaryDirectory:       '${..:..:${PathExpression}:BinaryDirectory}'
 
@@ -15,7 +15,7 @@ Defaults:
     BinaryDirectory:       '${..:..:${PathExpression}:BinaryDirectory}'
 
   Quartus:
-    PathExpression:        'IntelFPGA:Quartus:16.1'
+    PathExpression:        'IntelFPGA:Quartus:26.1'
     InstallationDirectory: '${..:..:${PathExpression}:InstallationDirectory}'
     BinaryDirectory:       '${..:..:${PathExpression}:BinaryDirectory}'
 
@@ -27,12 +27,12 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Active-HDL'
 
       Default:
-        Version:               '10.3'
+        Version:               '17.0'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      '10.3':
-        Version:               '10.3'
+      '17.0':
+        Version:               '17.0'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
@@ -41,17 +41,17 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Default:
-        Version:               '2021.10'
+        Version:               '2026.04'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      '2021.04':
-        Version:               '2021.04'
+      '2025.10':
+        Version:               '2025.10'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
-      '2021.10':
-        Version:               '2021.10'
+      '2026.04':
+        Version:               '2026.04'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
@@ -62,12 +62,12 @@ Installations:
       InstallationDir:         'quartus'
 
       Default:
-        Version:               '16.0'
+        Version:               '26.1'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      '16.0':
-        Version:               '16.0'
+      '26.1':
+        Version:               '26.1'
         InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
         BinaryDirectory:       '${InstallationDirectory}\bin64'
 
@@ -82,7 +82,7 @@ Installations:
         Edition:               '${..:${Version}:Edition}'
 
       '10.4d':
-        QuartusVersion:        '16.0'
+        QuartusVersion:        '10.4d'
         InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
         BinaryDirectory:       '${InstallationDirectory}\win32aloem'
         Edition:               'ModelSim Altera Starter Edition'
@@ -94,12 +94,12 @@ Installations:
       InstallationDir:         'quartus'
 
       Default:
-        Version:               '16.1'
+        Version:               '26.1'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      '16.1':
-        Version:               '16.1'
+      '26.1':
+        Version:               '26.1'
         InstallationDirectory: '${..:..:InstallationDirectory}\${Version}\${..:InstallationDir}'
         BinaryDirectory:       '${InstallationDirectory}\bin64'
 
@@ -114,7 +114,7 @@ Installations:
         Edition:               '${..:${Version}:Edition}'
 
       '10.5d':
-        QuartusVersion:        '16.1'
+        QuartusVersion:        '10.5b'
         InstallationDirectory: '${..:..:InstallationDirectory}\${QuartusVersion}\modelsim_ase'
         BinaryDirectory:       '${InstallationDirectory}\win32aloem'
         Edition:               'ModelSim Altera Starter Edition'
@@ -200,12 +200,12 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Vivado'
 
       Default:
-        Version:               '2021.2'
+        Version:               '2026.1'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
 
-      2021.2:
-        Version:               '2021.2'
+      2026.1:
+        Version:               '2026.1'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}'
         BinaryDirectory:       '${InstallationDirectory}\bin'
 
@@ -217,7 +217,7 @@ Installations:
     InstallationDirectory:     'C:\Program Files'
 
     Git:
-      Version:                 '2.31'
+      Version:                 '2.55'
       InstallationDirectory:   '${..:InstallationDirectory}\Git'
       BinaryDirectory:         '${InstallationDirectory}\bin'
 
@@ -228,17 +228,17 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\GHDL'
 
       Default:
-        Version:               '2.0.0.dev0'
-        Platform:              'win32'
-        Runtime:               'mingw32'
-        Backend:               'mcode'
+        Version:               '7.0.0.dev0'
+        Platform:              'win64'
+        Runtime:               'ucrt64'
+        Backend:               'llvm'
         InstallationDirectory: '${..:${Version}-${Runtime}-${Backend}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}-${Runtime}-${Backend}:BinaryDirectory}'
 
-      '2.0.0.dev0-mingw32-mcode':
-        Version:               '2.0.0.dev0'
-        Platform:              'win32'
-        Runtime:               'mingw32'
+      '7.0.0.dev0-mingw64-mcode':
+        Version:               '7.0.0.dev0'
+        Platform:              'win64'
+        Runtime:               'mingw64'
         Backend:               'mcode'
         InstallationDirectory: '${..:InstallationDirectory}\${Version}-${Runtime}-${Backend}'
         BinaryDirectory:       '${InstallationDirectory}\bin'

@@ -55,17 +55,17 @@ class GHDLInstance(ToolInstance, HDLSimulator):
 
 	@property
 	def Platform(self) -> str:
-		"""Platform GHDL runs on: ``win32``, ``win64``, ``lin64``."""
+		"""Platform GHDL runs on: ``win64``, ``lin64``."""
 		return self._platform
 
 	@property
 	def Runtime(self) -> str:
-		"""Runtime used to run GHDL: ``mingw32``, ``mingw64``, ``ucrt64``, ``gnatgpl32``, ``lin64``."""
+		"""Runtime used to run GHDL: ``mingw64``, ``ucrt64``, ``lin64``."""
 		return self._runtime
 
 	@property
 	def Backend(self) -> str:
-		"""GHDL's backend (``mcode``, ``llvm`` or ``gcc``."""
+		"""GHDL's backend: ``mcode``, ``llvm`` or ``gcc``."""
 		return self._backend
 
 	def _CreateGHDLCLIInstance(self) -> CLI_GHDL:

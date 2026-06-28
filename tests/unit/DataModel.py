@@ -39,7 +39,7 @@ class Layer0(TestCase):
 	def test_ToolInformation(self) -> None:
 		installationPath = Path(r"C:\Tools\GHDL")
 		binaryPath = installationPath / "bin"
-		version = "2.0.0-dev"
+		version = "7.0.0-dev"
 
 		info = ToolInformation(installationPath, binaryPath, version)
 
@@ -60,7 +60,7 @@ class Layer1(TestCase):
 	_vendorPath = Path(r"C:\Tools")
 	_installationPath = _vendorPath / "GHDL"
 	_binaryPath = _installationPath / "bin"
-	_version = "2.0.0-dev"
+	_version = "7.0.0-dev"
 
 	def test_ToolInstance(self) -> None:
 		instance = ToolInstance(self._installationPath, self._binaryPath, self._version)
