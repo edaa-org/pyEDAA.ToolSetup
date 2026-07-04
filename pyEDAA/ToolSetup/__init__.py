@@ -29,20 +29,23 @@
 # ==================================================================================================================== #
 #
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
-__author__ =    "Patrick Lehmann"
-__email__ =     "Paebbels@gmail.com"
-__copyright__ = "2014-2026, Patrick Lehmann"
-__license__ =   "Apache License, Version 2.0"
-__version__ =   "0.5.0"
-__keywords__ =  ["configuration", "eda", "installation", "selection"]
+__author__ =            "Patrick Lehmann"
+__email__ =             "Paebbels@gmail.com"
+__copyright__ =         "2014-2026, Patrick Lehmann"
+__license__ =           "Apache License, Version 2.0"
+__version__ =           "0.5.0"
+__keywords__ =          ["configuration", "eda", "installation", "selection"]
+__project_url__ =       "https://github.com/edaa-org/pyEDAA.ToolSetup"
+__documentation_url__ = "https://edaa-org.github.io/pyEDAA.ToolSetup"
+__issue_tracker_url__ = "https://GitHub.com/edaa-org/pyEDAA.ToolSetup/issues"
 
 
 from pathlib import Path
 from typing  import Dict, ClassVar, cast
 
-from pyTooling.Configuration import Dictionary
-from pyTooling.Decorators import export
-from pyTooling.Exceptions import ExceptionBase
+from pyTooling.Decorators         import export
+from pyTooling.Exceptions         import ExceptionBase
+from pyTooling.Configuration      import Dictionary
 from pyTooling.Configuration.YAML import Configuration
 
 from .DataModel import (
