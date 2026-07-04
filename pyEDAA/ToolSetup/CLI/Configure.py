@@ -29,3 +29,19 @@
 # ==================================================================================================================== #
 #
 """``configure`` commands for the CLI application for standalone usage of pyEDAA.Configure."""
+from argparse  import Namespace
+
+from pyTooling.Decorators                      import export
+from pyTooling.MetaClasses                     import ExtendedType
+from pyTooling.Attributes.ArgParse             import CommandHandler
+
+
+@export
+class ConfigureHandlers(metaclass=ExtendedType, mixin=True):
+	@CommandHandler("configure", help="Configure existing EDA tools on that system.", description="Configure EDA tools.")
+	def HandleConfigure(self, args: Namespace) -> None:
+		"""Handle program calls with command ``configure``."""
+		if not args.quiet:
+			self._PrintHeadline()
+
+		raise NotImplementedError("This is a placeholder command.")

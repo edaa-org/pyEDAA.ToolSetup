@@ -30,39 +30,33 @@
 #
 """CLI application for standalone usage of pyEDAA.Configure and for testing."""
 from argparse import RawDescriptionHelpFormatter
-from platform import system as platform_system
 from textwrap import dedent, wrap
+from typing   import Optional as Nullable, ClassVar
 
 from pyTooling.Decorators import export
 from pyTooling.Exceptions import ExceptionBase
-from pyTooling.TerminalUI import TerminalApplication, Severity
-from pyTooling.Attributes.ArgParse import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
-from pyTooling.Attributes.ArgParse.Attributes import ArgParseMixin, CommonSwitchArgumentAttribute, DefaultAttribute, CommandAttribute, ArgumentAttribute
+from pyTooling.TerminalUI import TerminalApplication, Severity, Mode
+from pyTooling.Attributes.ArgParse          import Namespace, ArgParseHelperMixin, DefaultHandler, CommandHandler
+from pyTooling.Attributes.ArgParse.Argument import StringArgument
+from pyTooling.Attributes.ArgParse.Flag     import FlagArgument
 
-from pyEDAA.ToolSetup import __author__, __copyright__, __license__, __version__
+from pyEDAA.ToolSetup               import ConfigurationException
+from pyEDAA.ToolSetup.CLI.Configure import ConfigureHandlers
+
 
 @export
-class Application(TerminalApplication, ArgParseMixin):
-	HeadLine =    "pyEDAA.ToolSetup - Test Application"
+class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
+	"""Program class to implement the command line interface (CLI) using commands and options."""
 
-	# load platform information (Windows, Linux, Darwin, ...)
-	__PLATFORM =  platform_system()
+	HEADLINE:          ClassVar[str] = "pyEDAA.ToolSetup Service Program"
 
-	def __init__(self, debug=False, verbose=False, quiet=False, sphinx=False) -> None:
-		super().__init__(verbose, debug, quiet)
+	def __init__(self, sphinx: bool = False) -> None:
+		super().__init__(Mode.TextToStdOut_ErrorsToStdErr)
 
-		# Initialize the Terminal class
-		# --------------------------------------------------------------------------
+		self.HeadLine = self.HEADLINE
 
-		# Call the constructor of the ArgParseMixin
-		# --------------------------------------------------------------------------
+		# Call the constructor of the ArgParseHelperMixin
 		textWidth = min(self.Width, 160)
-		description = dedent("""\
-			Test application to test pyEDAA.ToolSetup capabilities.
-			""")
-		epilog = "\n".join(wrap(dedent("""\
-		  pyEDAA.ToolSetup is a layer in EDA² to find, configure and select installed EDA tools.
-		  """), textWidth, replace_whitespace=False))
 
 		class HelpFormatter(RawDescriptionHelpFormatter):
 			def __init__(self, *args, **kwargs):
@@ -70,13 +64,18 @@ class Application(TerminalApplication, ArgParseMixin):
 				kwargs['width'] =             textWidth
 				super().__init__(*args, **kwargs)
 
-		ArgParseMixin.__init__(
+		ArgParseHelperMixin.__init__(
 			self,
-	    description=description,
-			epilog=epilog,
-	    formatter_class=HelpFormatter,
-	    add_help=False
-	  )
+			prog="pyedaa-toolsetup",
+		  description=dedent('''\
+				'pyEDAA.ToolSetup Test Application' to test pyEDAA.ToolSetup capabilities.
+				'''),
+			epilog="\n".join(wrap(dedent("""\
+		  	pyEDAA.ToolSetup is a layer in EDA² to find, configure and select installed EDA tools.
+		  	"""), textWidth, replace_whitespace=False)),
+		  formatter_class=HelpFormatter,
+		  add_help=False
+		)
 
 		# If executed in Sphinx to auto-document CLI arguments, exit now
 		# --------------------------------------------------------------------------
@@ -90,97 +89,83 @@ class Application(TerminalApplication, ArgParseMixin):
 		self._LOG_MESSAGE_FORMAT__[Severity.Warning] = "{YELLOW}[WARNING] {message}{NOCOLOR}"
 		self._LOG_MESSAGE_FORMAT__[Severity.Normal]  = "{GRAY}{message}{NOCOLOR}"
 
-	# class properties
-	# ============================================================================
-	@property
-	def Platform(self):
-		return self.__PLATFORM
+	def Run(self) -> None:
+		ArgParseHelperMixin.Run(self)
 
-	def PrintHeadline(self) -> None:
-		self.WriteNormal(dedent("""\
-			{HEADLINE}{line}
-			{headline: ^80s}
-			{line}""").format(line="=" * 80, headline=self.HeadLine, **LineTerminal.Foreground))
+	@DefaultHandler()
+	@FlagArgument("-q", "--quiet", dest="quiet", help="Reduce messages to a minimum.")
+	@FlagArgument("-v", "--verbose", dest="verbose", help="Print out detailed messages.")
+	@FlagArgument("-d", "--debug",   dest="debug",   help="Enable debug mode.")
+	def HandleDefault(self, _: Namespace) -> None:
+		"""Handle program calls without any command."""
+		self._PrintHeadline()
+		self._PrintHelp()
 
-	# ============================================================================
 	# Common commands
 	# ============================================================================
-	# common arguments valid for all commands
-	# ----------------------------------------------------------------------------
-	@CommonSwitchArgumentAttribute("-d", "--debug",   dest="debug",   help="Enable debug mode.")
-	@CommonSwitchArgumentAttribute("-v", "--verbose", dest="verbose", help="Print out detailed messages.")
-	@CommonSwitchArgumentAttribute("-q", "--quiet",   dest="quiet",   help="Reduce messages to a minimum.")
-	def Run(self) -> NoReturn:
-		ArgParseMixin.Run(self)
+	@CommandHandler("help", help="Display help page(s) for the given command name.", description="Display help page(s) for the given command name.")
+	@StringArgument(dest="Command", metaName="Command", optional=True, help="Print help page(s) for a command.")
+	def HandleHelp(self, args: Namespace) -> None:
+		"""Handle program calls with command ``help``."""
+		self._PrintHeadline()
+		self._PrintHelp(args.Command)
 
-	@DefaultAttribute()
-	def HandleDefault(self, _):
-		self.PrintHeadline()
-		self.MainParser.print_help()
+	@CommandHandler("version", help="Display version information.", description="Display version information.")
+	def HandleVersion(self, _: Namespace) -> None:
+		"""Handle program calls with command ``version``."""
+		import pyEDAA.ToolSetup as DunderModule
 
-		self.WriteNormal("")
-		self.exit()
-
-	# ----------------------------------------------------------------------------
-	# create the sub-parser for the "help" command
-	# ----------------------------------------------------------------------------
-	@CommandAttribute("help", help="Display help page(s) for the given command name.")
-	@ArgumentAttribute(metavar="Command", dest="Command", type=str, nargs="?", help="Print help page(s) for a command.")
-	def HandleHelp(self, args):
-		self.PrintHeadline()
-
-		if args.Command is None:
-			self.MainParser.print_help()
-		elif args.Command == "help":
-			self.WriteError("This is a recursion ...")
-		else:
-			try:
-				self.SubParsers[args.Command].print_help()
-			except KeyError:
-				self.WriteError(f"Command {args.Command} is unknown.")
-
-		self.WriteNormal("")
-		self.exit()
-
-	# ----------------------------------------------------------------------------
-	# create the sub-parser for the "version" command
-	# ----------------------------------------------------------------------------
-	@CommandAttribute("version", help="Display tool and version information.")
-	def HandleInfo(self, args):
-		self.PrintHeadline()
-
-		copyrights = __copyright__.split("\n", 1)
-		self.WriteNormal(f"Copyright:  {copyrights[0]}")
-		for copyright in copyrights[1:]:
-			self.WriteNormal(f"            {copyright}")
-		self.WriteNormal(f"License:    {__license__}")
-		authors = __author__.split(", ")
-		self.WriteNormal(f"Authors:    {authors[0]}")
-		for author in authors[1:]:
-			self.WriteNormal(f"            {author}")
-		self.WriteNormal(f"Version:    {__version__}")
-		self.exit()
+		self._PrintHeadline()
+		self._PrintVersion(DunderModule, "pyEDAA.ToolSetup")
 
 
 # main program
 def main(): # mccabe:disable=MC0001
-	"""This is the entry point for pyVHDLParser written as a function.
-
-	1. It extracts common flags from the script's arguments list, before :py:class:`~argparse.ArgumentParser` is fully loaded.
-	2. It creates an instance of VHDLParser and hands over to a class based execution.
-	   All is wrapped in a big ``try..except`` block to catch every unhandled exception.
-	3. Shutdown the script and return its exit code.
 	"""
-	from sys import argv as sys_argv
+	Entrypoint to start program execution.
 
-	debug =   "-d"        in sys_argv
-	verbose = "-v"        in sys_argv
-	quiet =   "-q"        in sys_argv
+	This function should be called either from:
+	 * :pycode:`if __name__ == "__main__":` or
+	 * ``console_scripts`` entry point configured via ``setuptools`` in ``setup.py``.
+
+	This function creates an instance of :class:`Application` in a ``try ... except`` environment. Any exception caught is
+	formatted and printed before the program returns with a non-zero exit code.
+
+  .. todo::
+
+	   1. It extracts common flags from the script's arguments list, before :py:class:`~argparse.ArgumentParser` is fully loaded.
+	   2. It creates an instance of VHDLParser and hands over to a class based execution.
+	      All is wrapped in a big ``try..except`` block to catch every unhandled exception.
+	   3. Shutdown the script and return its exit code.
+	"""
+	from sys import argv
+
+	program = Application()
+	program.Configure(
+		verbose=("-v" in argv or "--verbose" in argv),
+		debug=(  "-d" in argv or "--debug"   in argv),
+		silent=( "-q" in argv or "--quiet"   in argv)
+	)
 
 	try:
-		# handover to a class instance
-		app = Application(debug, verbose, quiet)
-		app.Run()
+		program.Run()
+	except ConfigurationException as ex:
+		program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
+		if ex.__notes__ is not None:
+			for note in ex.__notes__:
+				program.WriteLineToStdErr(f"{{DARK_YELLOW}} [NOTE] {note}{{NOCOLOR}}".format(**Application.Foreground))
+
+	# except OutputFilterException as ex:
+	# 	program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
+	# 	if ex.__cause__ is not None:
+	# 		program.WriteLineToStdErr(f"{{DARK_YELLOW}}Because of: {ex.__cause__}{{NOCOLOR}}".format(**Application.Foreground))
+	except ExceptionBase as ex:
+		program.printExceptionBase(ex)
+	except NotImplementedError as ex:
+		program.PrintNotImplementedError(ex)
+	except Exception as ex:
+		program.PrintException(ex)
+
 		app.exit()
 
 	# except (CommonException, ConfigurationException) as ex:
@@ -201,13 +186,6 @@ def main(): # mccabe:disable=MC0001
 	# 		print("{CYAN}  Use '-v' for verbose or '-d' for debug to print out extended messages.{NOCOLOR}".format(**Init.Foreground))
 	# 	LineTerminal.exit(1)
 
-	except ExceptionBase as ex:                 LineTerminal.printExceptionBase(ex)
-	except NotImplementedError as ex:           LineTerminal.printNotImplementedError(ex)
-	#except ImportError as ex:                   printImportError(ex)
-	except Exception as ex:                     LineTerminal.printException(ex)
-
-
 # entry point
 if __name__ == "__main__":
-	LineTerminal.versionCheck((3,6,0))
 	main()
