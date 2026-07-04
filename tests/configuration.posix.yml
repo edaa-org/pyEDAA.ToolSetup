@@ -145,7 +145,7 @@ Installations:
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      '10.3':
+      '17.0':
         DiamondVersion:        '17.0'
         InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}/active-hdl'
         BinaryDirectory:       '${InstallationDirectory}/BIN'

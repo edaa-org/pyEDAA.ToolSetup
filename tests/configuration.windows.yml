@@ -140,13 +140,13 @@ Installations:
       InstallationDirectory:   '${..:InstallationDirectory}\Riviera-PRO'
 
       Selection:
-        Version:               '10.3'
+        Version:               '17.0'
         InstallationDirectory: '${..:${Version}:InstallationDirectory}'
         BinaryDirectory:       '${..:${Version}:BinaryDirectory}'
         Edition:               '${..:${Version}:Edition}'
 
-      '10.3':
-        DiamondVersion:        '10.3'
+      '17.0':
+        DiamondVersion:        '17.0'
         InstallationDirectory: '${..:..:${DiamondVersion}:InstallationDirectory}\active-hdl'
         BinaryDirectory:       '${InstallationDirectory}\BIN'
         Edition:               'Active-HDL Lattice Edition'
