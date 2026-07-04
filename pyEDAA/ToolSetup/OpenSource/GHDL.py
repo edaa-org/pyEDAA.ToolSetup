@@ -1,3 +1,33 @@
+# ==================================================================================================================== #
+#              _____ ____    _        _    _____           _ ____       _                                              #
+#  _ __  _   _| ____|  _ \  / \      / \  |_   _|__   ___ | / ___|  ___| |_ _   _ _ __                                 #
+# | '_ \| | | |  _| | | | |/ _ \    / _ \   | |/ _ \ / _ \| \___ \ / _ \ __| | | | '_ \                                #
+# | |_) | |_| | |___| |_| / ___ \  / ___ \ _| | (_) | (_) | |___) |  __/ |_| |_| | |_) |                               #
+# | .__/ \__, |_____|____/_/   \_\/_/   \_(_)_|\___/ \___/|_|____/ \___|\__|\__,_| .__/                                #
+# |_|    |___/                                                                   |_|                                   #
+# ==================================================================================================================== #
+# Authors:                                                                                                             #
+#   Patrick Lehmann                                                                                                    #
+#                                                                                                                      #
+# License:                                                                                                             #
+# ==================================================================================================================== #
+# Copyright 2021-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
+#                                                                                                                      #
+# Licensed under the Apache License, Version 2.0 (the "License");                                                      #
+# you may not use this file except in compliance with the License.                                                     #
+# You may obtain a copy of the License at                                                                              #
+#                                                                                                                      #
+#   http://www.apache.org/licenses/LICENSE-2.0                                                                         #
+#                                                                                                                      #
+# Unless required by applicable law or agreed to in writing, software                                                  #
+# distributed under the License is distributed on an "AS IS" BASIS,                                                    #
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.                                             #
+# See the License for the specific language governing permissions and                                                  #
+# limitations under the License.                                                                                       #
+#                                                                                                                      #
+# SPDX-License-Identifier: Apache-2.0                                                                                  #
+# ==================================================================================================================== #
+#
 from typing import cast
 
 from pyTooling.Decorators import export
@@ -25,17 +55,17 @@ class GHDLInstance(ToolInstance, HDLSimulator):
 
 	@property
 	def Platform(self) -> str:
-		"""Platform GHDL runs on: ``win32``, ``win64``, ``lin64``."""
+		"""Platform GHDL runs on: ``win64``, ``lin64``."""
 		return self._platform
 
 	@property
 	def Runtime(self) -> str:
-		"""Runtime used to run GHDL: ``mingw32``, ``mingw64``, ``ucrt64``, ``gnatgpl32``, ``lin64``."""
+		"""Runtime used to run GHDL: ``mingw64``, ``ucrt64``, ``lin64``."""
 		return self._runtime
 
 	@property
 	def Backend(self) -> str:
-		"""GHDL's backend (``mcode``, ``llvm`` or ``gcc``."""
+		"""GHDL's backend: ``mcode``, ``llvm`` or ``gcc``."""
 		return self._backend
 
 	def _CreateGHDLCLIInstance(self) -> CLI_GHDL:

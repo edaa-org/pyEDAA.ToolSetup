@@ -1,10 +1,10 @@
 # ==================================================================================================================== #
-#              _____ ____    _        _      ____             __ _                                                     #
-#  _ __  _   _| ____|  _ \  / \      / \    / ___|___  _ __  / _(_) __ _ _   _ _ __ ___                                #
-# | '_ \| | | |  _| | | | |/ _ \    / _ \  | |   / _ \| '_ \| |_| |/ _` | | | | '__/ _ \                               #
-# | |_) | |_| | |___| |_| / ___ \  / ___ \ | |__| (_) | | | |  _| | (_| | |_| | | |  __/                               #
-# | .__/ \__, |_____|____/_/   \_\/_/   \_(_)____\___/|_| |_|_| |_|\__, |\__,_|_|  \___|                               #
-# |_|    |___/                                                     |___/                                               #
+#              _____ ____    _        _    _____           _ ____       _                                              #
+#  _ __  _   _| ____|  _ \  / \      / \  |_   _|__   ___ | / ___|  ___| |_ _   _ _ __                                 #
+# | '_ \| | | |  _| | | | |/ _ \    / _ \   | |/ _ \ / _ \| \___ \ / _ \ __| | | | '_ \                                #
+# | |_) | |_| | |___| |_| / ___ \  / ___ \ _| | (_) | (_) | |___) |  __/ |_| |_| | |_) |                               #
+# | .__/ \__, |_____|____/_/   \_\/_/   \_(_)_|\___/ \___/|_|____/ \___|\__|\__,_| .__/                                #
+# |_|    |___/                                                                   |_|                                   #
 # ==================================================================================================================== #
 # Authors:                                                                                                             #
 #   Patrick Lehmann                                                                                                    #
@@ -45,7 +45,7 @@ class Aldec(TestCase):
 	def test_AccessByNameAsIndex(self) -> None:
 		aldecPath = Path(self._prefix) / "Aldec"
 		activePath = aldecPath / "Active-HDL"
-		active103Path = activePath / "10.3"
+		active170Path = activePath / "17.0"
 
 		installation = Installations(self._yamlFile)
 
@@ -56,11 +56,11 @@ class Aldec(TestCase):
 		activeHDL = aldec["Active-HDL"]
 		self.assertIs(aldec, activeHDL.Vendor)
 
-		activeHDLVersion = activeHDL["10.3"]
+		activeHDLVersion = activeHDL["17.0"]
 		self.assertIs(activeHDL, activeHDLVersion.Tool)
-		self.assertEqual(active103Path, activeHDLVersion.InstallationDirectory)
-		self.assertEqual(active103Path / "bin", activeHDLVersion.BinaryDirectory)
-#		self.assertEqual(r"10.3", activeHDLVersion.Version)
+		self.assertEqual(active170Path, activeHDLVersion.InstallationDirectory)
+		self.assertEqual(active170Path / "bin", activeHDLVersion.BinaryDirectory)
+#		self.assertEqual(r"17.0", activeHDLVersion.Version)
 
 	def test_AccessByProperty(self) -> None:
 		aldecPath = Path(self._prefix + "Aldec")

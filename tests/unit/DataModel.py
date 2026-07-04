@@ -1,10 +1,10 @@
 # ==================================================================================================================== #
-#              _____ ____    _        _      ____             __ _                                                     #
-#  _ __  _   _| ____|  _ \  / \      / \    / ___|___  _ __  / _(_) __ _ _   _ _ __ ___                                #
-# | '_ \| | | |  _| | | | |/ _ \    / _ \  | |   / _ \| '_ \| |_| |/ _` | | | | '__/ _ \                               #
-# | |_) | |_| | |___| |_| / ___ \  / ___ \ | |__| (_) | | | |  _| | (_| | |_| | | |  __/                               #
-# | .__/ \__, |_____|____/_/   \_\/_/   \_(_)____\___/|_| |_|_| |_|\__, |\__,_|_|  \___|                               #
-# |_|    |___/                                                     |___/                                               #
+#              _____ ____    _        _    _____           _ ____       _                                              #
+#  _ __  _   _| ____|  _ \  / \      / \  |_   _|__   ___ | / ___|  ___| |_ _   _ _ __                                 #
+# | '_ \| | | |  _| | | | |/ _ \    / _ \   | |/ _ \ / _ \| \___ \ / _ \ __| | | | '_ \                                #
+# | |_) | |_| | |___| |_| / ___ \  / ___ \ _| | (_) | (_) | |___) |  __/ |_| |_| | |_) |                               #
+# | .__/ \__, |_____|____/_/   \_\/_/   \_(_)_|\___/ \___/|_|____/ \___|\__|\__,_| .__/                                #
+# |_|    |___/                                                                   |_|                                   #
 # ==================================================================================================================== #
 # Authors:                                                                                                             #
 #   Patrick Lehmann                                                                                                    #
@@ -39,7 +39,7 @@ class Layer0(TestCase):
 	def test_ToolInformation(self) -> None:
 		installationPath = Path(r"C:\Tools\GHDL")
 		binaryPath = installationPath / "bin"
-		version = "2.0.0-dev"
+		version = "7.0.0-dev"
 
 		info = ToolInformation(installationPath, binaryPath, version)
 
@@ -60,7 +60,7 @@ class Layer1(TestCase):
 	_vendorPath = Path(r"C:\Tools")
 	_installationPath = _vendorPath / "GHDL"
 	_binaryPath = _installationPath / "bin"
-	_version = "2.0.0-dev"
+	_version = "7.0.0-dev"
 
 	def test_ToolInstance(self) -> None:
 		instance = ToolInstance(self._installationPath, self._binaryPath, self._version)

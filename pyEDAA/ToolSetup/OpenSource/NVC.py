@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2026-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -28,36 +28,74 @@
 # SPDX-License-Identifier: Apache-2.0                                                                                  #
 # ==================================================================================================================== #
 #
-from typing import Dict
+from typing import cast
 
 from pyTooling.Decorators import export
-
-from ..             import Tool, Vendor
-from ..Aldec        import ActiveHDL
-from ..SiemensEDA   import ModelSim
-
-
-@export
-class Diamond(Tool):
-	pass
+from pyTooling.Configuration.YAML import Dictionary
+from pyTooling.CLIAbstraction import Executable
+from ..          import Tool, ToolInstance
+from ..Interface import HDLSimulator
+from pyEDAA.CLITool.NVC import NVC as CLI_NVC
 
 
 @export
-class Lattice(Vendor):
-	_toolClasses: Dict[str, Tool] = {
-		"Diamond": Diamond,
-		"Active-HDL": ActiveHDL,
-		"ModelSim": ModelSim,
-	}
+class NVCInstance(ToolInstance, HDLSimulator):
+	_platform: str
+	_runtime:  str
+	_nvc:      CLI_NVC
+
+	def __init__(self, config: Dictionary, parent: 'NVC') -> None:
+		super().__init__(config, parent)
+
+		self._nvc = None
+		self._platform = config["Platform"]
+		self._runtime = config["Runtime"]
+		self._backend = config["Backend"]
 
 	@property
-	def Diamond(self) -> Diamond:
-		return self.__getitem__("Diamond")
+	def Platform(self) -> str:
+		"""Platform NVC runs on: ``win64``, ``lin64``."""
+		return self._platform
 
 	@property
-	def ActiveHDL(self) -> ActiveHDL:
-		return self.__getitem__("Active-HDL")
+	def Runtime(self) -> str:
+		"""Runtime used to run NVC: ``mingw64``, ``ucrt64``, ``lin64``."""
+		return self._runtime
+
+	def _CreateNVCCLIInstance(self) -> CLI_NVC:
+		if self._nvc is None:
+			self._nvc = CLI_NVC(binaryDirectoryPath=self.BinaryDirectory)
+		return self._nvc
+
+	def GetNVC(self) -> CLI_NVC:
+		return self._CreateNVCCLIInstance()
+
+	def GetVHDLAnalyzer(self) -> Executable:
+		return self._CreateNVCCLIInstance().GetNVCAsAnalyzer()
+
+	def GetEloborator(self) -> Executable:
+		return self._CreateNVCCLIInstance().GetNVCAsElaborator()
+
+	def GetSimulator(self) -> Executable:
+		return self._CreateNVCCLIInstance().GetNVCAsSimulator()
+
+
+@export
+class NVC(Tool, HDLSimulator):
+	_vendorKey = "OpenSource"      #: Key of the parent node (vendor) in the configuration structure.
+	_key = "NVC"                  #: Key used in the configuration structure.
+
+	_instanceClass = NVCInstance
 
 	@property
-	def ModelSim(self) -> ModelSim:
-		return self.__getitem__("ModelSim")
+	def Default(self) -> NVCInstance:
+		return cast(NVCInstance, super().Default)
+
+	def GetVHDLAnalyzer(self) -> Executable:
+		raise NotImplementedError(f"")
+
+	def GetEloborator(self) -> Executable:
+		raise NotImplementedError(f"")
+
+	def GetSimulator(self) -> Executable:
+		raise NotImplementedError(f"")
