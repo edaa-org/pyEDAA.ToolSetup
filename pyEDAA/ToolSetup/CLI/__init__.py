@@ -116,7 +116,7 @@ class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 		import pyEDAA.ToolSetup as DunderModule
 
 		self._PrintHeadline()
-		self._PrintVersion(DunderModule, "pyEDAA.ToolSetup")
+		self._PrintVersion(DunderModule, DunderModule.__name__)
 
 
 # main program
