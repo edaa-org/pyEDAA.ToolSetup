@@ -15,6 +15,7 @@ githubNamespace = "edaa-org"
 githubProject = pythonProject = "pyEDAA.ToolSetup"
 directoryName = pythonProject.replace('.', '/')
 
+
 # ==============================================================================
 # Project paths
 # ==============================================================================
