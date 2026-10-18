@@ -116,10 +116,10 @@ class GHDL(Tool, HDLSimulator):
 	# 	raise NotImplementedError(f"")
 
 	def GetVHDLAnalyzer(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetEloborator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetSimulator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
