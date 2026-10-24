@@ -31,7 +31,7 @@
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
 __author__ =            "Patrick Lehmann"
 __email__ =             "Paebbels@gmail.com"
-__copyright__ =         "2014-2026, Patrick Lehmann"
+__copyright__ =         "2021-2026, Electronic Design Automation Abstraction (EDA²)"
 __license__ =           "Apache License, Version 2.0"
 __version__ =           "0.6.0rc1"
 __keywords__ =          ["configuration", "eda", "installation", "selection"]

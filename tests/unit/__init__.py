@@ -31,6 +31,5 @@
 """
 Helper classes for unit tests.
 
-:copyright: Copyright 2007-2026 Patrick Lehmann - Bötzingen, Germany
 :license: Apache License, Version 2.0
 """
