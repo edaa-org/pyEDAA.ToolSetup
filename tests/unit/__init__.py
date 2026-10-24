@@ -30,6 +30,4 @@
 #
 """
 Helper classes for unit tests.
-
-:license: Apache License, Version 2.0
 """
