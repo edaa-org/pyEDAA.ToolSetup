@@ -53,8 +53,6 @@ class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 	def __init__(self, sphinx: bool = False) -> None:
 		super().__init__(Mode.TextToStdOut_ErrorsToStdErr)
 
-		self.HeadLine = self.HEADLINE
-
 		# Call the constructor of the ArgParseHelperMixin
 		textWidth = min(self.Width, 160)
 
@@ -150,10 +148,10 @@ def main(): # mccabe:disable=MC0001
 	try:
 		program.Run()
 	except ConfigurationException as ex:
-		program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
+		program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.FOREGROUND))
 		if ex.__notes__ is not None:
 			for note in ex.__notes__:
-				program.WriteLineToStdErr(f"{{DARK_YELLOW}} [NOTE] {note}{{NOCOLOR}}".format(**Application.Foreground))
+				program.WriteLineToStdErr(f"{{DARK_YELLOW}} [NOTE] {note}{{NOCOLOR}}".format(**Application.FOREGROUND))
 
 	# except OutputFilterException as ex:
 	# 	program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
