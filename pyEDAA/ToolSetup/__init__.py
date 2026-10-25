@@ -48,12 +48,8 @@ from pyTooling.Exceptions         import ExceptionBase
 from pyTooling.Configuration      import Dictionary
 from pyTooling.Configuration.YAML import Configuration
 
-from .DataModel import (
-	Installation as DM_Installation,
-	Vendor as DM_Vendor,
-	Tool as DM_Tool,
-	ToolInstance as DM_ToolInstance
-)
+from .DataModel import Installation as DM_Installation, Vendor as DM_Vendor, Tool as DM_Tool, \
+                       ToolInstance as DM_ToolInstance
 
 
 class ToolChainException(ExceptionBase):
