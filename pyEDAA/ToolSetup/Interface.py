@@ -36,22 +36,22 @@ from pyTooling.CLIAbstraction import Executable
 @export
 class HDLSimulator:
 	def GetLibraryCreator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetLibraryMapper(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetLibraryDeleter(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetVHDLAnalyzer(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetVerilogCompiler(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetEloborator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetSimulator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")

@@ -92,10 +92,10 @@ class NVC(Tool, HDLSimulator):
 		return cast(NVCInstance, super().Default)
 
 	def GetVHDLAnalyzer(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetEloborator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetSimulator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
