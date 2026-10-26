@@ -31,6 +31,7 @@
 """CLI application for standalone usage of pyEDAA.Configure and for testing."""
 from argparse import RawDescriptionHelpFormatter
 from textwrap import dedent, wrap
+from types    import ModuleType
 from typing   import Optional as Nullable, ClassVar
 
 from pyTooling.Decorators import export
@@ -40,6 +41,7 @@ from pyTooling.Attributes.ArgParse          import Namespace, ArgParseHelperMixi
 from pyTooling.Attributes.ArgParse.Argument import StringArgument
 from pyTooling.Attributes.ArgParse.Flag     import FlagArgument
 
+from pyEDAA                         import ToolSetup
 from pyEDAA.ToolSetup               import ConfigurationException
 from pyEDAA.ToolSetup.CLI.Configure import ConfigureHandlers
 
@@ -48,7 +50,8 @@ from pyEDAA.ToolSetup.CLI.Configure import ConfigureHandlers
 class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 	"""Program class to implement the command line interface (CLI) using commands and options."""
 
-	HEADLINE:          ClassVar[str] = "pyEDAA.ToolSetup Service Program"
+	HEADLINE:      ClassVar[str]        = "pyEDAA.ToolSetup Service Program"  #: Headline above every command's output.
+	DUNDER_MODULE: ClassVar[ModuleType] = ToolSetup                           #: Package with the dunder variables.
 
 	def __init__(self, sphinx: bool = False) -> None:
 		super().__init__(Mode.TextToStdOut_ErrorsToStdErr)
@@ -111,10 +114,8 @@ class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 	@CommandHandler("version", help="Display version information.", description="Display version information.")
 	def HandleVersion(self, _: Namespace) -> None:
 		"""Handle program calls with command ``version``."""
-		import pyEDAA.ToolSetup as DunderModule
-
 		self._PrintHeadline()
-		self._PrintVersion(DunderModule, DunderModule.__name__)
+		self._PrintVersion("pyEDAA.ToolSetup")
 
 
 # main program
@@ -158,7 +159,7 @@ def main(): # mccabe:disable=MC0001
 	# 	if ex.__cause__ is not None:
 	# 		program.WriteLineToStdErr(f"{{DARK_YELLOW}}Because of: {ex.__cause__}{{NOCOLOR}}".format(**Application.Foreground))
 	except ExceptionBase as ex:
-		program.printExceptionBase(ex)
+		program.PrintExceptionBase(ex)
 	except NotImplementedError as ex:
 		program.PrintNotImplementedError(ex)
 	except Exception as ex:
