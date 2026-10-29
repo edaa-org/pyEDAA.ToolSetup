@@ -106,6 +106,7 @@ The accompanying documentation is licensed under :ref:`Creative Commons - Attrib
    :caption: Introduction
    :hidden:
 
+   News
    Installation
    Dependency
 
