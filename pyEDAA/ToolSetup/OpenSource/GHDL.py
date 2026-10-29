@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2021-2026 Electronic Design Automation Abstraction (EDA²)                                                  #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -116,10 +116,10 @@ class GHDL(Tool, HDLSimulator):
 	# 	raise NotImplementedError(f"")
 
 	def GetVHDLAnalyzer(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetEloborator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")
 
 	def GetSimulator(self) -> Executable:
-		raise NotImplementedError(f"")
+		raise NotImplementedError("")

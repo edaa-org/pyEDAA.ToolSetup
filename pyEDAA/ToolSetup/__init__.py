@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2026 Patrick Lehmann - Boetzingen, Germany                                                            #
+# Copyright 2021-2026 Electronic Design Automation Abstraction (EDA²)                                                  #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -31,9 +31,9 @@
 """Package to support configuring EDA tools for usage with pyEDAA.CLITool."""
 __author__ =            "Patrick Lehmann"
 __email__ =             "Paebbels@gmail.com"
-__copyright__ =         "2014-2026, Patrick Lehmann"
+__copyright__ =         "2021-2026, Electronic Design Automation Abstraction (EDA²)"
 __license__ =           "Apache License, Version 2.0"
-__version__ =           "0.5.1"
+__version__ =           "0.6.0"
 __keywords__ =          ["configuration", "eda", "installation", "selection"]
 __project_url__ =       "https://github.com/edaa-org/pyEDAA.ToolSetup"
 __documentation_url__ = "https://edaa-org.github.io/pyEDAA.ToolSetup"
@@ -48,12 +48,8 @@ from pyTooling.Exceptions         import ExceptionBase
 from pyTooling.Configuration      import Dictionary
 from pyTooling.Configuration.YAML import Configuration
 
-from .DataModel import (
-	Installation as DM_Installation,
-	Vendor as DM_Vendor,
-	Tool as DM_Tool,
-	ToolInstance as DM_ToolInstance
-)
+from .DataModel import Installation as DM_Installation, Vendor as DM_Vendor, Tool as DM_Tool, \
+                       ToolInstance as DM_ToolInstance
 
 
 class ToolChainException(ExceptionBase):

@@ -11,7 +11,7 @@
 #                                                                                                                      #
 # License:                                                                                                             #
 # ==================================================================================================================== #
-# Copyright 2021-2026 Patrick Lehmann - Bötzingen, Germany                                                             #
+# Copyright 2021-2026 Electronic Design Automation Abstraction (EDA²)                                                  #
 #                                                                                                                      #
 # Licensed under the Apache License, Version 2.0 (the "License");                                                      #
 # you may not use this file except in compliance with the License.                                                     #
@@ -31,6 +31,7 @@
 """CLI application for standalone usage of pyEDAA.Configure and for testing."""
 from argparse import RawDescriptionHelpFormatter
 from textwrap import dedent, wrap
+from types    import ModuleType
 from typing   import Optional as Nullable, ClassVar
 
 from pyTooling.Decorators import export
@@ -40,6 +41,7 @@ from pyTooling.Attributes.ArgParse          import Namespace, ArgParseHelperMixi
 from pyTooling.Attributes.ArgParse.Argument import StringArgument
 from pyTooling.Attributes.ArgParse.Flag     import FlagArgument
 
+from pyEDAA                         import ToolSetup
 from pyEDAA.ToolSetup               import ConfigurationException
 from pyEDAA.ToolSetup.CLI.Configure import ConfigureHandlers
 
@@ -48,12 +50,11 @@ from pyEDAA.ToolSetup.CLI.Configure import ConfigureHandlers
 class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 	"""Program class to implement the command line interface (CLI) using commands and options."""
 
-	HEADLINE:          ClassVar[str] = "pyEDAA.ToolSetup Service Program"
+	HEADLINE:      ClassVar[str]        = "pyEDAA.ToolSetup Service Program"  #: Headline above every command's output.
+	DUNDER_MODULE: ClassVar[ModuleType] = ToolSetup                           #: Package with the dunder variables.
 
 	def __init__(self, sphinx: bool = False) -> None:
 		super().__init__(Mode.TextToStdOut_ErrorsToStdErr)
-
-		self.HeadLine = self.HEADLINE
 
 		# Call the constructor of the ArgParseHelperMixin
 		textWidth = min(self.Width, 160)
@@ -113,10 +114,8 @@ class Application(TerminalApplication, ArgParseHelperMixin, ConfigureHandlers):
 	@CommandHandler("version", help="Display version information.", description="Display version information.")
 	def HandleVersion(self, _: Namespace) -> None:
 		"""Handle program calls with command ``version``."""
-		import pyEDAA.ToolSetup as DunderModule
-
 		self._PrintHeadline()
-		self._PrintVersion(DunderModule, DunderModule.__name__)
+		self._PrintVersion("pyEDAA.ToolSetup")
 
 
 # main program
@@ -150,17 +149,17 @@ def main(): # mccabe:disable=MC0001
 	try:
 		program.Run()
 	except ConfigurationException as ex:
-		program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
+		program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.FOREGROUND))
 		if ex.__notes__ is not None:
 			for note in ex.__notes__:
-				program.WriteLineToStdErr(f"{{DARK_YELLOW}} [NOTE] {note}{{NOCOLOR}}".format(**Application.Foreground))
+				program.WriteLineToStdErr(f"{{DARK_YELLOW}} [NOTE] {note}{{NOCOLOR}}".format(**Application.FOREGROUND))
 
 	# except OutputFilterException as ex:
 	# 	program.WriteLineToStdErr(f"{{RED}}[ERROR] {ex}{{NOCOLOR}}".format(**Application.Foreground))
 	# 	if ex.__cause__ is not None:
 	# 		program.WriteLineToStdErr(f"{{DARK_YELLOW}}Because of: {ex.__cause__}{{NOCOLOR}}".format(**Application.Foreground))
 	except ExceptionBase as ex:
-		program.printExceptionBase(ex)
+		program.PrintExceptionBase(ex)
 	except NotImplementedError as ex:
 		program.PrintNotImplementedError(ex)
 	except Exception as ex:
